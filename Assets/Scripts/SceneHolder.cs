@@ -5,6 +5,7 @@ using UnityEngine;
 public class SceneHolder : MonoBehaviour {
 
     public Sprite m_background;
+    public string m_locationName;
 
 	void Start () {
         InitializeScene();
@@ -14,6 +15,6 @@ public class SceneHolder : MonoBehaviour {
 	
     void InitializeScene()
     {
-        Manager.SetMapData(m_background);
+        Manager.SetMapData(m_background, m_locationName);
     }
 }
