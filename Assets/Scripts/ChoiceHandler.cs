@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class ChoiceHandler : MonoBehaviour {
 
     public Button m_buttonTemplate;
-    public ChoiceTemplate template;
+    public ChoiceTreeTemplate template;
 
 	// Use this for initialization
 	void Start () {
@@ -20,16 +20,29 @@ public class ChoiceHandler : MonoBehaviour {
 		
 	}
 
-    void StartChoiceEvent(ChoiceTemplate choices)
+    void StartChoiceEvent(ChoiceTreeTemplate questions)
     {
+        // Clear old choices
         while (transform.childCount > 0)
         {
             Destroy(transform.GetChild(0));
         }
 
-        for (int i = 0; i < choices.buttonNames.Length; i++)
+        // Select possible question
+        List<ChoiceNode> viable = new List<ChoiceNode>();
+
+        foreach (ChoiceNode question in questions.choices)
+        {
+            if (!question.passed)
+            {
+                
+            }
+        }
+        /*
+        for (int i = 0; i < questions.buttonNames.Length; i++)
         {
             Instantiate(m_buttonTemplate, transform).GetComponentInChildren<Text>().text = choices.buttonNames[i];
         }
+        */
     }
 }

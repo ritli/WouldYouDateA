@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Fade
+  - manager
   layers:
   - Default
   - TransparentFX

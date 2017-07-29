@@ -18,11 +18,11 @@ public class Manager : MonoBehaviour {
 
     MapHandler m_map;
 
+
     BackgroundHandler m_background;
     Image m_fadeImage;
 
-
-    static private List<CharacterData> m_charData;
+    [SerializeField] private CharacterData[] m_charData;
 
 	void Start () {
         if (FindObjectsOfType<Manager>().Length != 1)
