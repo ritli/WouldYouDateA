@@ -7,20 +7,9 @@ using UnityEngine.UI;
 
 public class ChoiceHandler : MonoBehaviour {
 
-    public Button m_buttonTemplate;
-    public ChoiceTreeTemplate template;
+    [SerializeField] private Button m_buttonTemplate;
 
-	// Use this for initialization
-	void Start () {
-       // StartChoiceEvent(template);
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
-    void StartChoiceEvent(ChoiceTreeTemplate questions)
+    void StartChoiceEvent(ChoiceTreeTemplate questions, int intimacy)
     {
         // Clear old choices
         while (transform.childCount > 0)
@@ -33,16 +22,28 @@ public class ChoiceHandler : MonoBehaviour {
 
         foreach (ChoiceNode question in questions.choices)
         {
-            if (!question.passed)
+            if (!question.passed && intimacy >= question.reqIntimacy)
             {
-                
+                if (question.prereqChoice == null)
+                    viable.Add(question);
+                else
+                {
+                    foreach (ChoiceNode comparison in questions.choices)
+                    {
+                        if (question.prereqChoice == comparison && comparison.passed == true)
+                            viable.Add(question);
+                    }
+                }
             }
         }
-        /*
-        for (int i = 0; i < questions.buttonNames.Length; i++)
+
+        ChoiceNode chosenQuestion = viable[Random.Range(0, viable.Count - 1)];
+
+
+        for (int i = 0; i < chosenQuestion.buttonNames.Length; i++)
         {
-            Instantiate(m_buttonTemplate, transform).GetComponentInChildren<Text>().text = choices.buttonNames[i];
+            Instantiate(m_buttonTemplate, transform).GetComponentInChildren<Text>().text = chosenQuestion.buttonNames[i];
         }
-        */
+
     }
 }
