@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 enum GameState
 {
@@ -13,9 +14,13 @@ public class Manager : MonoBehaviour {
     bool m_mapOpen = false;
 
     GameState m_state;
-    Manager m_instance;
+    static Manager m_instance;
 
     MapHandler m_map;
+
+    BackgroundHandler m_background;
+    Image m_fadeImage;
+
 
     static private List<CharacterData> m_charData;
 
@@ -37,6 +42,15 @@ public class Manager : MonoBehaviour {
     void InitComponents()
     {
         m_map = GetComponentInChildren<MapHandler>();
+        m_background = GetComponentInChildren<BackgroundHandler>();
+        m_fadeImage = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
+    }
+
+    public static void SetMapData(Sprite background)
+    {
+        m_instance.GetComponent<Canvas>().worldCamera = Camera.main;
+
+        m_instance.m_background.SetBackground(background);
     }
 
     void Update()
@@ -80,7 +94,42 @@ public class Manager : MonoBehaviour {
 
     public static void ChangeScene(string name)
     {
+        m_instance.StartSceneChange(name);
+    }
+
+    void StartSceneChange(string name)
+    {
+        StartCoroutine(ChangeSceneRoutine(name));
+    }
+
+    IEnumerator ChangeSceneRoutine(string name)
+    {
+        Color c = m_fadeImage.color;
+        float alpha = 0;
+
+        while (alpha < 1)
+        {
+            alpha += Time.deltaTime * 2;
+
+            m_fadeImage.color = new Color(c.r, c.g, c.b, alpha);
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        m_map.InstantClose();
+        m_mapOpen = false;
+
         SceneManager.LoadScene(name);
+
+        while (alpha > 0)
+        {
+            alpha -= Time.deltaTime * 2;
+
+            m_fadeImage.color = new Color(c.r, c.g, c.b, alpha);
+
+            yield return new WaitForEndOfFrame();
+        }
+
     }
 
 }
