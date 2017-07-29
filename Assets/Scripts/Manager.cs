@@ -6,6 +6,8 @@ public class Manager : MonoBehaviour {
 
     Manager m_instance;
 
+    static private List<CharacterData> m_charData();
+
 	void Start () {
         if (FindObjectsOfType<Manager>().Length != 1)
         {

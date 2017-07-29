@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class CharacterData
 {
+    private string m_name = "";
+    public string Name
+    {
+        get{ return m_name; }
+    }
+
     // Level of intimacy 0 <= x <= 5
     private int m_intimacyLevel = 0;
     public int IntimacyLevel
@@ -20,13 +26,19 @@ public class CharacterData
     /// <summary>
     /// Init character data.
     /// </summary>
-    /// <param name="Intimacy">Clamped to 0 <c>= x <c>= 5</param></param>
+    /// <param name="Intimacy">Clamped to 0 >= x >= 5</param></param>
     /// <param name="prefab">Prefab.</param>
-    public CharacterData(int Intimacy, GameObject prefab)
+    public CharacterData(string name, int intimacy, GameObject prefab)
     {
-        m_intimacyLevel = (Intimacy < 0 ? 0 : Intimacy) > 5 ? 5 : Intimacy;
+        m_name = name;
+        m_intimacyLevel = (intimacy < 0 ? 0 : intimacy) > 5 ? 5 : intimacy;
         m_charPrefab = prefab;
     }
+
+    /// <summary>
+    /// Empty constuctor.
+    /// </summary>
+    public CharacterData(){}
 
     public void InstantiateCharacter()
     {
@@ -38,9 +50,9 @@ public class CharacterData
     /// <summary>
     /// Updates the intimacy.
     /// </summary>
-    /// <param name="Intimacy">Clamped to 0 <c>= x <c>= 5</param>
-    public void UpdateIntimacy(int Intimacy)
+    /// <param name="Intimacy">Clamped to 0 >= x >= 5</param>
+    public void UpdateIntimacy(int intimacy)
     {
-        m_intimacyLevel = (Intimacy < 0 ? 0 : Intimacy) > 5 ? 5 : Intimacy;
+        m_intimacyLevel = (intimacy < 0 ? 0 : intimacy) > 5 ? 5 : intimacy;
     }
 }
