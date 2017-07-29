@@ -13,6 +13,8 @@ public class Manager : MonoBehaviour {
     GameState m_state;
     Manager m_instance;
 
+    static private List<CharacterData> m_charData();
+
 	void Start () {
         if (FindObjectsOfType<Manager>().Length != 1)
         {
