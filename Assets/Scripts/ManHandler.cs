@@ -12,7 +12,7 @@ public class ManHandler : MonoBehaviour {
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            AddCharacter(Instantiate(testCharacter, transform));
+            //AddCharacter(Instantiate(testCharacter, transform));
         }
     }
 

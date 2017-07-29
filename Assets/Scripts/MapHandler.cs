@@ -20,16 +20,15 @@ public class MapHandler : MonoBehaviour {
         m_animator.Play("CloseIdle");
     }
 
-    void Update () {
-		
-	}
-
     public void Open()
     {
         m_image.enabled = true;
 
         m_animator.Play("Open");
+    }
 
+    public void InstantClose() {
+        m_animator.Play("CloseIdle");
     }
 
     public void Close()
