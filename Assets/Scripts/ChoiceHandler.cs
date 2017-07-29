@@ -12,7 +12,7 @@ public class ChoiceHandler : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        StartChoiceEvent(template);
+       // StartChoiceEvent(template);
 	}
 	
 	// Update is called once per frame

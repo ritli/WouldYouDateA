@@ -10,10 +10,14 @@ enum GameState
 
 public class Manager : MonoBehaviour {
 
+    bool m_mapOpen = false;
+
     GameState m_state;
     Manager m_instance;
 
-    static private List<CharacterData> m_charData();
+    MapHandler m_map;
+
+    static private List<CharacterData> m_charData;
 
 	void Start () {
         if (FindObjectsOfType<Manager>().Length != 1)
@@ -24,12 +28,20 @@ public class Manager : MonoBehaviour {
         {
             DontDestroyOnLoad(gameObject);
             m_instance = this;
+
+            InitComponents();
         }
     
     }
 	
+    void InitComponents()
+    {
+        m_map = GetComponentInChildren<MapHandler>();
+    }
+
     void Update()
     {
+        InputUpdate();
 
         switch (m_state)
         {
@@ -53,7 +65,16 @@ public class Manager : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-
+            if (!m_mapOpen)
+            {
+                m_mapOpen = true;
+                m_map.Open();
+            }
+            else
+            {
+                m_mapOpen = false;
+                m_map.Close();
+            }
         }
     }
 
