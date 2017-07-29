@@ -17,7 +17,7 @@ public class Manager : MonoBehaviour {
     static Manager m_instance;
 
     MapHandler m_map;
-
+    LocationHandler m_location;
 
     BackgroundHandler m_background;
     Image m_fadeImage;
@@ -43,13 +43,15 @@ public class Manager : MonoBehaviour {
     {
         m_map = GetComponentInChildren<MapHandler>();
         m_background = GetComponentInChildren<BackgroundHandler>();
+        m_location = GetComponentInChildren<LocationHandler>();
         m_fadeImage = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
     }
 
-    public static void SetMapData(Sprite background)
+    public static void SetMapData(Sprite background, string location)
     {
         m_instance.GetComponent<Canvas>().worldCamera = Camera.main;
 
+        m_instance.m_location.SetLocationText(location);
         m_instance.m_background.SetBackground(background);
     }
 
