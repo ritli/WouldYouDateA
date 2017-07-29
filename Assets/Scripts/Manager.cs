@@ -17,7 +17,9 @@ public class Manager : MonoBehaviour {
     static Manager m_instance;
 
     MapHandler m_map;
+    ManHandler m_characters;
     LocationHandler m_location;
+    ArrowHandler m_arrows;
 
     BackgroundHandler m_background;
     Image m_fadeImage;
@@ -44,15 +46,24 @@ public class Manager : MonoBehaviour {
         m_map = GetComponentInChildren<MapHandler>();
         m_background = GetComponentInChildren<BackgroundHandler>();
         m_location = GetComponentInChildren<LocationHandler>();
+        m_characters = GetComponentInChildren<ManHandler>();
+        m_arrows = GetComponentInChildren<ArrowHandler>();
         m_fadeImage = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
     }
 
-    public static void SetMapData(Sprite background, string location)
+    public static void SetMapData(MapData mapdata)
     {
         m_instance.GetComponent<Canvas>().worldCamera = Camera.main;
 
-        m_instance.m_location.SetLocationText(location);
-        m_instance.m_background.SetBackground(background);
+        m_instance.m_location.SetLocationText(mapdata.locationName);
+        m_instance.m_background.SetBackground(mapdata.background);
+        m_instance.m_arrows.UpdateArrows(mapdata.arrowLocations);
+
+        foreach(GameObject g in mapdata.characters)
+        {
+            m_instance.m_characters.AddCharacter(g);
+        }
+
     }
 
     void Update()
@@ -96,6 +107,8 @@ public class Manager : MonoBehaviour {
 
     public static void ChangeScene(string name)
     {
+
+        m_instance.m_characters.RemoveAllCharacters();
         m_instance.StartSceneChange(name);
     }
 
