@@ -29,7 +29,7 @@ public class DisplayTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
             if (!m_textInstance)
             {
                 m_textInstance = Instantiate(m_textObject, transform);
-                m_textInstance.GetComponent<Text>().text = m_textToDisplay;
+                m_textInstance.GetComponentInChildren<Text>().text = m_textToDisplay;
             }
         }
 
