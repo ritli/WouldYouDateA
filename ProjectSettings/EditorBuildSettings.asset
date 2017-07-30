@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/VillaGrut1924.unity
-    guid: 7e751bc65dca82f4ca3f54ad5bbcd0c2
-  - enabled: 1
     path: Assets/Scenes/VillaGrut.unity
     guid: 62ed0ef0f89be1643aa37f4ab246d667
   - enabled: 1
@@ -29,3 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KB/Kylen.unity
     guid: 00a9f50350f63bc4ea65fb9e1f147e58
+  - enabled: 1
+    path: Assets/Scenes/Prologue/VillaGrut1924.unity
+    guid: 7e751bc65dca82f4ca3f54ad5bbcd0c2
+  - enabled: 1
+    path: Assets/Scenes/Prologue/ThroneRoom.unity
+    guid: a185ee146043345499bfebdfd69b3e61

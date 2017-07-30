@@ -92,16 +92,21 @@ public class Manager : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            if (!m_mapOpen)
-            {
-                m_mapOpen = true;
-                m_map.Open();
-            }
-            else
-            {
-                m_mapOpen = false;
-                m_map.Close();
-            }
+            OpenMap();
+        }
+    }
+
+    public void OpenMap()
+    {
+        if (!m_mapOpen)
+        {
+            m_mapOpen = true;
+            m_map.Open();
+        }
+        else
+        {
+            m_mapOpen = false;
+            m_map.Close();
         }
     }
 

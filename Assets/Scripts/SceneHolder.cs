@@ -17,9 +17,16 @@ public class SceneHolder : MonoBehaviour {
     public MapData mapData;
 
 	void Start () {
-        InitializeScene();
+        if (FindObjectOfType<Manager>())
+        {
+            Invoke("InitializeScene", 0.001f);
 
-        gameObject.SetActive(false);
+        }
+        else
+        {
+            Invoke("InitializeScene", 0.05f);
+        }        
+
 	}
 	
     void InitializeScene()
@@ -37,5 +44,9 @@ public class SceneHolder : MonoBehaviour {
         }
 
         Manager.SetMapData(mapData);
+
+        gameObject.SetActive(false);
     }
+
+
 }
