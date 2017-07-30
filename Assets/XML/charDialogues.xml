@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+
+
+<root>
+	<baseNode Name = "Hagbard">
+		<regIntimacy>0</regIntimacy>
+		<voiceLine>You have finely found your way to me chosen one.</voiceLine>
+		<choices>
+			<choice Number = "0">Uguu?!</choice>
+			<choice Number = "1">Nani?!</choice>
+			<choice Number = "2">What's poppin mah nigga?!</choice>
+		</choices>
+		<correct>0,1,2</correct>
+
+		<posRes>
+			<voiceLine>There is no time to spare. My name is Hagbard the incarnation of the love and hard work put into this organisation and we are in grave danger. Although our members still put their soul into our family, one thing has been forgotten over the ages, how to love! You the chosen one destined to once again reignite the spark and save us from certain doom! Go forth and once again show this organisation the meaning of love and SAVE... US... ALL! </voiceLine>
+		</posRes>
+	</baseNode>
+
+	<!--
+	<baseNode Name = "">
+		<regIntimacy></regIntimacy>
+		<voiceLine></voiceLine>
+		<choices>
+			<choice Number = "0"></choice>
+		</choices>
+		<correct></correct>
+		<neutral></neutral>
+		<negative></negative>
+
+		<posRes>
+			
+		</posRes>
+		<netRes>
+			
+		</netRes>
+		<negRes>
+			
+		</negRes>
+	</baseNode>
+	-->
+</root>

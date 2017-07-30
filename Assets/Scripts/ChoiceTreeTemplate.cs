@@ -7,5 +7,5 @@ using UnityEngine.Playables;
 public class ChoiceTreeTemplate : ScriptableObject 
 {
     public string objectName = "Choice tree";
-    public ChoiceNode[] choices;
+    public BaseConvoNode[] choices;
 }

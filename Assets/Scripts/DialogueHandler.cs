@@ -7,8 +7,7 @@ public class DialogueHandler : MonoBehaviour {
 
     Text m_text;
 
-    [Multiline]
-    public string m_dialogueToPrint;
+    private string m_dialogueToPrint;
     string m_senderName;
 
     public int m_maxTextCount;
@@ -29,8 +28,6 @@ public class DialogueHandler : MonoBehaviour {
 
         m_animator = GetComponent<Animator>();
         m_audio = GetComponent<AudioSource>();
-
-        PrintText("Hagbard");
     }
 
     void PlayRandomAudio()
@@ -48,10 +45,11 @@ public class DialogueHandler : MonoBehaviour {
         m_audio.PlayOneShot(m_chatCloseClip);
     }
 
-    public void PrintText(string name)
+    public void PrintText(string name, string text)
     {
        // m_image.sprite = portrait;
        // m_image.color = color;
+        m_dialogueToPrint = text;
         m_senderName = name;
         StartCoroutine(PrintLoop());
     }
