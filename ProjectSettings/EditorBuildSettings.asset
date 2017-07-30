@@ -17,3 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KB/Victoria.unity
     guid: 14f09758706f0d44bb1dcc09cc6a7501
+  - enabled: 1
+    path: Assets/Scenes/Town.unity
+    guid: ffeef1533e0584148839f44519bba6c5
