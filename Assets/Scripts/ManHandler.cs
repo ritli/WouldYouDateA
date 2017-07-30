@@ -31,6 +31,17 @@ public class ManHandler : MonoBehaviour {
         float width = Screen.width;
         int count = m_characters.Count;
 
+        float xOffset = 2;
+
+        for (int i = 0; i < count; i++)
+        {
+            print(new Vector3(xOffset * i, transform.position.y - 100)); 
+
+            m_characters[i].transform.position = new Vector3(xOffset * i, transform.position.y - 1);
+        }
+
+
+/*
         if (count != 1)
         {
             for (int i = 0; i < count; i++)
@@ -42,21 +53,31 @@ public class ManHandler : MonoBehaviour {
         {
             m_characters[0].transform.position = new Vector2((width / 2), m_characters[0].transform.position.y);
         }
-        
+ */       
     }
 
-    void AddCharacter(GameObject character)
+    public void AddCharacter(GameObject character)
     {
         if (m_characters.Count < 5)
         {
-            m_characters.Add(character);
+            m_characters.Add(Instantiate(character, transform.position, transform.rotation, transform));
             PositionCharacters();
         }
 
     }
 
-    void RemoveCharacter(int index)
+    public void RemoveCharacter(int index)
     {
         m_characters.RemoveAt(0);
+    }
+
+    public void RemoveAllCharacters()
+    {
+        foreach(GameObject g in m_characters)
+        {
+            Destroy(m_characters[0]);
+        }
+
+        m_characters.Clear();
     }
 }
