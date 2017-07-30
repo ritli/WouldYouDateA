@@ -15,8 +15,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Campus.unity
     guid: 3178a185357e60e45a7c1ceed8cffbee
   - enabled: 1
+    path: Assets/Scenes/Town.unity
+    guid: ffeef1533e0584148839f44519bba6c5
+  - enabled: 1
     path: Assets/Scenes/KB/Victoria.unity
     guid: 14f09758706f0d44bb1dcc09cc6a7501
   - enabled: 1
-    path: Assets/Scenes/Town.unity
-    guid: ffeef1533e0584148839f44519bba6c5
+    path: Assets/Scenes/KB/Garderoben.unity
+    guid: 307de36f9c05c4073b47a3a935fba650
+  - enabled: 1
+    path: Assets/Scenes/KB/StoraBaren.unity
+    guid: be811133fc9ca4b49832fc7bb2e93ede
+  - enabled: 1
+    path: Assets/Scenes/KB/Kylen.unity
+    guid: 00a9f50350f63bc4ea65fb9e1f147e58

@@ -108,7 +108,6 @@ public class Manager : MonoBehaviour {
     public static void ChangeScene(string name)
     {
 
-        m_instance.m_characters.RemoveAllCharacters();
         m_instance.StartSceneChange(name);
     }
 
@@ -131,6 +130,7 @@ public class Manager : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
 
+        m_instance.m_characters.RemoveAllCharacters();
         m_map.InstantClose();
         m_mapOpen = false;
 
