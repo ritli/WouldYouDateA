@@ -4,25 +4,32 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-enum GameState
+public enum GameState
 {
-    paused, explore, map, dialogue, choice
+    paused, explore, map, dialogue, choice, mainmenu
 }
 
 public class Manager : MonoBehaviour {
 
     bool m_mapOpen = false;
 
-    GameState m_state;
+    public GameState m_state;
+    GameState m_pendingGameState;
     static Manager m_instance;
 
     MapHandler m_map;
     ManHandler m_characters;
     LocationHandler m_location;
     ArrowHandler m_arrows;
+    DialogueHandler m_dialogue;
+    MainMenuHandler m_menuhandler;
+
+    GameObject m_mapButton;
 
     BackgroundHandler m_background;
     Image m_fadeImage;
+
+    bool m_sceneChangeState = false;
 
     [SerializeField] private CharacterData[] m_charData;
 
@@ -37,18 +44,29 @@ public class Manager : MonoBehaviour {
             m_instance = this;
 
             InitComponents();
+            ChangeState(GameState.mainmenu);
+
+
         }
     
     }
 	
     void InitComponents()
     {
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            transform.GetChild(i).gameObject.SetActive(true);
+        }
+
         m_map = GetComponentInChildren<MapHandler>();
         m_background = GetComponentInChildren<BackgroundHandler>();
         m_location = GetComponentInChildren<LocationHandler>();
         m_characters = GetComponentInChildren<ManHandler>();
         m_arrows = GetComponentInChildren<ArrowHandler>();
+        m_dialogue = GetComponentInChildren<DialogueHandler>();
+        m_menuhandler = GetComponentInChildren<MainMenuHandler>();  
         m_fadeImage = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
+        m_mapButton = transform.Find("MapButtonBG").gameObject;
     }
 
     public static void SetMapData(MapData mapdata)
@@ -66,10 +84,15 @@ public class Manager : MonoBehaviour {
 
     }
 
-    void Update()
+    public static void PlayFromMenu()
     {
-        InputUpdate();
+        m_instance.m_sceneChangeState = true;
+        m_instance.m_pendingGameState = GameState.explore;
+        ChangeScene("VillaGrut1924");
+    }
 
+    public void ChangeState(GameState state)
+    {
         switch (m_state)
         {
             case GameState.paused:
@@ -81,6 +104,75 @@ public class Manager : MonoBehaviour {
             case GameState.dialogue:
                 break;
             case GameState.choice:
+                break;
+            case GameState.mainmenu:
+                m_menuhandler.gameObject.SetActive(false);
+                break;
+            default:
+                break;
+        }
+
+        bool inGame;
+
+        switch (state)
+        {
+            case GameState.paused:
+                break;
+            case GameState.explore:
+                inGame = true;
+
+                m_map.gameObject.SetActive(inGame);
+                m_characters.gameObject.SetActive(inGame);
+                m_location.gameObject.SetActive(inGame);
+                m_dialogue.gameObject.SetActive(inGame);
+                m_background.gameObject.SetActive(inGame);
+                m_mapButton.gameObject.SetActive(inGame);
+
+                break;
+            case GameState.map:
+                break;
+            case GameState.dialogue:
+                break;
+            case GameState.choice:
+                break;
+            case GameState.mainmenu:
+                inGame = false;
+
+                m_map.gameObject.SetActive(inGame);
+                m_characters.gameObject.SetActive(inGame);
+                m_location.gameObject.SetActive(inGame);
+                m_dialogue.gameObject.SetActive(inGame);
+                m_background.gameObject.SetActive(inGame);
+                m_mapButton.gameObject.SetActive(inGame);
+
+                m_menuhandler.gameObject.SetActive(!inGame);
+
+                break;
+            default:
+                break;
+        }
+
+        m_state = state;
+
+    }
+
+    void Update()
+    {
+        switch (m_state)
+        {
+            case GameState.paused:
+                break;
+            case GameState.explore:
+                InputUpdate();
+
+                break;
+            case GameState.map:
+                break;
+            case GameState.dialogue:
+                break;
+            case GameState.choice:
+                break;
+            case GameState.mainmenu:
                 break;
             default:
                 break;
@@ -112,7 +204,6 @@ public class Manager : MonoBehaviour {
 
     public static void ChangeScene(string name)
     {
-
         m_instance.StartSceneChange(name);
     }
 
@@ -133,6 +224,12 @@ public class Manager : MonoBehaviour {
             m_fadeImage.color = new Color(c.r, c.g, c.b, alpha);
 
             yield return new WaitForEndOfFrame();
+        }
+
+        if (m_sceneChangeState)
+        {
+            ChangeState(m_pendingGameState);
+            m_sceneChangeState = false;
         }
 
         m_instance.m_characters.RemoveAllCharacters();

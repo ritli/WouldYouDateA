@@ -34,7 +34,10 @@ public class MapHandler : MonoBehaviour {
     }
 
     public void InstantClose() {
-        m_animator.Play("CloseIdle");
+        if (m_animator)
+        {
+            m_animator.Play("CloseIdle");
+        }
     }
 
     public void Close()
