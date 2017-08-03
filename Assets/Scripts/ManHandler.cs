@@ -22,22 +22,40 @@ public class ManHandler : MonoBehaviour {
         {
             m_characters.AddRange(GetComponentsInChildren<GameObject>());
 
-            PositionCharacters();
+            PositionCharacters(Manager.GameState);
         }
     }
 
-    void PositionCharacters()
+    void PositionCharacters(GameState state)
     {
         float width = Screen.width;
         int count = m_characters.Count;
-
         float xOffset = 2;
+
+        switch (state)
+        {
+            case GameState.paused:
+                break;
+            case GameState.explore:
+                break;
+            case GameState.map:
+                break;
+            case GameState.dialogue:
+                break;
+            case GameState.choice:
+                break;
+            case GameState.mainmenu:
+                break;
+            default:
+                break;
+        }
+
 
         for (int i = 0; i < count; i++)
         {
-            print(new Vector3(xOffset * i, transform.position.y - 100)); 
+            Vector2 offset = m_characters[i].GetComponent<Character>().GetOffset();
 
-            m_characters[i].transform.position = new Vector3(xOffset * i, transform.position.y - 1);
+            m_characters[i].transform.position = new Vector3(xOffset * i, transform.position.y - 1) + (Vector3)offset;
         }
 
 
@@ -61,7 +79,7 @@ public class ManHandler : MonoBehaviour {
         if (m_characters.Count < 5)
         {
             m_characters.Add(Instantiate(character, transform.position, transform.rotation, transform));
-            PositionCharacters();
+            PositionCharacters(Manager.GameState);
         }
 
     }

@@ -24,18 +24,42 @@ public class MapHandler : MonoBehaviour {
         m_animator.Play("CloseIdle");
     }
 
+    void SetButtonsActive(bool active)
+    {
+        foreach(Button b in GetComponentsInChildren<Button>())
+        {
+            b.interactable = active;
+
+            if (b.GetComponent<DisplayTextOnHover>())
+            {
+                b.GetComponent<DisplayTextOnHover>().enabled = active;
+            }
+
+            if (b.GetComponent<ClickAudioHandler>())
+            {
+                b.GetComponent<ClickAudioHandler>().enabled = active;
+            }
+        }
+    }
+
     public void Open()
     {
+        
+
         m_audio.PlayOneShot(m_audioclips[0]);
 
         m_image.enabled = true;
 
         m_animator.Play("Open");
+        SetButtonsActive(true);
+
+
     }
 
     public void InstantClose() {
         if (m_animator)
         {
+            SetButtonsActive(false);
             m_animator.Play("CloseIdle");
         }
     }
@@ -44,6 +68,7 @@ public class MapHandler : MonoBehaviour {
     {
         m_audio.PlayOneShot(m_audioclips[1]);
 
+        SetButtonsActive(false);
         m_animator.Play("Close");
 
       //  m_image.enabled = false;

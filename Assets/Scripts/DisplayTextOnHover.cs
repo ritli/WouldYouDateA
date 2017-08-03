@@ -26,13 +26,11 @@ public class DisplayTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
     public void OnPointerEnter(PointerEventData eventData)
     {
         m_mouseover = true;
-        print("Enter");
 
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        print("Exit");
 
         m_mouseover = false;
     }

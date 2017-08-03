@@ -866,7 +866,7 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1881185942197316}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: dc7b1ee9541def14fb6429202ef5cdf9, type: 3}
@@ -1090,7 +1090,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 12800000, guid: 5ff247cf18f17684ca43441b344571f3, type: 3}
-    m_FontSize: 32
+    m_FontSize: 30
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 3
@@ -2573,11 +2573,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ba24de879ff7c498b084c43fdbf2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxTextCount: 50
+  m_dialogueToPrint: 'Swiggity swag put the money in the bag
+
+    Bippity beep im coming for that meat
+
+    Swiggity great, lets go for a date!
+
+    Swiggity swooty, Im coming for that booty'
+  m_maxTextCount: 100
   m_chatAudioClips:
-  - {fileID: 8300000, guid: 47d39771b4450b94ea785fdda72eea2b, type: 3}
-  - {fileID: 8300000, guid: 673e478e8d6ce6643a6ec46209ab237b, type: 3}
-  - {fileID: 8300000, guid: 0f7a68633c083604e85b4429040967a3, type: 3}
+  - {fileID: 8300000, guid: b5d9dfda82218074da161f3256a302da, type: 3}
+  - {fileID: 8300000, guid: e0a6fd555396e1a449f236905c7bcbbd, type: 3}
+  - {fileID: 8300000, guid: 6ef26b11a5bcad846a7d3ec1dbab2794, type: 3}
+  - {fileID: 8300000, guid: dad41216b46bca64992fe4b66ea9a85d, type: 3}
   m_chatOpenClip: {fileID: 8300000, guid: 50ec1bbffb836a64b9e6c6ed5b3e1596, type: 3}
   m_chatCloseClip: {fileID: 8300000, guid: e301f0e259f0344468ed48c7f5122309, type: 3}
 --- !u!114 &114926047789060880
@@ -13336,8 +13344,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.9000001, y: 13.6}
-  m_SizeDelta: {x: -340.2, y: -348.7}
+  m_AnchoredPosition: {x: 1.9000001, y: 16.54}
+  m_SizeDelta: {x: -340.2, y: -338.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224859963190810538
 RectTransform:

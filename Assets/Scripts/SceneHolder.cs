@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct MapData
 {
+    public AudioClip soundtrack;
     public GameObject[] characters;
     public Sprite background;
     public string locationName;

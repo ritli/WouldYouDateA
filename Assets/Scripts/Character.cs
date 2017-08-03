@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Character : MonoBehaviour {
 
+    [SerializeField]
+    Vector2 offset = Vector2.zero;
     private CharacterData characterData;
 
 	// Use this for initialization
@@ -25,4 +27,11 @@ public class Character : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    public Vector2 GetOffset()
+    {
+        return offset;
+    }
+
+
 }

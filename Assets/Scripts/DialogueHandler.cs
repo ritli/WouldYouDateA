@@ -7,7 +7,8 @@ public class DialogueHandler : MonoBehaviour {
 
     Text m_text;
 
-    private string m_dialogueToPrint;
+    [Multiline]
+    public string m_dialogueToPrint;
     string m_senderName;
 
     public int m_maxTextCount;
@@ -20,7 +21,7 @@ public class DialogueHandler : MonoBehaviour {
     Animator m_animator;
     string m_nameText;
 
-    const float m_printInterval = 0.02f;
+    const float m_printInterval = 0.03f;
 
     void Start()
     {
@@ -28,6 +29,8 @@ public class DialogueHandler : MonoBehaviour {
 
         m_animator = GetComponent<Animator>();
         m_audio = GetComponent<AudioSource>();
+
+        PrintText("The DJ", m_dialogueToPrint);
     }
 
     void PlayRandomAudio()

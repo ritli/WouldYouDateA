@@ -23,6 +23,7 @@ public class Manager : MonoBehaviour {
     ArrowHandler m_arrows;
     DialogueHandler m_dialogue;
     MainMenuHandler m_menuhandler;
+    private MusicManager m_musicManager;
 
     GameObject m_mapButton;
 
@@ -31,9 +32,11 @@ public class Manager : MonoBehaviour {
 
     bool m_sceneChangeState = false;
 
+    MapData m_currentMapData;
+
     [SerializeField] private CharacterData[] m_charData;
 
-	void Start () {
+    void Start () {
         if (FindObjectsOfType<Manager>().Length != 1)
         {
             Destroy(gameObject);
@@ -51,6 +54,14 @@ public class Manager : MonoBehaviour {
     
     }
 	
+    public static GameState GameState
+    {
+        get
+        {
+            return m_instance.m_state;
+        }
+    }
+
     void InitComponents()
     {
         for (int i = 0; i < transform.childCount; i++)
@@ -64,13 +75,16 @@ public class Manager : MonoBehaviour {
         m_characters = GetComponentInChildren<ManHandler>();
         m_arrows = GetComponentInChildren<ArrowHandler>();
         m_dialogue = GetComponentInChildren<DialogueHandler>();
-        m_menuhandler = GetComponentInChildren<MainMenuHandler>();  
+        m_menuhandler = GetComponentInChildren<MainMenuHandler>();
+        m_musicManager = GetComponent<MusicManager>();
         m_fadeImage = GameObject.FindGameObjectWithTag("Fade").GetComponent<Image>();
         m_mapButton = transform.Find("MapButtonBG").gameObject;
     }
 
     public static void SetMapData(MapData mapdata)
     {
+        m_instance.m_currentMapData = mapdata;
+
         m_instance.GetComponent<Canvas>().worldCamera = Camera.main;
 
         m_instance.m_location.SetLocationText(mapdata.locationName);
@@ -236,16 +250,34 @@ public class Manager : MonoBehaviour {
         m_map.InstantClose();
         m_mapOpen = false;
 
-        SceneManager.LoadScene(name);
+        SceneManager.LoadScene(name);        
+
+        yield return new WaitForSeconds(0.05f);
+
+        bool changeMusic = !m_currentMapData.soundtrack.name.Equals(m_musicManager.m_audioClip.name);
+
+        if (changeMusic)
+        {
+            StartCoroutine(m_musicManager.FadeMusic(0.5f, 0));
+        }
 
         while (alpha > 0)
         {
-            alpha -= Time.deltaTime * 2;
+            alpha -= Time.deltaTime;
 
             m_fadeImage.color = new Color(c.r, c.g, c.b, alpha);
 
+            if (changeMusic && alpha > 0.5f)
+            {
+                changeMusic = false;
+                m_musicManager.SetAudioClip(m_currentMapData.soundtrack);
+                StartCoroutine(m_musicManager.FadeMusic(0.5f, 1));
+            }
+
             yield return new WaitForEndOfFrame();
         }
+
+
 
     }
 

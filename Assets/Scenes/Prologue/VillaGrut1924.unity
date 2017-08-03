@@ -4816,6 +4816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72ba24de879ff7c498b084c43fdbf2dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_dialogueToPrint: 
   m_maxTextCount: 50
   m_chatAudioClips:
   - {fileID: 8300000, guid: 47d39771b4450b94ea785fdda72eea2b, type: 3}
@@ -9091,6 +9092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051d696040042db44988b5f74f0653ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_state: 0
   m_charData: []
 --- !u!114 &1980786582
 MonoBehaviour:
@@ -9232,8 +9234,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d71c1adda28c77245a28cebdfdbe5965, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_buttonTemplate: {fileID: 114442317993896462, guid: 9bb0e8ede4f573c4ca65bfb03dac08d8,
-    type: 2}
 --- !u!114 &2033213418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9442,6 +9442,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
+        type: 2}
+      propertyPath: mapData.characters.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224371828896019622, guid: 304dc2b1a66b41443bdd487a051c30f2,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -9548,6 +9553,12 @@ Prefab:
       propertyPath: mapData.arrowLocations.Array.data[0]
       value: ThroneRoom
       objectReference: {fileID: 0}
+    - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
+        type: 2}
+      propertyPath: mapData.characters.Array.data[0]
+      value: 
+      objectReference: {fileID: 1849167870110956, guid: 91ff2e019bfe7c74199a4e6f393095c9,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 304dc2b1a66b41443bdd487a051c30f2, type: 2}
   m_IsPrefabParent: 0

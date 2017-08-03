@@ -39,6 +39,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapData:
+    soundtrack: {fileID: 8300000, guid: dc7b1ee9541def14fb6429202ef5cdf9, type: 3}
     characters: []
     background: {fileID: 21300000, guid: 38ce34624afe316438abee0a10cfcc6e, type: 3}
     locationName: "K\xE5rhuset"
