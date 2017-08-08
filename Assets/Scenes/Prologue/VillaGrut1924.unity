@@ -5306,7 +5306,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 270}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 331, y: 26}
+  m_AnchoredPosition: {x: 330.99997, y: 26}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1721216973
@@ -9445,7 +9445,7 @@ Prefab:
     - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
         type: 2}
       propertyPath: mapData.characters.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224371828896019622, guid: 304dc2b1a66b41443bdd487a051c30f2,
         type: 2}

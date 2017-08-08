@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class DialogueHandler : MonoBehaviour {
 
     Text m_text;
+    Animator m_nameAnimator;
+    Text m_nameText;
 
     [Multiline]
     public string m_dialogueToPrint;
@@ -19,7 +21,7 @@ public class DialogueHandler : MonoBehaviour {
 
     AudioSource m_audio;
     Animator m_animator;
-    string m_nameText;
+    int m_talkRate = 4;
 
     const float m_printInterval = 0.03f;
 
@@ -27,10 +29,24 @@ public class DialogueHandler : MonoBehaviour {
     {
         m_text = GetComponentInChildren<Text>();
 
+        GameObject namepanel = transform.parent.Find("NamePanel").gameObject;
+
+        m_nameAnimator = namepanel.GetComponent<Animator>();
+        m_nameText = namepanel.GetComponentInChildren<Text>();
         m_animator = GetComponent<Animator>();
         m_audio = GetComponent<AudioSource>();
 
-        PrintText("The DJ", m_dialogueToPrint);
+       // PrintText("The DJ", m_dialogueToPrint);
+    }
+
+    private void OnEnable()
+    {
+        m_nameAnimator.gameObject.SetActive(true);
+    }
+
+    private void OnDisable()
+    {
+        m_nameAnimator.gameObject.SetActive(false);
     }
 
     void PlayRandomAudio()
@@ -48,31 +64,37 @@ public class DialogueHandler : MonoBehaviour {
         m_audio.PlayOneShot(m_chatCloseClip);
     }
 
-    public void PrintText(string name, string text)
+    public void PrintText(Dialogue dialogue, CharacterData characterData, bool hasChoices)
     {
-       // m_image.sprite = portrait;
-       // m_image.color = color;
-        m_dialogueToPrint = text;
-        m_senderName = name;
-        StartCoroutine(PrintLoop());
+        m_chatAudioClips = characterData.Vocals;
+        m_talkRate = characterData.TalkRate;
+        m_dialogueToPrint = dialogue.text.Trim();
+        m_senderName = characterData.Name.ToString();
+        StartCoroutine(PrintLoop(dialogue, hasChoices, characterData));
     }
 
     string GetName()
     {
-        return m_senderName + ": ";
+        return m_senderName;
     }
 
-    IEnumerator PrintLoop()
+    IEnumerator PrintLoop(Dialogue dialogue, bool hasChoices, CharacterData characterData)
     {
         //m_nameText.transform.parent.gameObject.SetActive(true);
-        m_text.text = GetName();
+        m_nameText.text = GetName();
+        m_text.text = "";
 
-        PlayOpenAnim();
-        PlayOpenSound();
+        if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("IdleUp"))
+        {
+            PlayOpenAnim();
+            PlayOpenSound();
+        }
             
         yield return new WaitForSeconds(0.5f);
 
         int wordCount = 0;
+
+        m_dialogueToPrint = m_dialogueToPrint.Trim();
 
         string[] words = m_dialogueToPrint.Split(' ');
 
@@ -93,7 +115,7 @@ public class DialogueHandler : MonoBehaviour {
 
                 wordCount = 0;
 
-                m_text.text = GetName();
+                m_text.text = "";
             }
 
             for (int c = 0; c < words[i].Length; c++)
@@ -101,7 +123,7 @@ public class DialogueHandler : MonoBehaviour {
                 m_text.text += words[i][c];
                 yield return new WaitForSeconds(m_printInterval);
 
-                if (wordCount % 4 == 0)
+                if (wordCount % m_talkRate == 0)
                 {
                     PlayRandomAudio();
                 }
@@ -113,8 +135,6 @@ public class DialogueHandler : MonoBehaviour {
 
                 wordCount++;
             }
-
-
         }
 
         while (!Input.GetButton("Fire1"))
@@ -122,20 +142,26 @@ public class DialogueHandler : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
 
-
-        PlayCloseAnim();
-        PlayCloseSound();
+        Manager.EndDialogue(dialogue, hasChoices, characterData);
 
        // m_nameText.transform.parent.gameObject.SetActive(false);
     }
 
+    public void Close()
+    {
+        PlayCloseAnim();
+        PlayCloseSound();
+    }
+
     void PlayOpenAnim()
     {
+        m_nameAnimator.Play("Up");
         m_animator.Play("Up");
     }
 
     void PlayCloseAnim()
     {
+        m_nameAnimator.Play("Down");
         m_animator.Play("Down");
     }
 }

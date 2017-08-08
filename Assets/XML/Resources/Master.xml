@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<root>
+	<Dialogues>
+		<Dialogue level = '1'>
+			<Lines>Hello, this is my voice line Test 1 </Lines>
+		</Dialogue>
+
+		<Dialogue level = '2'>
+			<Lines>Dialogue 2 </Lines>
+		</Dialogue>
+</Dialogues>
+</root>

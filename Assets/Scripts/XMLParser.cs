@@ -16,6 +16,7 @@ public class testReader
 
         while (reader.Read())
         {
+
             if (reader.Name == "root")
             {
                 result = new List<BaseConvoNode>();
@@ -95,10 +96,43 @@ public class testReader
         {
             reader.Read();
             Debug.Log("SubNode");
+
+            switch (reader.Name)
+            {
+                case "voiceLine":
+                    tmpText = readString(ref reader, "voiceLine");
+                    break;
+                case "choices":
+                    tmpChoices = readStringArr(ref reader, "choices");
+                    break;
+                case "correct":
+                    tmpCorrect = readIntArr(ref reader, "correct");
+                    break;
+                case "neutral":
+                    tmpNeutral = readIntArr(ref reader, "neutral");
+                    break;
+                case "negative":
+                    tmpNegative = readIntArr(ref reader, "negative");
+                    break;
+                case "posRes":
+                    tmpFollowupConvos[0] = getSubNodes(ref reader, "posRes");
+                    break;
+                case "netRes":
+                    tmpFollowupConvos[1] = getSubNodes(ref reader, "netRes");
+                    break;
+                case "negRes":
+                    tmpFollowupConvos[2] = getSubNodes(ref reader, "negRes");
+                    break;
+
+                default:
+                    break;
+            }
+
+            #region oldElseIf
+            /*
             if (reader.Name == "voiceLine")
-                tmpText = readString(ref reader, "voiceLine");
+
             else if (reader.Name == "choices")
-                tmpChoices = readStringArr(ref reader, "choices");
             else if (reader.Name == "correct")
                 tmpCorrect = readIntArr(ref reader, "correct");
             else if (reader.Name == "neutral")
@@ -111,6 +145,8 @@ public class testReader
                 tmpFollowupConvos[1] = getSubNodes(ref reader, "netRes");
             else if (reader.Name == "negRes")
                 tmpFollowupConvos[2] = getSubNodes(ref reader, "negRes");
+        */
+            #endregion
         }
 
         return new ConvoNode(tmpText, tmpChoices, tmpCorrect, tmpNeutral, tmpNegative, tmpFollowupConvos[0], tmpFollowupConvos[1], tmpFollowupConvos[2]);
@@ -135,11 +171,23 @@ public class testReader
 
     private int[] readIntArr(ref XmlTextReader reader, string elementTag)
     {
-        Debug.Log(reader.Name);
+        //Debug.Log(reader.Name);
+
         while (reader.NodeType != XmlNodeType.Text)
+        {
             reader.Read();
-        Debug.Log(reader.Value);
-        int[] intArr = Array.ConvertAll(reader.Value.Split(','), int.Parse);
+        }
+
+        //Debug.Log(reader.Value);
+        
+        string[] value = reader.Value.Split(',');
+        int[] intArr = new int[value.Length];
+
+        for (int i = 0; i < value.Length; i++)
+        {
+            Debug.Log(value[i]);
+            intArr[i] = int.Parse(value[i]);
+        }
 
         /*
         while (reader.NodeType != XmlNodeType.EndElement)

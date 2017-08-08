@@ -1,17 +1,20 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Character : MonoBehaviour {
+
+public class Character : MonoBehaviour, IPointerDownHandler {
 
     [SerializeField]
     Vector2 offset = Vector2.zero;
-    private CharacterData characterData;
+    public CharacterData characterData;
 
 	// Use this for initialization
 	void Start () 
     {
-        characterData = new CharacterData();
+        //characterData = new CharacterData();
 	}
 
     /// <summary>
@@ -22,16 +25,17 @@ public class Character : MonoBehaviour {
     {
         characterData = data;
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
     public Vector2 GetOffset()
     {
         return offset;
     }
 
-
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        if (Manager.GameState == GameState.explore)
+        {
+            Manager.StartDialogue(characterData);
+        }
+    }
 }

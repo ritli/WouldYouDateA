@@ -123,7 +123,7 @@ Prefab:
     - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
         type: 2}
       propertyPath: mapData.characters.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224371828896019622, guid: 304dc2b1a66b41443bdd487a051c30f2,
         type: 2}
@@ -235,13 +235,13 @@ Prefab:
     - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
         type: 2}
       propertyPath: mapData.locationName
-      value: Campus
+      value: The Chancellery
       objectReference: {fileID: 0}
     - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
         type: 2}
       propertyPath: mapData.background
       value: 
-      objectReference: {fileID: 21300000, guid: d1da41051af69cc499b418171e92dac2,
+      objectReference: {fileID: 21300000, guid: 215d268ba6eb32b44b3aae177efc570b,
         type: 3}
     - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
         type: 2}
@@ -249,6 +249,21 @@ Prefab:
       value: 
       objectReference: {fileID: 1849167870110956, guid: 68296bf86b0e9414aa243e9e5a2a2316,
         type: 2}
+    - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
+        type: 2}
+      propertyPath: mapData.soundtrack
+      value: 
+      objectReference: {fileID: 8300000, guid: e5c5cc82dc76018419298fcd416d2929, type: 3}
+    - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
+        type: 2}
+      propertyPath: mapData.arrowLocations.Array.data[1]
+      value: AHuset
+      objectReference: {fileID: 0}
+    - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
+        type: 2}
+      propertyPath: mapData.arrowLocations.Array.data[3]
+      value: Office
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 304dc2b1a66b41443bdd487a051c30f2, type: 2}
   m_IsPrefabParent: 0

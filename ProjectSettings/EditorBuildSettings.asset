@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/VillaGrut.unity
     guid: 62ed0ef0f89be1643aa37f4ab246d667
   - enabled: 1
-    path: Assets/Scenes/Campus.unity
-    guid: 3178a185357e60e45a7c1ceed8cffbee
-  - enabled: 1
     path: Assets/Scenes/Town.unity
     guid: ffeef1533e0584148839f44519bba6c5
   - enabled: 1
@@ -26,6 +23,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/KB/Kylen.unity
     guid: 00a9f50350f63bc4ea65fb9e1f147e58
+  - enabled: 1
+    path: Assets/Scenes/Campus/Campus.unity
+    guid: 3178a185357e60e45a7c1ceed8cffbee
+  - enabled: 1
+    path: Assets/Scenes/Campus/AHuset.unity
+    guid: 7d605a7befba92d4fb7ddce964dc179f
+  - enabled: 1
+    path: Assets/Scenes/Campus/Kansliet.unity
+    guid: c4d0e282a51ad904cbc521dc17745773
+  - enabled: 1
+    path: Assets/Scenes/Campus/Office.unity
+    guid: 1dc5183d4ca763e4e84feda392128b07
   - enabled: 1
     path: Assets/Scenes/Prologue/VillaGrut1924.unity
     guid: 7e751bc65dca82f4ca3f54ad5bbcd0c2

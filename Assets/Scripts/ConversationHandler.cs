@@ -23,7 +23,7 @@ public class ConversationHandler : MonoBehaviour {
 
         BaseConvoNode m_conversation = viable[Random.Range(0, viable.Count - 1)];
 
-        GameObject.FindGameObjectWithTag("DialoguePanel").GetComponent<DialogueHandler>().PrintText(m_name, m_conversation.VoiceLine);
+        //GameObject.FindGameObjectWithTag("DialoguePanel").GetComponent<DialogueHandler>().PrintText(m_name, m_conversation.VoiceLine);
 
         generateButtons();
     }
@@ -40,7 +40,7 @@ public class ConversationHandler : MonoBehaviour {
          
         m_conversation.Answer(answer);
 
-        GameObject.FindGameObjectWithTag("DialoguePanel").GetComponent<DialogueHandler>().PrintText(m_name, m_conversation.VoiceLine);
+        //GameObject.FindGameObjectWithTag("DialoguePanel").GetComponent<DialogueHandler>().PrintText(m_name, m_conversation.VoiceLine);
 
         generateButtons();
     }

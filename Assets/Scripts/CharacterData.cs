@@ -2,9 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Characters
+{
+    Vegan, DJ, Master, Tiger, Hagbard
+}
+
 [System.Serializable]
 public class CharacterData
 {
+    [SerializeField]
+    Characters m_type;
+    public Characters Type
+    {
+        get { return m_type; }
+    }
+
     [SerializeField]
     private string m_name = "";
     public string Name
@@ -27,6 +39,19 @@ public class CharacterData
         get{ return m_charPrefab; }
     }
 
+    [SerializeField]
+    private AudioClip[] m_vocals;
+    public AudioClip[] Vocals
+    {
+        get { return m_vocals; }
+    }
+
+    [SerializeField]
+    private int m_talkRate = 4;
+    public int TalkRate
+    {
+        get { return m_talkRate; }
+    }
     /// <summary>
     /// Init character data.
     /// </summary>
@@ -57,6 +82,6 @@ public class CharacterData
     public void AddIntimacy(float intimacy)
     {
         m_intimacyLevel += intimacy;
-        m_intimacyLevel = (m_intimacyLevel < 0f ? 0f : m_intimacyLevel) > 5f ? 5f : m_intimacyLevel;
+       // m_intimacyLevel = (m_intimacyLevel < 0f ? 0f : m_intimacyLevel) > 5f ? 5f : m_intimacyLevel;
     }
 }
