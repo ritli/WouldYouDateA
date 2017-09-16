@@ -18,6 +18,7 @@ public class DisplayTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
     float alpha = 0;
     bool m_mouseover = false; 
 
+
     void Update()
     {
         DisplayText(m_mouseover);
@@ -37,7 +38,6 @@ public class DisplayTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     void DisplayText(bool visible)
     {
-
         int mult = -1;
   
         if (!m_textInstance)
@@ -64,5 +64,11 @@ public class DisplayTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
         m_textText.color = new Color(c.r, c.g, c.b, alpha);
         c = m_textImage.color;
         m_textImage.color = new Color(c.r, c.g, c.b, alpha);
+    }
+
+    public void HideText()
+    {
+        m_mouseover = false;
+        Destroy(m_textInstance);
     }
 }

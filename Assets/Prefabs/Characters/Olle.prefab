@@ -21,16 +21,16 @@ GameObject:
   - component: {fileID: 224389457735236050}
   - component: {fileID: 222453671587210826}
   - component: {fileID: 114417041600944464}
-  - component: {fileID: 114800242034865122}
-  - component: {fileID: 61546642978897174}
+  - component: {fileID: 114877417532243090}
+  - component: {fileID: 61135718490161696}
   m_Layer: 5
-  m_Name: DJ
+  m_Name: Olle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!61 &61546642978897174
+--- !u!61 &61135718490161696
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -74,7 +74,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 32080db9ce42f4e45820dd399b570088, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0a578f9a77f19a54a99dd3471e4284e8, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114800242034865122
+--- !u!114 &114877417532243090
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -93,19 +93,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a574bab5523c982429bee24e5957fa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: -1}
+  offset: {x: 0, y: 0}
   characterData:
-    m_type: 1
-    m_name: The DJ
+    m_type: 5
+    m_name: Hederboi
     m_intimacyLevel: 0
     m_charPrefab: {fileID: 0}
-    m_vocals:
-    - {fileID: 8300000, guid: b5d9dfda82218074da161f3256a302da, type: 3}
-    - {fileID: 8300000, guid: e0a6fd555396e1a449f236905c7bcbbd, type: 3}
-    - {fileID: 8300000, guid: 6ef26b11a5bcad846a7d3ec1dbab2794, type: 3}
-    - {fileID: 8300000, guid: dad41216b46bca64992fe4b66ea9a85d, type: 3}
+    m_vocals: []
     m_talkRate: 4
-  m_daysToAppear: 020000000400000005000000
+  m_daysToAppear: 0000000001000000020000000300000004000000
 --- !u!222 &222453671587210826
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -95,10 +95,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 0}
   characterData:
-    m_type: 0
-    m_name: 
+    m_type: 3
+    m_name: Tiger-chan
     m_intimacyLevel: 0
     m_charPrefab: {fileID: 0}
+    m_vocals: []
+    m_talkRate: 4
+  m_daysToAppear: 00000000010000000400000005000000
 --- !u!222 &222150694594390784
 CanvasRenderer:
   m_ObjectHideFlags: 1

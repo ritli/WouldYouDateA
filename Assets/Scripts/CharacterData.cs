@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum Characters
 {
-    Vegan, DJ, Master, Tiger, Hagbard
+    Vegan, DJ, Master, Tiger, Hagbard, Olle
 }
 
 [System.Serializable]

@@ -2,7 +2,7 @@
 
 <root>
 	<Dialogues>
-		<Dialogue level = '0' continue = '1'>
+		<Dialogue level = '0' continue = '1' leave ='0'>
 			<Lines>
         You have finally found your way to me... chosen one.
       </Lines>
@@ -19,7 +19,7 @@
       </Choices>
      </Dialogue>
 
-    <Dialogue level = '1' continue = '0'>
+    <Dialogue level = '1' continue = '0' leave ='0'>
       <Lines>
         There is no time to spare! My name is Hagbard the incarnation of the love and hard work put into this organisation and we are in grave danger.
         Although our members still put their soul into our family, one thing has been forgotten over the ages, how to love!

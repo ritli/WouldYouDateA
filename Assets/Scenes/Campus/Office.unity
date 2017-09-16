@@ -123,7 +123,7 @@ Prefab:
     - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
         type: 2}
       propertyPath: mapData.characters.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224371828896019622, guid: 304dc2b1a66b41443bdd487a051c30f2,
         type: 2}
@@ -247,7 +247,7 @@ Prefab:
         type: 2}
       propertyPath: mapData.characters.Array.data[0]
       value: 
-      objectReference: {fileID: 1849167870110956, guid: 68296bf86b0e9414aa243e9e5a2a2316,
+      objectReference: {fileID: 1849167870110956, guid: a9d20ad9b4a70a54d96b6be862b0116f,
         type: 2}
     - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
         type: 2}

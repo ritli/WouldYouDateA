@@ -12,7 +12,7 @@ public class TimeHandler : MonoBehaviour {
     TMPro.TextMeshProUGUI m_Text;
     public Day m_currentDay = Day.Mon;
 
-    int m_Hours = 5;
+    public int m_Hours = 5;
 
 
     private void Update()

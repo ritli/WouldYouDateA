@@ -29,6 +29,8 @@ public class Manager : MonoBehaviour {
 
     GameObject m_mapButton;
 
+    Character currentCharacter;
+
     BackgroundHandler m_background;
     Image m_fadeImage;
 
@@ -52,8 +54,6 @@ public class Manager : MonoBehaviour {
 
             InitComponents();
             ChangeState(GameState.mainmenu);
-
-
         }
     
     }
@@ -216,8 +216,10 @@ public class Manager : MonoBehaviour {
     }
 
 
-    public static void StartDialogue(CharacterData characterData)
+    public static void StartDialogue(CharacterData characterData, Character currentCharacter)
     {
+        m_instance.currentCharacter = currentCharacter;
+
         DialogueContainer container = DialogueContainer.Load(characterData.Type);
 
         Dialogue dialogue = null;
@@ -251,13 +253,25 @@ public class Manager : MonoBehaviour {
         else if(dialogue.ContinueDialogue)
         {
             m_instance.m_progress.AddProgress((int)character.Type, 1);
-            StartDialogue(character);
+
+            if (dialogue.LeaveDialogue)
+            {
+                m_instance.currentCharacter.Leave();
+                m_instance.ChangeState(GameState.explore);
+                m_instance.m_dialogue.Close();
+            }
+            else
+            {
+                StartDialogue(character, m_instance.currentCharacter);
+            }
+            return;
         }
         else
         {
             m_instance.ChangeState(GameState.explore);
             m_instance.m_dialogue.Close();
         }
+
     }
 
     void StartChoice(Dialogue dialogue, CharacterData character)
@@ -289,7 +303,7 @@ public class Manager : MonoBehaviour {
 
         if (dialogue.ContinueDialogue)
         {
-            StartDialogue(character);
+            StartDialogue(character, m_instance.currentCharacter);
             m_instance.ChangeState(GameState.dialogue);
         }
         else
@@ -297,6 +311,11 @@ public class Manager : MonoBehaviour {
             m_instance.m_dialogue.Close();
             m_instance.ChangeState(GameState.explore);  
         }
+    }
+
+    public static Day GetDay()
+    {
+        return m_instance.m_timeHandler.m_currentDay;
     }
 
     void InputUpdate()
@@ -355,9 +374,14 @@ public class Manager : MonoBehaviour {
         m_map.InstantClose();
         m_mapOpen = false;
 
-        SceneManager.LoadScene(name);        
+        SceneManager.LoadScene(name);
 
         yield return new WaitForSeconds(0.05f);
+
+        if (m_instance.m_timeHandler)
+        {
+            m_instance.m_timeHandler.IncrementTime(1);
+        }
 
         bool changeMusic = !m_currentMapData.soundtrack.name.Equals(m_musicManager.m_audioClip.name);
 

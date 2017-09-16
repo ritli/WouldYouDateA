@@ -2,16 +2,28 @@
 
 <root>
 	<Dialogues>
-    <Dialogue level = '0'>
-      <Lines>Hello, this is my voice line Test 1 </Lines>
+    <Dialogue level = '0' continue = '1'>
+      <Lines>Oh you must be the new asp, My name is Agnar Thor Oskarsson. How are you?</Lines>
+
+      <Choices>
+        <Choice>
+          GOOD+I…I… i’m good
+        </Choice>
+        <Choice>
+          GOOD+Good Agnar-kun!
+        </Choice>
+        <Choice>
+          GOOD+Yoidesu!
+        </Choice>
+      </Choices>
     </Dialogue>
 
-    <Dialogue level = '1'>
-			<Lines>Hello, this is my voice line Test 1 </Lines>
+    <Dialogue level = '1' continue = '1' leave ='1'>
+			<Lines>Good, if you ever want to play a tune or drop some sick beats come find me!</Lines>
 		</Dialogue>
 
-		<Dialogue level = '2'>
-			<Lines>Dialogue 2 </Lines>
+		<Dialogue level = '2' continue = '1'>
+			<Lines>Ah the music, the energy, the power can’t you just feel how it speaks to you?</Lines>
 		</Dialogue>
 </Dialogues>
 </root>
