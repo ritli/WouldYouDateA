@@ -2,7 +2,11 @@
 
 <root>
 	<Dialogues>
-		<Dialogue level = '1'>
+    <Dialogue level = '0'>
+      <Lines>Hello, this is my voice line Test 1 </Lines>
+    </Dialogue>
+
+    <Dialogue level = '1'>
 			<Lines>Hello, this is my voice line Test 1 </Lines>
 		</Dialogue>
 

@@ -78,7 +78,7 @@ public class ChoiceHandler : MonoBehaviour {
                     break;
             }
 
-            button.GetComponentInChildren<Text>().text = s[1];
+            button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = s[1];
         }
     }
 

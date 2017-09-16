@@ -8,6 +8,8 @@ public class MusicManager : MonoBehaviour {
     [Range(0, 1)]
     public float m_volume = 1;
 
+    float m_baseVolume;
+
     public AudioClip m_audioClip
     {
         get
@@ -22,8 +24,10 @@ public class MusicManager : MonoBehaviour {
     }
 
 	void Start () {
-        m_musicAudioSource = GetComponent<AudioSource>();		
-	}
+        m_musicAudioSource = GetComponent<AudioSource>();
+
+        m_baseVolume = m_volume;
+    }
 
     public IEnumerator FadeMusic(float time, float volume)
     {
@@ -36,7 +40,7 @@ public class MusicManager : MonoBehaviour {
 
             m_volume = Mathf.Lerp(m_volume, volume, timeElapsed / time);
 
-            SetVolume(m_volume, false);
+            SetVolume(m_volume * m_baseVolume, false);
         }
     }
 

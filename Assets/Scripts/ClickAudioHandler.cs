@@ -8,15 +8,27 @@ public class ClickAudioHandler : MonoBehaviour, IPointerEnterHandler, IPointerDo
 
     public AudioClip[] m_clips = new AudioClip[2];
     AudioSource m_audio;
-
+    bool m_audioPlayed = false;
 
 	void Start () {
         m_audio = gameObject.AddComponent<AudioSource>();
 	}
 	
+    void EnableAudio()
+    {
+        m_audioPlayed = false;
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        m_audio.PlayOneShot(m_clips[0]);
+        if (!m_audioPlayed)
+        {
+            m_audioPlayed = true;
+
+            m_audio.PlayOneShot(m_clips[0]);
+
+            Invoke("EnableAudio", 0.2f);
+        }
     }
 
     public void OnPointerDown(PointerEventData eventData)

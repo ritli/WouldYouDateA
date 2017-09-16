@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class DialogueHandler : MonoBehaviour {
 
-    Text m_text;
+    TMPro.TextMeshProUGUI m_text;
     Animator m_nameAnimator;
-    Text m_nameText;
+    TMPro.TextMeshProUGUI m_nameText;
 
     [Multiline]
     public string m_dialogueToPrint;
@@ -27,12 +27,12 @@ public class DialogueHandler : MonoBehaviour {
 
     void Start()
     {
-        m_text = GetComponentInChildren<Text>();
+        m_text = GetComponentInChildren<TMPro.TextMeshProUGUI>();
 
         GameObject namepanel = transform.parent.Find("NamePanel").gameObject;
 
         m_nameAnimator = namepanel.GetComponent<Animator>();
-        m_nameText = namepanel.GetComponentInChildren<Text>();
+        m_nameText = namepanel.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         m_animator = GetComponent<Animator>();
         m_audio = GetComponent<AudioSource>();
 
@@ -41,12 +41,12 @@ public class DialogueHandler : MonoBehaviour {
 
     private void OnEnable()
     {
-        m_nameAnimator.gameObject.SetActive(true);
+        //m_nameAnimator.gameObject.SetActive(true);
     }
 
     private void OnDisable()
     {
-        m_nameAnimator.gameObject.SetActive(false);
+       // m_nameAnimator.gameObject.SetActive(false);
     }
 
     void PlayRandomAudio()

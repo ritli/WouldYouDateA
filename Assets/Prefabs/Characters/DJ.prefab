@@ -96,9 +96,15 @@ MonoBehaviour:
   offset: {x: 0, y: -1}
   characterData:
     m_type: 1
-    m_name: 
+    m_name: The DJ
     m_intimacyLevel: 0
     m_charPrefab: {fileID: 0}
+    m_vocals:
+    - {fileID: 8300000, guid: b5d9dfda82218074da161f3256a302da, type: 3}
+    - {fileID: 8300000, guid: e0a6fd555396e1a449f236905c7bcbbd, type: 3}
+    - {fileID: 8300000, guid: 6ef26b11a5bcad846a7d3ec1dbab2794, type: 3}
+    - {fileID: 8300000, guid: dad41216b46bca64992fe4b66ea9a85d, type: 3}
+    m_talkRate: 4
 --- !u!222 &222453671587210826
 CanvasRenderer:
   m_ObjectHideFlags: 1

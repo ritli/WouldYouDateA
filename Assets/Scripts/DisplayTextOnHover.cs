@@ -13,7 +13,7 @@ public class DisplayTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
     GameObject m_textInstance;
 
     Image m_textImage;
-    Text m_textText;
+    TMPro.TextMeshProUGUI m_textText;
 
     float alpha = 0;
     bool m_mouseover = false; 
@@ -44,7 +44,9 @@ public class DisplayTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
         {
             m_textInstance = Instantiate(m_textObject, transform);
 
-            m_textText = m_textInstance.GetComponentInChildren<Text>();
+            m_textInstance.transform.position += (Vector3)m_offset;
+
+            m_textText = m_textInstance.GetComponentInChildren<TMPro.TextMeshProUGUI>();
             m_textImage = m_textInstance.GetComponent<Image>();
 
             m_textText.text = m_textToDisplay;

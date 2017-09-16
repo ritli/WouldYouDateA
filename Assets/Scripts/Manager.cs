@@ -24,6 +24,7 @@ public class Manager : MonoBehaviour {
     ArrowHandler m_arrows;
     DialogueHandler m_dialogue;
     MainMenuHandler m_menuhandler;
+    TimeHandler m_timeHandler;
     private MusicManager m_musicManager;
 
     GameObject m_mapButton;
@@ -80,7 +81,7 @@ public class Manager : MonoBehaviour {
         m_location = GetComponentInChildren<LocationHandler>();
         m_characters = GetComponentInChildren<ManHandler>();
         m_arrows = GetComponentInChildren<ArrowHandler>();
-
+        m_timeHandler = GetComponentInChildren<TimeHandler>();
         m_dialogue = GetComponentInChildren<DialogueHandler>();
         m_menuhandler = GetComponentInChildren<MainMenuHandler>();
         m_musicManager = GetComponent<MusicManager>();
@@ -148,6 +149,7 @@ public class Manager : MonoBehaviour {
                 inGame = true;
 
                 m_choiceHandler.gameObject.SetActive(!inGame);
+                m_timeHandler.gameObject.SetActive(inGame);
                 m_map.gameObject.SetActive(inGame);
                 m_characters.gameObject.SetActive(inGame);
                 m_location.gameObject.SetActive(inGame);
@@ -170,6 +172,7 @@ public class Manager : MonoBehaviour {
             case GameState.mainmenu:
                 inGame = false;
 
+                m_timeHandler.gameObject.SetActive(inGame);
                 m_map.gameObject.SetActive(inGame);
                 m_characters.gameObject.SetActive(inGame);
                 m_location.gameObject.SetActive(inGame);

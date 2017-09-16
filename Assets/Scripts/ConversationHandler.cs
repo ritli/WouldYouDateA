@@ -50,7 +50,7 @@ public class ConversationHandler : MonoBehaviour {
         if (m_conversation.Choices.Length == 0)
         {
             Button btn = Button.Instantiate(m_buttoneTemplate, transform);
-            btn.GetComponentInChildren<Text>().text = "Leave";
+            btn.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Leave";
             btn.GetComponent<ChoiceButton>().getData(this, -1);
         }
         else
@@ -58,7 +58,7 @@ public class ConversationHandler : MonoBehaviour {
             for (int i = 0; i < m_conversation.Choices.Length; i++)
             {
                 Button btn = Button.Instantiate(m_buttoneTemplate, transform);
-                btn.GetComponentInChildren<Text>().text = m_conversation.Choices[i];
+                btn.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = m_conversation.Choices[i];
                 btn.GetComponent<ChoiceButton>().getData(this, i);
             }
         }

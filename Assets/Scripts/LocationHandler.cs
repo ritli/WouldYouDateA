@@ -5,11 +5,11 @@ using UnityEngine.UI;
 
 public class LocationHandler : MonoBehaviour {
 
-    Text m_text;
+    TMPro.TextMeshProUGUI m_text;
     	
 	void Start()
     {
-        m_text = GetComponentInChildren<Text>();
+        m_text = GetComponentInChildren<TMPro.TextMeshProUGUI>();
     }
 
     public void SetLocationText(string location)
