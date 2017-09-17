@@ -35,8 +35,6 @@ public class DialogueHandler : MonoBehaviour {
         m_nameText = namepanel.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         m_animator = GetComponent<Animator>();
         m_audio = GetComponent<AudioSource>();
-
-       // PrintText("The DJ", m_dialogueToPrint);
     }
 
     private void OnEnable()

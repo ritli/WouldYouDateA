@@ -14,7 +14,6 @@ public class TimeHandler : MonoBehaviour {
 
     public int m_Hours = 5;
 
-
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -42,6 +41,8 @@ public class TimeHandler : MonoBehaviour {
         {
             m_currentDay =  (Day)(((int)m_currentDay + 1) % 7);
             m_Hours -= 24;
+
+            Manager.ResetCharacterLeave();
         }
 
         UpdateText();

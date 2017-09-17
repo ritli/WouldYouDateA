@@ -19,37 +19,6 @@ public class ChoiceHandler : MonoBehaviour {
 
     public void StartChoiceEvent(Dialogue dialogue, CharacterData characterData)
     {
-        #region oldcode
-        /*
-        // Clear old choices
-        while (transform.childCount > 0)
-        {
-            Destroy(transform.GetChild(0));
-        }
-
-        // Select possible question
-        List<ChoiceNode> viable = new List<ChoiceNode>();
-
-        foreach (ChoiceNode question in questions.choices)
-        {
-            if (!question.passed && intimacy >= question.reqIntimacy)
-            {
-                if (question.prereqChoice == null)
-                    viable.Add(question);
-                else
-                {
-                    foreach (ChoiceNode comparison in questions.choices)
-                    {
-                        if (question.prereqChoice == comparison && comparison.passed == true)
-                            viable.Add(question);
-                    }
-                }
-            }
-        }
-        ChoiceNode chosenQuestion = viable[Random.Range(0, viable.Count - 1)];
-        */
-        #endregion
-
         currentCharacter = characterData;
         currentDialogue = dialogue;
         Buttons = new List<GameObject>(dialogue.choices.Count);

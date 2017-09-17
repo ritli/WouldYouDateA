@@ -22,7 +22,7 @@ public class Character : MonoBehaviour, IPointerDownHandler {
 
         foreach(Day day in m_daysToAppear)
         {
-            if (day.Equals(Manager.GetDay()))
+            if (day.Equals(Manager.GetDay()) && !Manager.GetCharacterLeft(characterData.Type))
             {
                 Appear();
             }

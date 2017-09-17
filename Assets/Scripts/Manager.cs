@@ -99,11 +99,22 @@ public class Manager : MonoBehaviour {
         m_instance.m_background.SetBackground(mapdata.background);
         m_instance.m_arrows.UpdateArrows(mapdata.arrowLocations);
 
+        GameObject buttonHolder = m_instance.transform.Find("CustomButtons").gameObject;
+
+        for (int i = buttonHolder.transform.childCount; i > 0; i--)
+        {
+            Destroy(buttonHolder.transform.GetChild(i-1).gameObject);
+        }
+
+        foreach (GameObject g in mapdata.customButtons)
+        {
+            Instantiate(g, buttonHolder.transform);
+        }
+
         foreach(GameObject g in mapdata.characters)
         {
             m_instance.m_characters.AddCharacter(g);
         }
-
     }
 
     public static void PlayFromMenu()
@@ -199,7 +210,6 @@ public class Manager : MonoBehaviour {
                 break;
             case GameState.explore:
                 InputUpdate();
-
                 break;
             case GameState.map:
                 break;
@@ -212,9 +222,7 @@ public class Manager : MonoBehaviour {
             default:
                 break;
         }
-
     }
-
 
     public static void StartDialogue(CharacterData characterData, Character currentCharacter)
     {
@@ -259,6 +267,7 @@ public class Manager : MonoBehaviour {
                 m_instance.currentCharacter.Leave();
                 m_instance.ChangeState(GameState.explore);
                 m_instance.m_dialogue.Close();
+                m_instance.m_progress.SetCharacterLeft((int)character.Type);
             }
             else
             {
@@ -318,6 +327,25 @@ public class Manager : MonoBehaviour {
         return m_instance.m_timeHandler.m_currentDay;
     }
 
+    public static void EndDay()
+    {
+        m_instance.m_timeHandler.m_Hours = 8;
+        m_instance.m_timeHandler.IncrementTime(24);
+
+        m_instance.StartFade(true, 0.3f, 0f);
+        m_instance.StartFade(false, 0.3f, 0.4f);
+    }
+
+    public static void ResetCharacterLeave()
+    {
+        m_instance.m_progress.ResetLeave();
+    }
+
+    public static bool GetCharacterLeft(Characters type)
+    {
+        return m_instance.m_progress.GetCharacterLeft((int)type);
+    }
+
     void InputUpdate()
     {
         if (Input.GetKeyDown(KeyCode.M))
@@ -348,6 +376,36 @@ public class Manager : MonoBehaviour {
     void StartSceneChange(string name)
     {
         StartCoroutine(ChangeSceneRoutine(name));
+    }
+
+    void StartFade(bool fadeOut, float time, float delay)
+    {
+        StartCoroutine(Fade(fadeOut, time, delay));
+    }
+
+    IEnumerator Fade(bool fadeOut, float time, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        Color c = m_fadeImage.color;
+        float alpha = 0;
+
+        while (alpha < 1)
+        {
+            alpha += Time.deltaTime / time;
+
+            if (!fadeOut)
+            {
+                m_fadeImage.color = new Color(c.r, c.g, c.b, 1- alpha);
+            }
+            else
+            {
+                m_fadeImage.color = new Color(c.r, c.g, c.b, alpha);
+
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
     }
 
     IEnumerator ChangeSceneRoutine(string name)
@@ -405,9 +463,5 @@ public class Manager : MonoBehaviour {
 
             yield return new WaitForEndOfFrame();
         }
-
-
-
     }
-
 }

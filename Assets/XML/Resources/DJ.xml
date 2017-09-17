@@ -16,6 +16,7 @@
           GOOD+Yoidesu!
         </Choice>
       </Choices>
+
     </Dialogue>
 
     <Dialogue level = '1' continue = '1' leave ='1'>
@@ -24,6 +25,24 @@
 
 		<Dialogue level = '2' continue = '1'>
 			<Lines>Ah the music, the energy, the power can’t you just feel how it speaks to you?</Lines>
+
+      <Choices>
+        <Choice>
+          NEUTRAL+Let’s play some music because I really want to C your D
+        </Choice>
+        <Choice>
+          GOOD+Let me blow your whistle baby, let me know
+        </Choice>
+        <Choice>
+          NEUTRAL+I want you to drop my pants like you drop the beat
+        </Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Wat?</Response>
+        <Response>Blow away baybay!</Response>
+        <Response>I will always drop it hard!</Response>
+      </Responses>
 		</Dialogue>
 </Dialogues>
 </root>

@@ -9,6 +9,7 @@ public struct MapData
     public GameObject[] characters;
     public Sprite background;
     public string locationName;
+    public GameObject[] customButtons;
     [Header("Order: Up, Down, Left, Right")]
     public string[] arrowLocations;
 }
@@ -27,7 +28,6 @@ public class SceneHolder : MonoBehaviour {
         {
             Invoke("InitializeScene", 0.05f);
         }        
-
 	}
 	
     void InitializeScene()

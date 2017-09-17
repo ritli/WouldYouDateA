@@ -15,6 +15,10 @@ public class Dialogue {
     [XmlArrayItem("Choice")]
     public List<string> choices;
 
+    [XmlArray("Responses")]
+    [XmlArrayItem("Response")]
+    public List<string> response;
+
     [XmlAttribute("continue")]
     public int continueDialogue;
 
