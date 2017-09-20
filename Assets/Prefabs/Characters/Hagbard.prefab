@@ -105,6 +105,10 @@ MonoBehaviour:
     - {fileID: 8300000, guid: ce4dc355560955a47a556c439cd73200, type: 3}
     - {fileID: 8300000, guid: 97e0e71a557dc5b4291c00564a5057f8, type: 3}
     m_talkRate: 10
+  m_neutral: {fileID: 0}
+  m_love: {fileID: 0}
+  m_angry: {fileID: 0}
+  m_daysToAppear: 00000000000000000000000000000000000000000000000000000000
 --- !u!222 &222453671587210826
 CanvasRenderer:
   m_ObjectHideFlags: 1

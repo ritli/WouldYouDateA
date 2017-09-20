@@ -2,24 +2,23 @@
 
 <root>
 	<Dialogues>
-    <Dialogue level = '0' continue = '1'>
+    <Dialogue level = '0' continue = '1' mood='2'>
       <Lines>Oh you must be the new asp, My name is Agnar Thor Oskarsson. How are you?</Lines>
 
       <Choices>
         <Choice>
-          GOOD+I…I… i’m good
+          NEUTRAL+I…I… i’m good
         </Choice>
         <Choice>
-          GOOD+Good Agnar-kun!
+          NEUTRAL+Good Agnar-kun!
         </Choice>
         <Choice>
           GOOD+Yoidesu!
         </Choice>
       </Choices>
-
     </Dialogue>
 
-    <Dialogue level = '1' continue = '1' leave ='1'>
+    <Dialogue level = '1' continue = '1' leave ='1' mood='1'>
 			<Lines>Good, if you ever want to play a tune or drop some sick beats come find me!</Lines>
 		</Dialogue>
 
@@ -27,15 +26,9 @@
 			<Lines>Ah the music, the energy, the power can’t you just feel how it speaks to you?</Lines>
 
       <Choices>
-        <Choice>
-          NEUTRAL+Let’s play some music because I really want to C your D
-        </Choice>
-        <Choice>
-          GOOD+Let me blow your whistle baby, let me know
-        </Choice>
-        <Choice>
-          NEUTRAL+I want you to drop my pants like you drop the beat
-        </Choice>
+        <Choice>NEUTRAL+Let’s play some music because I really want to C your D</Choice>
+        <Choice>GOOD+Let me blow your whistle baby, let me know</Choice>
+        <Choice>NEUTRAL+I want you to drop my pants like you drop the beat</Choice>
       </Choices>
 
       <Responses>
@@ -44,5 +37,21 @@
         <Response>I will always drop it hard!</Response>
       </Responses>
 		</Dialogue>
+
+    <Dialogue level = '3' continue = '0' leave ='0' mood='0'>
+      <Lines>Ah the music, the energy, the power can’t you just feel how it speaks to you?</Lines>
+
+      <Choices>
+        <Choice>NEUTRAL+Let’s play some music because I really want to C your D</Choice>
+        <Choice>GOOD+Let me blow your whistle baby, let me know</Choice>
+        <Choice>NEUTRAL+I want you to drop my pants like you drop the beat</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Wat?</Response>
+        <Response>Blow away baybay!</Response>
+        <Response>I will always drop it hard!</Response>
+      </Responses>
+    </Dialogue>
 </Dialogues>
 </root>

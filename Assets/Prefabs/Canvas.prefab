@@ -208,7 +208,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1319222299593158
 GameObject:
   m_ObjectHideFlags: 1
@@ -771,7 +771,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1994828257815218
 GameObject:
   m_ObjectHideFlags: 1
@@ -3111,7 +3111,7 @@ MonoBehaviour:
   m_material: {fileID: 0}
   m_sharedMaterial: {fileID: 0}
   m_isDefaultMaterial: 0
-  m_padding: 7.9497013
+  m_padding: 0
   m_canvasRenderer: {fileID: 222840111599008942}
   m_TextComponent: {fileID: 114041110394427176}
   m_materialReferenceIndex: 1
@@ -3585,7 +3585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_currentDay: 1
-  m_Hours: 19
+  m_Hours: 23
 --- !u!114 &114905407300409036
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -14494,8 +14494,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 800, y: 400}
+  m_AnchoredPosition: {x: 0, y: 14.189999}
+  m_SizeDelta: {x: 800, y: 643.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224585751545288780
 RectTransform:
@@ -14736,7 +14736,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -916, y: -472}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224878037536653198
 RectTransform:

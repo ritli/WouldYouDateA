@@ -71,9 +71,85 @@ public class DialogueHandler : MonoBehaviour {
         StartCoroutine(PrintLoop(dialogue, hasChoices, characterData));
     }
 
+    public void PrintResponse(string text, CharacterData characterData, Dialogue dialogue)
+    {
+        m_chatAudioClips = characterData.Vocals;
+        m_talkRate = characterData.TalkRate;
+        m_dialogueToPrint = text.Trim();
+        m_senderName = characterData.Name.ToString();
+        StartCoroutine(PrintLoopResponse(text, characterData, dialogue));
+    }
+
     string GetName()
     {
         return m_senderName;
+    }
+
+    IEnumerator PrintLoopResponse(string text, CharacterData characterData, Dialogue dialogue)
+    {
+        //m_nameText.transform.parent.gameObject.SetActive(true);
+        m_nameText.text = GetName();
+        m_text.text = "";
+
+        if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("IdleUp"))
+        {
+            PlayOpenAnim();
+            PlayOpenSound();
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        int wordCount = 0;
+
+        m_dialogueToPrint = m_dialogueToPrint.Trim();
+
+        string[] words = m_dialogueToPrint.Split(' ');
+
+        for (int i = 0; i < words.Length; i++)
+        {
+            if (i != 0)
+            {
+                m_text.text += " ";
+                yield return new WaitForSeconds(m_printInterval);
+            }
+
+            if (wordCount + words[i].Length > m_maxTextCount)
+            {
+                while (!Input.GetButton("Fire1"))
+                {
+                    yield return new WaitForEndOfFrame();
+                }
+
+                wordCount = 0;
+
+                m_text.text = "";
+            }
+
+            for (int c = 0; c < words[i].Length; c++)
+            {
+                m_text.text += words[i][c];
+                yield return new WaitForSeconds(m_printInterval);
+
+                if (wordCount % m_talkRate == 0)
+                {
+                    PlayRandomAudio();
+                }
+
+                if (m_dialogueToPrint[i] == '\n')
+                {
+                    yield return new WaitForSeconds(m_printInterval * 10);
+                }
+
+                wordCount++;
+            }
+        }
+
+        while (!Input.GetButton("Fire1"))
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        Manager.EndResponse(dialogue, characterData);
     }
 
     IEnumerator PrintLoop(Dialogue dialogue, bool hasChoices, CharacterData characterData)

@@ -101,6 +101,9 @@ MonoBehaviour:
     m_charPrefab: {fileID: 0}
     m_vocals: []
     m_talkRate: 4
+  m_neutral: {fileID: 21300000, guid: 81fce53fce08b4949995ecb1541ff37a, type: 3}
+  m_love: {fileID: 21300000, guid: 21ad02eaaff17654399811ad03adf23f, type: 3}
+  m_angry: {fileID: 21300000, guid: 82d5fff5035001b4397c534910cb93a9, type: 3}
   m_daysToAppear: 00000000010000000000000000000000000000000000000000000000
 --- !u!222 &222453671587210826
 CanvasRenderer:

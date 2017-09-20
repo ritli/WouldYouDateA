@@ -5,6 +5,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
+public enum Mood
+{
+    neutral,
+    love,
+    angry
+}
+
 
 public class Character : MonoBehaviour, IPointerDownHandler {
 
@@ -14,7 +21,14 @@ public class Character : MonoBehaviour, IPointerDownHandler {
 
     bool m_hasLeft = true;
 
+    [Header("Mood Sprites")]
+    public Sprite m_neutral;
+    public Sprite m_love;
+    public Sprite m_angry;
+
     public Day[] m_daysToAppear = new Day[7];
+
+    Mood currentMood;
 
 	void Start () 
     {
@@ -56,7 +70,6 @@ public class Character : MonoBehaviour, IPointerDownHandler {
         m_hasLeft = true;
 
         StartCoroutine(Fade(false));
-
     }
 
     public void Appear()
@@ -92,5 +105,48 @@ public class Character : MonoBehaviour, IPointerDownHandler {
 
             timeElapsed += Time.deltaTime;
         }
+    }
+
+    public void SetMood(Mood mood)
+    {
+        Image renderer = GetComponent<Image>();
+
+        switch (mood)
+        {
+            case Mood.neutral:
+                if (m_neutral)
+                {
+                    renderer.sprite = m_neutral;
+                }
+                break;
+            case Mood.love:
+                if (m_love)
+                {
+                    renderer.sprite = m_love;
+                }
+                else if (m_neutral)
+                {
+                    renderer.sprite = m_neutral;
+                }
+                break;
+            case Mood.angry:
+                if (m_angry)
+                {
+                    renderer.sprite = m_angry;
+                }
+                else if (m_neutral)
+                {
+                    renderer.sprite = m_neutral;
+                }
+                break;
+            default:
+                if (m_neutral)
+                {
+                    renderer.sprite = m_neutral;
+                }
+                break;
+        }
+
+        currentMood = mood;
     }
 }

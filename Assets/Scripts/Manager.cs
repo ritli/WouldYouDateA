@@ -248,6 +248,8 @@ public class Manager : MonoBehaviour {
             }
         }
 
+        currentCharacter.SetMood(dialogue.Mood);
+
         m_instance.ChangeState(GameState.dialogue);
         m_instance.m_dialogue.PrintText(dialogue, characterData, hasChoices);
     }
@@ -289,7 +291,7 @@ public class Manager : MonoBehaviour {
         m_choiceHandler.StartChoiceEvent(dialogue, character);
     }
 
-    public static void EndChoice(ChoiceType choiceResult, CharacterData character, Dialogue dialogue)
+    public static void EndChoice(ChoiceType choiceResult, CharacterData character, Dialogue dialogue, int choiceIndex)
     {
         int valueChange = 0;
 
@@ -297,11 +299,16 @@ public class Manager : MonoBehaviour {
         {
             case ChoiceType.good:
                 valueChange = 1;
+                m_instance.currentCharacter.SetMood(Mood.love);
+
                 break;
             case ChoiceType.neutral:
+                m_instance.currentCharacter.SetMood(Mood.angry);
+
                 break;
             case ChoiceType.bad:
                 valueChange = -1;
+                m_instance.currentCharacter.SetMood(Mood.angry);
 
                 break;
             default:
@@ -310,6 +317,20 @@ public class Manager : MonoBehaviour {
 
         m_instance.m_progress.AddProgress((int)character.Type, valueChange);
 
+        if (dialogue.response.Count > 0)
+        {
+            print(dialogue.response.Count);
+
+            m_instance.m_dialogue.PrintResponse(dialogue.response[choiceIndex-1], character, dialogue);
+        }
+        else
+        {
+            EndResponse(dialogue, character);
+        }
+    }
+
+    public static void EndResponse(Dialogue dialogue, CharacterData character)
+    {
         if (dialogue.ContinueDialogue)
         {
             StartDialogue(character, m_instance.currentCharacter);
@@ -318,7 +339,7 @@ public class Manager : MonoBehaviour {
         else
         {
             m_instance.m_dialogue.Close();
-            m_instance.ChangeState(GameState.explore);  
+            m_instance.ChangeState(GameState.explore);
         }
     }
 

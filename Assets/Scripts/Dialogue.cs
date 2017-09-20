@@ -4,8 +4,11 @@ using UnityEngine;
 using System.Xml;
 using System.Xml.Serialization;
 
+
 public class Dialogue {
 
+    [XmlAttribute("mood")]
+    public int mood;
     [XmlAttribute("level")]
     public int level;
     [XmlElement("Lines")]
@@ -24,6 +27,15 @@ public class Dialogue {
 
     [XmlAttribute("leave")]
     public int leaveDialogue;
+
+
+    public Mood Mood
+    {
+        get
+        {
+            return (Mood)mood;
+        }
+    }
 
     public bool LeaveDialogue
     {
