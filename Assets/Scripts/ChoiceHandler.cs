@@ -17,6 +17,7 @@ public class ChoiceHandler : MonoBehaviour {
 
     List<GameObject> Buttons;
 
+
     public void StartChoiceEvent(Dialogue dialogue, CharacterData characterData)
     {
         currentCharacter = characterData;
@@ -26,6 +27,7 @@ public class ChoiceHandler : MonoBehaviour {
         for (int i = 0; i < dialogue.choices.Count; i++)
         {
             GameObject button = Instantiate(m_buttonTemplate, transform);
+            button.AddComponent<ChoiceButton>();
 
             Buttons.Add(button);
 
@@ -34,34 +36,33 @@ public class ChoiceHandler : MonoBehaviour {
             switch (s[0].Trim())
             {
                 case "GOOD":
-                    button.GetComponent<Button>().onClick.AddListener(() => GoodResponse(i));
+                    button.GetComponent<ChoiceButton>().InitButton(ChoiceType.good, i);
                     break;
                 case "NEUTRAL":
-                    button.GetComponent<Button>().onClick.AddListener(() => NeutralResponse(i));
+                    button.GetComponent<ChoiceButton>().InitButton(ChoiceType.neutral, i);
                     break;
                 case "BAD":
-                    button.GetComponent<Button>().onClick.AddListener(() => BadResponse(i));
+                    button.GetComponent<ChoiceButton>().InitButton(ChoiceType.bad, i);
                     break;
 
                 default:
                     break;
             }
-
             button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = s[1].TrimEnd();
         }
     }
 
-    void GoodResponse(int index)
+    public void GoodResponse(int index)
     {
         StartCoroutine(EndChoice());
         Manager.EndChoice(ChoiceType.good, currentCharacter, currentDialogue, index);   
     }
-    void BadResponse(int index)
+    public void BadResponse(int index)
     {
         StartCoroutine(EndChoice());
         Manager.EndChoice(ChoiceType.bad, currentCharacter, currentDialogue, index);
     }
-    void NeutralResponse(int index)
+    public void NeutralResponse(int index)
     {
         StartCoroutine(EndChoice());
         Manager.EndChoice(ChoiceType.neutral, currentCharacter, currentDialogue, index);

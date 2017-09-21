@@ -235,8 +235,6 @@ public class Manager : MonoBehaviour {
 
         foreach(Dialogue d in container.m_dialogues)
         {
-            print("Current level " + d.level);
-
             if (d.level == m_instance.m_progress.GetProgress((int)characterData.Type))
             {
                 dialogue = d;
@@ -319,9 +317,7 @@ public class Manager : MonoBehaviour {
 
         if (dialogue.response.Count > 0)
         {
-            print(dialogue.response.Count);
-
-            m_instance.m_dialogue.PrintResponse(dialogue.response[choiceIndex-1], character, dialogue);
+            m_instance.m_dialogue.PrintResponse(dialogue.response[choiceIndex], character, dialogue);
         }
         else
         {

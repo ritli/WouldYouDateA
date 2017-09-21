@@ -108,7 +108,7 @@ MonoBehaviour:
   m_neutral: {fileID: 21300000, guid: 32080db9ce42f4e45820dd399b570088, type: 3}
   m_love: {fileID: 21300000, guid: bbe8095bc04ea534cb583ea704f3a2bc, type: 3}
   m_angry: {fileID: 21300000, guid: 368c29766a6f6b441a78997648034a83, type: 3}
-  m_daysToAppear: 020000000400000005000000
+  m_daysToAppear: 020000000400000003000000
 --- !u!222 &222453671587210826
 CanvasRenderer:
   m_ObjectHideFlags: 1

@@ -38,19 +38,103 @@
       </Responses>
 		</Dialogue>
 
-    <Dialogue level = '3' continue = '0' leave ='0' mood='0'>
-      <Lines>Ah the music, the energy, the power can’t you just feel how it speaks to you?</Lines>
+    <Dialogue level = '3' continue = '1' leave ='0' mood='0'>
+      <Lines>Let's up the tempo!</Lines>
 
       <Choices>
-        <Choice>NEUTRAL+Let’s play some music because I really want to C your D</Choice>
-        <Choice>GOOD+Let me blow your whistle baby, let me know</Choice>
-        <Choice>NEUTRAL+I want you to drop my pants like you drop the beat</Choice>
+        <Choice>GOOD+Are you a clarinet? Because I want to lick your wood before I blow it. </Choice>
+        <Choice>NEUTRAL+Let me press your keys boi! </Choice>
+        <Choice>NEUTRAL+I’m used to play the egg, do you know what more one can do with that motion?</Choice>
       </Choices>
 
       <Responses>
-        <Response>Wat?</Response>
-        <Response>Blow away baybay!</Response>
-        <Response>I will always drop it hard!</Response>
+        <Response>I think our beats could match!</Response>
+        <Response>Well, I'm gonna rewind this one.</Response>
+        <Response>I don’t know but I hope it will take me away from you.</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '4' continue = '0' leave ='1' mood='0'>
+      <Lines>Come on! We cant miss this transition!</Lines>
+
+      <Choices>
+        <Choice>NEUTRAL+Do you play guitar? Because if you do you can PICK me up.</Choice>
+        <Choice>NEUTRAL+Spin me like you spin your CD.</Choice>
+        <Choice>GOOD+Your mixtape is lit but I think you’re hotter!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>You can pick a ride away from me honey.</Response>
+        <Response>You cant scratch on a CD player.</Response>
+        <Response>So how about we go for a lit date fam?</Response>
+      </Responses>
+    </Dialogue>
+    
+    <!--
+    ENCOUNTER 2
+    -->
+
+    <Dialogue level = '5' continue = '1' leave ='0' mood='0'>
+      <Lines>Is this not a fantastic day to drop a sick beat, hard like it’s concrete!?</Lines>
+
+      <Choices>
+        <Choice>GOOD+Swiggity swag put the money in the bag!</Choice>
+        <Choice>NEUTRAL+Whats popping homeboi!</Choice>
+        <Choice>NEUTRAL+Yo yo yo!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Swiggity swoo! Lets battle me and you!</Response>
+        <Response>You just killed my vibe!</Response>
+        <Response>Y... yo?</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '6' continue = '1' leave ='0' mood='0'>
+      <Lines>Brrrrrrap</Lines>
+
+      <Choices>
+        <Choice>GOOD+Swiggity swooty coming for that booty</Choice>
+        <Choice>NEUTRAL+Razzle dazzle I aint looking for no hassle!</Choice>
+        <Choice>BAD+Bippety bro I can be your ho.</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Swiggity swell, you know me well!</Response>
+        <Response>Too cheesy for me, it killed you killed my flow.</Response>
+        <Response>Hit me baby one more time!</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '7' continue = '1' leave ='1' mood='0'>
+      <Lines>Bippity beep hand over the meat!</Lines>
+
+      <Choices>
+        <Choice>GOOD+Swiggity sweet wanna go and eat!</Choice>
+        <Choice>NEUTRAL+Bristle blister I want you as my mister!</Choice>
+        <Choice>BAD+Wippeti doo just me and you!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Swiggity great it’s time for a date!</Response>
+        <Response>Way off beat!</Response>
+        <Response>Might aswell play some Chainsmokers.</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '8' continue = '0' leave ='1' mood='0'>
+      <Lines>TEXT</Lines>
+
+      <Choices>
+        <Choice>GOOD+CHOICE1</Choice>
+        <Choice>NEUTRAL+CHOICE2</Choice>
+        <Choice>BAD+CHOICE3</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>RESPONSE1</Response>
+        <Response>RESPONSE2</Response>
+        <Response>RESPONSE3</Response>
       </Responses>
     </Dialogue>
 </Dialogues>
