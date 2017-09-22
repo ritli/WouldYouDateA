@@ -22,6 +22,8 @@ public class MapHandler : MonoBehaviour {
         m_audio = GetComponent<AudioSource>();
 
         m_animator.Play("CloseIdle");
+
+        SetButtonsActive(false);
     }
 
     void SetButtonsActive(bool active)

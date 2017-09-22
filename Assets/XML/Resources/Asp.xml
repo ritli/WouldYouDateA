@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+
+<root>
+	<Dialogues>
+    <Dialogue level = '0' continue = '1' mood='2' leave ='0'>
+      <Lines>Oh you must be the new asp, My name is Agnar Thor Oskarsson. How are you?</Lines>
+
+      <Choices>
+        <Choice>
+          NEUTRAL+I…I… i’m good
+        </Choice>
+        <Choice>
+          NEUTRAL+Good Agnar-kun!
+        </Choice>
+        <Choice>
+          GOOD+Yoidesu!
+        </Choice>
+      </Choices>
+    </Dialogue>
+</Dialogues>
+</root>

@@ -121,7 +121,7 @@ public class Manager : MonoBehaviour {
     {
         m_instance.m_sceneChangeState = true;
         m_instance.m_pendingGameState = GameState.explore;
-        ChangeScene("VillaGrut1924");
+        ChangeScene("VillaGrutIntro");
     }
 
     public static void SetGameState(GameState state)
@@ -226,6 +226,8 @@ public class Manager : MonoBehaviour {
 
     public static void StartDialogue(CharacterData characterData, Character currentCharacter)
     {
+
+        m_instance.m_map.Close();
         m_instance.currentCharacter = currentCharacter;
 
         DialogueContainer container = DialogueContainer.Load(characterData.Type);
@@ -332,6 +334,46 @@ public class Manager : MonoBehaviour {
             StartDialogue(character, m_instance.currentCharacter);
             m_instance.ChangeState(GameState.dialogue);
         }
+        else
+        {
+            m_instance.m_dialogue.Close();
+            m_instance.ChangeState(GameState.explore);
+        }
+    }
+
+    public static void StartEvent(GameEvent currentEvent, GameEvent nextEvent)
+    {
+        switch (currentEvent.m_type)
+        {
+            case GameEventType.ShowText:
+                m_instance.ChangeState(GameState.dialogue);
+                m_instance.m_dialogue.PrintTextEvent(currentEvent.GetText, currentEvent.GetName, nextEvent);
+                break;
+            case GameEventType.Teleport:
+                ChangeScene(currentEvent.GetScene);
+
+                if (nextEvent)
+                {
+                    StartEvent(nextEvent, nextEvent.m_nextEvent);
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
+    public static void EndEvent(GameEvent nextEvent)
+    {
+        if (nextEvent)
+        {
+            if (!nextEvent.m_type.Equals(GameEventType.ShowText))
+            {
+                m_instance.ChangeState(GameState.explore);
+                m_instance.m_dialogue.Close();
+            }
+            StartEvent(nextEvent, nextEvent.m_nextEvent);
+        }
+
         else
         {
             m_instance.m_dialogue.Close();

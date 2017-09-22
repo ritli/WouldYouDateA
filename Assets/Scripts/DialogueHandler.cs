@@ -49,7 +49,10 @@ public class DialogueHandler : MonoBehaviour {
 
     void PlayRandomAudio()
     {
-        m_audio.PlayOneShot(m_chatAudioClips[Random.Range(0, m_chatAudioClips.Length)]);
+        if (m_chatAudioClips.Length > 0)
+        {
+            m_audio.PlayOneShot(m_chatAudioClips[Random.Range(0, m_chatAudioClips.Length)]);
+        }
     }
 
     void PlayOpenSound()
@@ -80,9 +83,84 @@ public class DialogueHandler : MonoBehaviour {
         StartCoroutine(PrintLoopResponse(text, characterData, dialogue));
     }
 
+    public void PrintTextEvent(string text, string name, GameEvent nextEvent)
+    {
+        m_chatAudioClips = new AudioClip[0];
+        m_talkRate = 6;
+        m_dialogueToPrint = text.Trim();
+        m_senderName = name;
+        StartCoroutine(PrintLoopEvent(text, nextEvent));
+    }
+
     string GetName()
     {
         return m_senderName;
+    }
+
+    IEnumerator PrintLoopEvent(string text, GameEvent nextEvent)
+    {
+        m_nameText.text = GetName();
+        m_text.text = "";
+
+        if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("IdleUp"))
+        {
+            PlayOpenAnim();
+            PlayOpenSound();
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        int wordCount = 0;
+
+        m_dialogueToPrint = m_dialogueToPrint.Trim();
+
+        string[] words = m_dialogueToPrint.Split(' ');
+
+        for (int i = 0; i < words.Length; i++)
+        {
+            if (i != 0)
+            {
+                m_text.text += " ";
+                yield return new WaitForSeconds(m_printInterval);
+            }
+
+            if (wordCount + words[i].Length > m_maxTextCount)
+            {
+                while (!Input.GetButton("Fire1"))
+                {
+                    yield return new WaitForEndOfFrame();
+                }
+
+                wordCount = 0;
+
+                m_text.text = "";
+            }
+
+            for (int c = 0; c < words[i].Length; c++)
+            {
+                m_text.text += words[i][c];
+                yield return new WaitForSeconds(m_printInterval);
+
+                if (wordCount % m_talkRate == 0)
+                {
+                    PlayRandomAudio();
+                }
+
+                if (m_dialogueToPrint[i] == '\n')
+                {
+                    yield return new WaitForSeconds(m_printInterval * 10);
+                }
+
+                wordCount++;
+            }
+        }
+
+        while (!Input.GetButton("Fire1"))
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        Manager.EndEvent(nextEvent);
     }
 
     IEnumerator PrintLoopResponse(string text, CharacterData characterData, Dialogue dialogue)
