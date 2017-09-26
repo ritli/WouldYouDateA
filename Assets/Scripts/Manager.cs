@@ -276,9 +276,6 @@ public class Manager : MonoBehaviour {
             if (dialogue.LeaveDialogue)
             {
                 m_instance.currentCharacter.Leave();
-
-                m_instance.StartFade(true, 1f, 0f);
-                m_instance.StartFade(false, 1f, 1.1f);
                 m_instance.m_timeHandler.IncrementTime(6);
                 m_instance.ChangeState(GameState.explore);
                 m_instance.m_dialogue.Close();
@@ -289,6 +286,11 @@ public class Manager : MonoBehaviour {
                     GameObject g = Resources.Load<GameObject>(dialogue.Event);
                     
                     StartEvent(g.GetComponent<GameEvent>(), g.GetComponent<GameEvent>().m_nextEvent);
+                }
+                else
+                {
+                    m_instance.StartFade(true, 1f, 0f);
+                    m_instance.StartFade(false, 1f, 1.1f);
                 }
             }
             else
@@ -376,8 +378,6 @@ public class Manager : MonoBehaviour {
 
             if (dialogue.LeaveDialogue)
             {
-                m_instance.StartFade(true, 1f, 0f);
-                m_instance.StartFade(false, 1f, 1.1f);
                 m_instance.m_timeHandler.IncrementTime(6);
                 m_instance.currentCharacter.Leave();
                 m_instance.m_progress.SetCharacterLeft((int)character.Type);
@@ -389,7 +389,11 @@ public class Manager : MonoBehaviour {
                     GameObject g = Resources.Load<GameObject>(dialogue.Event);
 
                     StartEvent(g.GetComponent<GameEvent>(), g.GetComponent<GameEvent>().m_nextEvent);
+                    return;
                 }
+
+                m_instance.StartFade(true, 1f, 0f);
+                m_instance.StartFade(false, 1f, 1.1f);
             }
         }
     }
