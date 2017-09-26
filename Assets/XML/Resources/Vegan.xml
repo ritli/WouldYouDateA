@@ -2,12 +2,201 @@
 
 <root>
 	<Dialogues>
-		<Dialogue level = '1'>
-			<Lines>Hello, this is my voice line Test 1 </Lines>
-		</Dialogue>
+    <Dialogue level = '0' continue = '1' leave ='0' mood='0'>
+      <Lines>I don’t think we have had the pleasure to meet, are you not the new asp? My name is Albin. </Lines>
 
-		<Dialogue level = '2'>
-			<Lines>Dialogue 2 </Lines>
-		</Dialogue>
+      <Choices>
+        <Choice>GOOD+Uguu!</Choice>
+        <Choice>GOOD+H….HI!</Choice>
+        <Choice>GOOD+M.. m.. MoshI moshi!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Haha, are you not a lively one.</Response>
+        <Response>Haha, are you not a lively one.</Response>
+        <Response>Haha, are you not a lively one.</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '1' continue = '1' leave ='0' mood='0'>
+      <Lines>You don’t need to be nervous I know that it’s a lot to take in as a new student and sexmasterist but you will get into it in no time. I can feel it!</Lines>
+
+      <Choices>
+        <Choice>GOOD+Thanks!</Choice>
+        <Choice>GOOD+I don’t know… but I will do my best! </Choice>
+        <Choice>GOOD+Arigato Albin-senpai!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>That's the spirit!</Response>
+        <Response>That's the spirit!</Response>
+        <Response>Don´t lose your waaaaay!</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '2' continue = '1' leave ='1' mood='0'>
+      <Lines>If you ever need help or just company you can find me here at the school campus.</Lines>
+
+    </Dialogue>
+
+    <Dialogue level = '3' continue = '1' leave ='0' mood='0'>
+      <Lines>Is this not a fantastic day to sit outside and study? I just love the grass! What can I help you with? </Lines>
+
+      <Choices>
+        <Choice>GOOD+I like not killing animals!</Choice>
+        <Choice>BAD+Do… do you smoke it?</Choice>
+        <Choice>NEUTRAL+Do my looks MEAT you expectation?</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>What!? Me too! Oh can you just feel how the nature loves it when we don't kill animals!?</Response>
+        <Response>What, no! I don’t do illegal things. Shame on you for thinking that!</Response>
+        <Response>Haha… funny but I'm vegan.</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '4' continue = '1' leave ='1' mood='0'>
+      <Lines>What do you love about not killing animals?</Lines>
+
+      <Choices>
+        <Choice>BAD+So I can use them to get milk and eggs!</Choice>
+        <Choice>NEUTRAL+I’m scared of blood…</Choice>
+        <Choice>GOOD+All animals suffering needs to end!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>You're just awful.</Response>
+        <Response>Yes, but the colour red is still one that stands for a beautiful vision!</Response>
+        <Response>Could not agree more, it’s just an awful situation.</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '5' continue = '0' leave ='1' mood='0'>
+      <Lines>How do you think we could make the world a better place!?</Lines>
+
+      <Choices>
+        <Choice>NEUTRAL+I think we should kill all humans that hurt animals!</Choice>
+        <Choice>GOOD+If we all put in a little effort a lot of animals could be saved!</Choice>
+        <Choice>BAD+I want your penis inside me!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Human lives matter too! </Response>
+        <Response>I think so too! I think we will get along great. I look forward to talking with you again! </Response>
+        <Response>What!?</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '6' continue = '1' leave ='0' mood='0'>
+      <Lines>Ah it’s so nice being here around the grass but it makes me a little hungry. What can I do for you?</Lines>
+
+      <Choices>
+        <Choice>GOOD+I know that you're vegan but I hope you like cheesy pick up lines! </Choice>
+        <Choice>BAD+Is your body a big Mac cause I'm loving it?</Choice>
+        <Choice>NEUTRAL+Niku umai?</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Haha sure I actually like them!</Response>
+        <Response>I think it’s time for you to leave.</Response>
+        <Response>Nanii?</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '7' continue = '1' leave ='0' mood='0'>
+      <Lines>Green is good</Lines>
+
+      <Choices>
+        <Choice>GOOD+You´re a cutecumber!</Choice>
+        <Choice>NEUTRAL+I don´t think I can milk these jokes anymore</Choice>
+        <Choice>BAD+I think I´m a hamburger because I want you to slip your meat between my buns</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>If I'm a cutecumber then you’re a fineapple!</Response>
+        <Response>Milking a cow is rape but it was a fun joke.</Response>
+        <Response>I think it’s time for you to leave now.</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '8' continue = '1' leave ='1' mood='0'>
+      <Lines>TODO:Insert generic pun here.</Lines>
+
+      <Choices>
+        <Choice>GOOD+I guess I'm a carrot because whatever you do I'm still ROOTIng for you.</Choice>
+        <Choice>NEUTRAL+I think I'm a turkey because I want you to stuff me tonight! </Choice>
+        <Choice>BAD+I want to be your bitch cause you really are a hot dog!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Everytime we meet I like you a little bit more!</Response>
+        <Response>Please don’t talk to me again or I’m calling the cops. </Response>
+        <Response>...Haha...</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '9' continue = '1' leave ='0' mood='0'>
+      <Lines>Even a computer scientist can love being in the sun with the grass under his feet! What can I help you with?</Lines>
+
+      <Choices>
+        <Choice>GOOD+Do you love anime and beer?</Choice>
+        <Choice>NEUTRAL+Do you like long walks at the beach?</Choice>
+        <Choice>BAD+I think RNG and range champions in video games are fun!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>It’s not like I-l...love anime… b… baka!</Response>
+        <Response>Not really my thing.</Response>
+        <Response>That’s it, I’m calling the cops.</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '10' continue = '1' leave ='0' mood='0'>
+      <Lines>Believe it!</Lines>
+
+      <Choices>
+        <Choice>NEUTRAL+Do you like moose beer?</Choice>
+        <Choice>GOOD+Don’t you just love the animes when the main character always wins and the story will never have anything unexpected in them?</Choice>
+        <Choice>BAD+D… do you want to drink Blackcurrant Schnapps and watch anime someday?</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Please leave now.</Response>
+        <Response>Oh my god! I love them!</Response>
+        <Response>(VOMITS LOUDLY)</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '11' continue = '0' leave ='1' mood='0'>
+      <Lines>Dattebayo!</Lines>
+
+      <Choices>
+        <Choice>GOOD+D… do you want to drink beer and watch anime someday?</Choice>
+        <Choice>NEUTRAL+Do you want to watch an actually good anime with me like Berserk or Jojo?</Choice>
+        <Choice>BAD+Do you want to watch pokemon with me?</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>It’s a date!</Response>
+        <Response>No, I'm boring.</Response>
+        <Response>Pokemon is not vegan!</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '12' continue = '0' leave ='1' mood='0'>
+      <Lines>SEX NOW</Lines>
+
+      <Choices>
+        <Choice>GOOD+BENIS</Choice>
+        <Choice>NEUTRAL+BUSY</Choice>
+        <Choice>BAD+BANUS</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>RESPONSE1</Response>
+        <Response>RESPONSE2</Response>
+        <Response>RESPONSE3</Response>
+      </Responses>
+    </Dialogue>
 </Dialogues>
 </root>

@@ -74,7 +74,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 68bf16c8cbe123240b0a575935671596, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 81fce53fce08b4949995ecb1541ff37a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a574bab5523c982429bee24e5957fa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0}
+  offset: {x: 0, y: -1}
   characterData:
     m_type: 0
     m_name: Albin
@@ -104,7 +104,7 @@ MonoBehaviour:
   m_neutral: {fileID: 21300000, guid: 81fce53fce08b4949995ecb1541ff37a, type: 3}
   m_love: {fileID: 21300000, guid: 21ad02eaaff17654399811ad03adf23f, type: 3}
   m_angry: {fileID: 21300000, guid: 82d5fff5035001b4397c534910cb93a9, type: 3}
-  m_daysToAppear: 00000000010000000000000000000000000000000000000000000000
+  m_daysToAppear: 0000000001000000020000000300000004000000
 --- !u!222 &222453671587210826
 CanvasRenderer:
   m_ObjectHideFlags: 1

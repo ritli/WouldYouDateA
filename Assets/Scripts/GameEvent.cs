@@ -19,10 +19,13 @@ public class GameEvent : MonoBehaviour {
 
     public GameEvent m_nextEvent;
 
+    bool m_init;
     bool m_triggered = false;
     GameEvent_Text m_textHolder;
     GameEvent_Teleport m_teleport;
     void Start () {
+
+        m_init = true;
 
         switch (m_type)
         {
@@ -54,6 +57,11 @@ public class GameEvent : MonoBehaviour {
     {
         get
         {
+            if (!m_init)
+            {
+                Start();
+            }
+
             if (m_teleport.m_sceneName.Length > 0)
             {
                 return m_teleport.m_sceneName;
@@ -68,6 +76,11 @@ public class GameEvent : MonoBehaviour {
     {
         get 
         {
+            if (!m_init)
+            {
+                Start();
+            }
+
             if (m_textHolder.m_text.Length > 0)
             {
                 return m_textHolder.m_text;
@@ -81,6 +94,11 @@ public class GameEvent : MonoBehaviour {
     public string GetName
     {
         get {
+            if (!m_init)
+            {
+                Start();
+            }
+
             if (m_textHolder.m_name.Length > 0)
             {
                 return m_textHolder.m_name;
@@ -95,6 +113,11 @@ public class GameEvent : MonoBehaviour {
     {
         if (!m_triggered)
         {
+            if (!m_init)
+            {
+                Start();
+            }
+
             m_triggered = true;
 
             switch (m_type)

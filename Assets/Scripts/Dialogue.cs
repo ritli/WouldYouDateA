@@ -22,12 +22,27 @@ public class Dialogue {
     [XmlArrayItem("Response")]
     public List<string> response;
 
+    [XmlElement("Event")]
+    public string events;
+
     [XmlAttribute("continue")]
     public int continueDialogue;
 
     [XmlAttribute("leave")]
     public int leaveDialogue;
 
+    public string Event
+    {
+        get
+        {
+            if (events == null || events == "")
+            {
+                return "NoEvent";
+            }
+
+            return events;
+        }
+    }
 
     public Mood Mood
     {

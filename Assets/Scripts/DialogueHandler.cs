@@ -74,13 +74,13 @@ public class DialogueHandler : MonoBehaviour {
         StartCoroutine(PrintLoop(dialogue, hasChoices, characterData));
     }
 
-    public void PrintResponse(string text, CharacterData characterData, Dialogue dialogue)
+    public void PrintResponse(string text, CharacterData characterData, Dialogue dialogue, bool badChoice)
     {
         m_chatAudioClips = characterData.Vocals;
         m_talkRate = characterData.TalkRate;
         m_dialogueToPrint = text.Trim();
         m_senderName = characterData.Name.ToString();
-        StartCoroutine(PrintLoopResponse(text, characterData, dialogue));
+        StartCoroutine(PrintLoopResponse(text, characterData, dialogue, badChoice));
     }
 
     public void PrintTextEvent(string text, string name, GameEvent nextEvent)
@@ -163,7 +163,7 @@ public class DialogueHandler : MonoBehaviour {
         Manager.EndEvent(nextEvent);
     }
 
-    IEnumerator PrintLoopResponse(string text, CharacterData characterData, Dialogue dialogue)
+    IEnumerator PrintLoopResponse(string text, CharacterData characterData, Dialogue dialogue, bool badChoice)
     {
         //m_nameText.transform.parent.gameObject.SetActive(true);
         m_nameText.text = GetName();
@@ -227,7 +227,7 @@ public class DialogueHandler : MonoBehaviour {
             yield return new WaitForEndOfFrame();
         }
 
-        Manager.EndResponse(dialogue, characterData);
+        Manager.EndResponse(dialogue, characterData, badChoice);
     }
 
     IEnumerator PrintLoop(Dialogue dialogue, bool hasChoices, CharacterData characterData)

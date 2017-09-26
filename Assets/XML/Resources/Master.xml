@@ -1,13 +1,153 @@
 <?xml version="1.0"?>
 
 <root>
-	<Dialogues>
-		<Dialogue level = '1'>
-			<Lines>Hello, this is my voice line Test 1 </Lines>
-		</Dialogue>
+  <Dialogues>
+    <Dialogue level = '0' continue = '0' mood='0' leave ='1'>
+      <Lines>Come join us there is always room for another, My name is Gustaf Adolf Junior af Basyear and I will teach you everything you need to know!</Lines>
 
-		<Dialogue level = '2'>
-			<Lines>Dialogue 2 </Lines>
-		</Dialogue>
-</Dialogues>
+      <Choices>
+        <Choice>GOOD+o.. ok!</Choice>
+        <Choice>GOOD+Hai, Gustaf-sempaI!</Choice>
+        <Choice>GOOD+Okay!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Okay, now that´s the king, and here´s your glass...</Response>
+        <Response>Okay, now that´s the king, and here´s your glass...</Response>
+        <Response>Okay, now that´s the king, and here´s your glass...</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '1' continue = '1'>
+      <Lines>1... 2... 3... CLAIM!</Lines>
+
+      <Choices>
+        <Choice>NEUTRAL+I'm feeling a bit sad can we talk emotions?</Choice>
+        <Choice>GOOD+Do you want to do some roleplay tonight?</Choice>
+        <Choice>NEUTRAL+Do you want to grab some fast food.</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>I… Ive got to go!</Response>
+        <Response>Oh, that's perfect we are playing Dungeons and Dragons this evening!</Response>
+        <Response>I only cook advanced dishes.</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '2' continue = '1' leave ='0' mood='0'>
+      <Lines>Youre welcome to join us!</Lines>
+
+      <Choices>
+        <Choice>GOOD+I was thinking more like a sexy nurse.</Choice>
+        <Choice>NEUTRAL+I was thinking more like a sexy police.</Choice>
+        <Choice>BAD+I was thinking more like a sexy ninja.</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Even more perfect because our healer just died.</Response>
+        <Response>There are no police in DnD, come back when you have a better understanding of the universe!</Response>
+        <Response>Sorry we already have a ninja dps you will have to pick something else.</Response>
+      </Responses>
+    </Dialogue>
+  
+    <Dialogue level = '3' continue = '1' leave ='1' mood='0'>
+      <Lines>So how about it? Are you ready to roll!?</Lines>
+
+      <Choices>
+        <Choice>NEUTRAL+Okay I'll join, but only if we do something more after the session.</Choice>
+        <Choice>GOOD+I'll join but I need a place to sleep if it gets too late!</Choice>
+        <Choice>BAD+You don’t get what I'm saying, do you?</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>You should ask someone else, I'm working early.</Response>
+        <Response>There is always a place to sleep at my home, I look forward to getting to know you better!</Response>
+        <Response>#offended, you can leave now.</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '4' continue = '0' leave ='1' mood='0'>
+      <Lines>Come on! We cant miss this transition!</Lines>
+
+      <Choices>
+        <Choice>NEUTRAL+Do you play guitar? Because if you do you can PICK me up.</Choice>
+        <Choice>NEUTRAL+Spin me like you spin your CD.</Choice>
+        <Choice>GOOD+Your mixtape is lit but I think you’re hotter!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>You can pick a ride away from me honey.</Response>
+        <Response>You cant scratch on a CD player.</Response>
+        <Response>So how about we go for a lit date fam?</Response>
+      </Responses>
+    </Dialogue>
+
+    <!--
+    ENCOUNTER 2
+    -->
+
+    <Dialogue level = '5' continue = '1' leave ='0' mood='0'>
+      <Lines>Is this not a fantastic day to drop a sick beat, hard like it’s concrete!?</Lines>
+
+      <Choices>
+        <Choice>GOOD+Swiggity swag put the money in the bag!</Choice>
+        <Choice>NEUTRAL+Whats popping homeboi!</Choice>
+        <Choice>NEUTRAL+Yo yo yo!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Swiggity swoo! Lets battle me and you!</Response>
+        <Response>You just killed my vibe!</Response>
+        <Response>Y... yo?</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '6' continue = '1' leave ='0' mood='0'>
+      <Lines>Brrrrrrap</Lines>
+
+      <Choices>
+        <Choice>GOOD+Swiggity swooty coming for that booty</Choice>
+        <Choice>NEUTRAL+Razzle dazzle I aint looking for no hassle!</Choice>
+        <Choice>BAD+Bippety bro I can be your ho.</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Swiggity swell, you know me well!</Response>
+        <Response>Too cheesy for me, it killed you killed my flow.</Response>
+        <Response>Hit me baby one more time!</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '7' continue = '1' leave ='1' mood='0'>
+      <Lines>Bippity beep hand over the meat!</Lines>
+
+      <Choices>
+        <Choice>GOOD+Swiggity sweet wanna go and eat!</Choice>
+        <Choice>NEUTRAL+Bristle blister I want you as my mister!</Choice>
+        <Choice>BAD+Wippeti doo just me and you!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Swiggity great it’s time for a date!</Response>
+        <Response>Way off beat!</Response>
+        <Response>Might aswell play some Chainsmokers.</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '8' continue = '0' leave ='1' mood='0'>
+      <Lines>TEXT</Lines>
+
+      <Choices>
+        <Choice>GOOD+CHOICE1</Choice>
+        <Choice>NEUTRAL+CHOICE2</Choice>
+        <Choice>BAD+CHOICE3</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>RESPONSE1</Response>
+        <Response>RESPONSE2</Response>
+        <Response>RESPONSE3</Response>
+      </Responses>
+    </Dialogue>
+  </Dialogues>
 </root>

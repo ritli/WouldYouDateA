@@ -204,6 +204,12 @@ public class Manager : MonoBehaviour {
 
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            ChangeScene("VillaGrut");
+            ChangeState(GameState.explore);
+        }
+
         switch (m_state)
         {
             case GameState.paused:
@@ -226,8 +232,11 @@ public class Manager : MonoBehaviour {
 
     public static void StartDialogue(CharacterData characterData, Character currentCharacter)
     {
+        if (m_instance.m_mapOpen)
+        {
+            m_instance.m_map.Close();
+        }
 
-        m_instance.m_map.Close();
         m_instance.currentCharacter = currentCharacter;
 
         DialogueContainer container = DialogueContainer.Load(characterData.Type);
@@ -267,9 +276,20 @@ public class Manager : MonoBehaviour {
             if (dialogue.LeaveDialogue)
             {
                 m_instance.currentCharacter.Leave();
+
+                m_instance.StartFade(true, 1f, 0f);
+                m_instance.StartFade(false, 1f, 1.1f);
+                m_instance.m_timeHandler.IncrementTime(6);
                 m_instance.ChangeState(GameState.explore);
                 m_instance.m_dialogue.Close();
                 m_instance.m_progress.SetCharacterLeft((int)character.Type);
+
+                if (!dialogue.Event.Equals("NoEvent"))
+                {
+                    GameObject g = Resources.Load<GameObject>(dialogue.Event);
+                    
+                    StartEvent(g.GetComponent<GameEvent>(), g.GetComponent<GameEvent>().m_nextEvent);
+                }
             }
             else
             {
@@ -293,6 +313,7 @@ public class Manager : MonoBehaviour {
 
     public static void EndChoice(ChoiceType choiceResult, CharacterData character, Dialogue dialogue, int choiceIndex)
     {
+        bool badChoice = false;
         int valueChange = 0;
 
         switch (choiceResult)
@@ -309,6 +330,7 @@ public class Manager : MonoBehaviour {
             case ChoiceType.bad:
                 valueChange = -1;
                 m_instance.currentCharacter.SetMood(Mood.angry);
+                badChoice = true;
 
                 break;
             default:
@@ -319,16 +341,29 @@ public class Manager : MonoBehaviour {
 
         if (dialogue.response.Count > 0)
         {
-            m_instance.m_dialogue.PrintResponse(dialogue.response[choiceIndex], character, dialogue);
+            m_instance.m_dialogue.PrintResponse(dialogue.response[choiceIndex], character, dialogue, badChoice);
         }
         else
         {
-            EndResponse(dialogue, character);
+            EndResponse(dialogue, character, badChoice);
         }
     }
 
-    public static void EndResponse(Dialogue dialogue, CharacterData character)
+    public static void EndResponse(Dialogue dialogue, CharacterData character, bool badChoice)
     {
+        if (badChoice)
+        {
+            m_instance.m_dialogue.Close();
+            m_instance.ChangeState(GameState.explore);
+            m_instance.StartFade(true, 1f, 0f);
+            m_instance.StartFade(false, 1f, 1.1f);
+            m_instance.m_timeHandler.IncrementTime(6);
+            m_instance.currentCharacter.Leave();
+            m_instance.m_progress.SetCharacterLeft((int)character.Type);
+
+            return;
+        }
+
         if (dialogue.ContinueDialogue)
         {
             StartDialogue(character, m_instance.currentCharacter);
@@ -338,6 +373,24 @@ public class Manager : MonoBehaviour {
         {
             m_instance.m_dialogue.Close();
             m_instance.ChangeState(GameState.explore);
+
+            if (dialogue.LeaveDialogue)
+            {
+                m_instance.StartFade(true, 1f, 0f);
+                m_instance.StartFade(false, 1f, 1.1f);
+                m_instance.m_timeHandler.IncrementTime(6);
+                m_instance.currentCharacter.Leave();
+                m_instance.m_progress.SetCharacterLeft((int)character.Type);
+
+                print("Event : " + dialogue.Event);
+
+                if (!dialogue.Event.Equals("NoEvent"))
+                {
+                    GameObject g = Resources.Load<GameObject>(dialogue.Event);
+
+                    StartEvent(g.GetComponent<GameEvent>(), g.GetComponent<GameEvent>().m_nextEvent);
+                }
+            }
         }
     }
 
@@ -411,6 +464,8 @@ public class Manager : MonoBehaviour {
         {
             OpenMap();
         }
+
+
     }
 
     public void OpenMap()

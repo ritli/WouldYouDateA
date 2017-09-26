@@ -16,11 +16,13 @@
           GOOD+Yoidesu!
         </Choice>
       </Choices>
+
     </Dialogue>
 
     <Dialogue level = '1' continue = '1' leave ='1' mood='1'>
 			<Lines>Good, if you ever want to play a tune or drop some sick beats come find me!</Lines>
-		</Dialogue>
+      <Event>EventDJBed</Event>
+    </Dialogue>
 
 		<Dialogue level = '2' continue = '1'>
 			<Lines>Ah the music, the energy, the power can’t you just feel how it speaks to you?</Lines>
@@ -122,7 +124,59 @@
       </Responses>
     </Dialogue>
 
-    <Dialogue level = '8' continue = '0' leave ='1' mood='0'>
+    <Dialogue level = '8' continue = '1' leave ='1' mood='0'>
+      <Lines>BBBBBrrrrrrrrrrrrraaaaaaaaaaaaaaaah! </Lines>
+
+      <Choices>
+        <Choice>GOOD+Brrrrrrrrrrrrrrrrrrrrrrarh!</Choice>
+        <Choice>BAD+Check! Check! Time for the mic drop!</Choice>
+        <Choice>NEUTRAL+Skrrrt skrrrt!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Oh I see that you are a fellow musician as well! A fine art!</Response>
+        <Response>Please don´t damage student council property.</Response>
+        <Response>Underwater squad?</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '9' continue = '1' leave ='0' mood='0'>
+      <Lines>What´s you favourite music genre?</Lines>
+
+      <Choices>
+        <Choice>GOOD+Future house! </Choice>
+        <Choice>NEUTRAL+Big room house!</Choice>
+        <Choice>BAD+Dancehall!</Choice>
+        <Choice>NEUTRAL+Smooth Jazz!</Choice>
+        <Choice>NEUTRAL+Sci-Fi!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Ah your ears are on the beat! Great taste in music.</Response>
+        <Response>It´s okay If you live in a club...</Response>
+        <Response>Well musician was maybe not the right choice of word...</Response>
+        <Response>But where are the synths?</Response>
+        <Response>That´s not a music genre you pleb.</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '10' continue = '0' leave ='1' mood='0'>
+      <Lines>Don´t you just love how TCHAMI revolutionized the house genre.</Lines>
+
+      <Choices>
+        <Choice>BAD+Oh yeah! I love how Skrillex was quick to have his say as well!</Choice>
+        <Choice>NEUTRAL+But Tiesto was really the one who started it</Choice>
+        <Choice>GOOD+Oliver Heldens made a great addition too!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>You can wub wub away from me.</Response>
+        <Response>That a interesting topic to debate!</Response>
+        <Response>I really think we will be the best of pals!</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '12' continue = '0' leave ='1' mood='0'>
       <Lines>TEXT</Lines>
 
       <Choices>

@@ -74,7 +74,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 632e5ecf507614f4bbe802959d9ce07b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f69166724553c4b44ac5ac167e43917c, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -93,14 +93,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a574bab5523c982429bee24e5957fa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0}
+  offset: {x: 0, y: -1.5}
   characterData:
     m_type: 2
     m_name: Junior
     m_intimacyLevel: 0
     m_charPrefab: {fileID: 0}
-    m_vocals: []
-    m_talkRate: 4
+    m_vocals:
+    - {fileID: 8300000, guid: 237e693c4fce29c48afc9d9aefff5a7a, type: 3}
+    - {fileID: 8300000, guid: f7370b22f690c7b4e9a0f9be407a77e2, type: 3}
+    - {fileID: 8300000, guid: 11f4fe9ed9b58f34a8dc7fa31d383a16, type: 3}
+    - {fileID: 8300000, guid: 7dd64fe887c384942849eb6250be6ae2, type: 3}
+    m_talkRate: 9
   m_neutral: {fileID: 21300000, guid: f69166724553c4b44ac5ac167e43917c, type: 3}
   m_love: {fileID: 21300000, guid: 6eebcbc7cbe68f247a93790daa63a87a, type: 3}
   m_angry: {fileID: 21300000, guid: 79cbe7da77963e04493998e7376f05c8, type: 3}
