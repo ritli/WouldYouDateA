@@ -2,10 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class ProgressManager {
+
+    public static ProgressManager current;
 
     List<int> characterProgress = new List<int>(System.Enum.GetNames(typeof(Characters)).Length);
     List<bool> characterLeft = new List<bool>(System.Enum.GetNames(typeof(Characters)).Length);
+    List<bool> characterAngry = new List<bool>(System.Enum.GetNames(typeof(Characters)).Length);
 
     public ProgressManager()
     {
@@ -13,6 +17,7 @@ public class ProgressManager {
         {
             characterProgress.Add(0);
             characterLeft.Add(false);
+            characterAngry.Add(false);
         }
     }
 
@@ -36,6 +41,17 @@ public class ProgressManager {
         return characterLeft[index];
     }
 
+    public void SetCharacterAngry(int index)
+    {
+        characterLeft[index] = true;
+    }
+
+    public bool GetCharacterAngry(int index)
+    {
+        return characterLeft[index];
+    }
+
+
     public void ResetLeave()
     {
         for (int i = 0; i < characterLeft.Count; i++)
@@ -43,5 +59,7 @@ public class ProgressManager {
             characterLeft[i] = false;
         }
     }
+
+
 
 }

@@ -57,6 +57,8 @@ public class Manager : MonoBehaviour {
 
             InitComponents();
             ChangeState(GameState.mainmenu);
+
+            
         }
     
     }
@@ -360,6 +362,7 @@ public class Manager : MonoBehaviour {
             case ChoiceType.bad:
                 valueChange = -1;
                 m_instance.currentCharacter.SetMood(Mood.angry);
+                m_instance.m_progress.SetCharacterAngry((int)character.Type);
                 badChoice = true;
 
                 break;
@@ -502,6 +505,11 @@ public class Manager : MonoBehaviour {
         return m_instance.m_progress.GetCharacterLeft((int)type);
     }
 
+    public static bool GetCharacterAngry(Characters type)
+    {
+        return m_instance.m_progress.GetCharacterAngry((int)type);
+    }
+
     void InputUpdate()
     {
         if (Input.GetKeyDown(KeyCode.M))
@@ -621,5 +629,15 @@ public class Manager : MonoBehaviour {
 
             yield return new WaitForEndOfFrame();
         }
+    }
+
+    static void SaveGame()
+    {
+        
+    }
+
+    static void LoadGame()
+    {
+
     }
 }
