@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum GameEventType
 {
-    ShowText, Teleport
+    ShowText, Teleport, StartDialogue
 }
 public enum GameEventTriggerType
 {
@@ -23,6 +23,8 @@ public class GameEvent : MonoBehaviour {
     bool m_triggered = false;
     GameEvent_Text m_textHolder;
     GameEvent_Teleport m_teleport;
+    GameEvent_StartDialogue m_dialogue;
+
     void Start () {
 
         m_init = true;
@@ -34,6 +36,9 @@ public class GameEvent : MonoBehaviour {
                 break;
             case GameEventType.Teleport:
                 m_teleport = GetComponent<GameEvent_Teleport>();
+                break;
+            case GameEventType.StartDialogue:
+                m_dialogue = GetComponent<GameEvent_StartDialogue>();
                 break;
             default:
                 break;
@@ -109,6 +114,19 @@ public class GameEvent : MonoBehaviour {
         }
     }
 
+    public Characters GetCharacter
+    {
+        get
+        {
+            if (!m_init)
+            {
+                Start();
+            }
+
+            return m_dialogue.m_character;
+        }
+    }
+
     public void TriggerEvent()
     {
         if (!m_triggered)
@@ -119,18 +137,8 @@ public class GameEvent : MonoBehaviour {
             }
 
             m_triggered = true;
+            Manager.StartEvent(this, m_nextEvent);
 
-            switch (m_type)
-            {
-                case GameEventType.ShowText:
-                    Manager.StartEvent(this, m_nextEvent);
-                    break;
-                case GameEventType.Teleport:
-                    Manager.StartEvent(this, m_nextEvent);
-                    break;
-                default:
-                    break;
-            }
         }
     }
 
@@ -152,6 +160,10 @@ public class GameEvent : MonoBehaviour {
                 {
                     gameObject.AddComponent<GameEvent_Text>();
                 }
+                if (GetComponent<GameEvent_StartDialogue>())
+                {
+                    DestroyImmediate(gameObject.GetComponent<GameEvent_StartDialogue>());
+                }
                 else if (GetComponent<GameEvent_Teleport>()) {
                     DestroyImmediate(gameObject.GetComponent<GameEvent_Teleport>());
                 }
@@ -161,9 +173,27 @@ public class GameEvent : MonoBehaviour {
                 {
                     DestroyImmediate(gameObject.GetComponent<GameEvent_Text>());
                 }
+                if (GetComponent<GameEvent_StartDialogue>())
+                {
+                    DestroyImmediate(gameObject.GetComponent<GameEvent_StartDialogue>());
+                }
                 else if (!GetComponent<GameEvent_Teleport>())
                 {
                     gameObject.AddComponent<GameEvent_Teleport>();
+                }
+                break;
+            case GameEventType.StartDialogue:
+                if (GetComponent<GameEvent_Text>())
+                {
+                    DestroyImmediate(gameObject.GetComponent<GameEvent_Text>());
+                }
+                if (GetComponent<GameEvent_Teleport>())
+                {
+                    DestroyImmediate(gameObject.GetComponent<GameEvent_Teleport>());
+                }
+                else if (!GetComponent<GameEvent_StartDialogue>())
+                {
+                    gameObject.AddComponent<GameEvent_StartDialogue>();
                 }
                 break;
             default:

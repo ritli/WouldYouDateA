@@ -35,6 +35,9 @@ public class Manager : MonoBehaviour {
     Image m_fadeImage;
 
     bool m_sceneChangeState = false;
+    bool m_eventTriggeredThroughDialogue;
+    Dialogue m_currentDialogue;
+    CharacterData m_currentCharacter;
 
     ProgressManager m_progress;
 
@@ -243,10 +246,11 @@ public class Manager : MonoBehaviour {
 
         Dialogue dialogue = null;
         bool hasChoices = false;
+        int i = 0;
 
         foreach(Dialogue d in container.m_dialogues)
         {
-            if (d.level == m_instance.m_progress.GetProgress((int)characterData.Type))
+            if (i == m_instance.m_progress.GetProgress((int)characterData.Type))
             {
                 dialogue = d;
 
@@ -255,12 +259,34 @@ public class Manager : MonoBehaviour {
                     hasChoices = true;
                 }
             }
+
+            i++;
         }
 
         currentCharacter.SetMood(dialogue.Mood);
 
-        m_instance.ChangeState(GameState.dialogue);
-        m_instance.m_dialogue.PrintText(dialogue, characterData, hasChoices);
+        if (dialogue.text == null && !hasChoices)
+        {
+            if (!dialogue.Event.Equals("NoEvent"))
+            {
+                GameObject g = Resources.Load<GameObject>(dialogue.Event);
+
+                StartEvent(g.GetComponent<GameEvent>(), g.GetComponent<GameEvent>().m_nextEvent);
+
+                print("InstaEvent Started");
+
+                if (dialogue.ContinueDialogue)
+                {
+                    m_instance.m_progress.AddProgress((int)characterData.Type, 1);
+                }
+            }
+        }
+        else
+        {
+            m_instance.ChangeState(GameState.dialogue);
+
+            m_instance.m_dialogue.PrintText(dialogue, characterData, hasChoices);
+        }
     }
 
     public static void EndDialogue(Dialogue dialogue, bool hasChoices, CharacterData character)
@@ -284,7 +310,9 @@ public class Manager : MonoBehaviour {
                 if (!dialogue.Event.Equals("NoEvent"))
                 {
                     GameObject g = Resources.Load<GameObject>(dialogue.Event);
-                    
+
+                    print("PostDialogue event started");
+
                     StartEvent(g.GetComponent<GameEvent>(), g.GetComponent<GameEvent>().m_nextEvent);
                 }
                 else
@@ -400,6 +428,8 @@ public class Manager : MonoBehaviour {
 
     public static void StartEvent(GameEvent currentEvent, GameEvent nextEvent)
     {
+        print("Event started");
+
         switch (currentEvent.m_type)
         {
             case GameEventType.ShowText:
@@ -414,8 +444,18 @@ public class Manager : MonoBehaviour {
                     StartEvent(nextEvent, nextEvent.m_nextEvent);
                 }
                 break;
-            default:
+            case GameEventType.StartDialogue:
+                foreach (Character c in m_instance.m_characters.GetComponentsInChildren<Character>())
+                {
+                    if (c.characterData.Type == currentEvent.GetCharacter)
+                    {
+                        StartDialogue(c.characterData, c);
+                        break;
+                    }
+                }
                 break;
+            default:
+                break; 
         }
     }
 
@@ -423,7 +463,7 @@ public class Manager : MonoBehaviour {
     {
         if (nextEvent)
         {
-            if (!nextEvent.m_type.Equals(GameEventType.ShowText))
+            if (nextEvent.m_type.Equals(GameEventType.Teleport))
             {
                 m_instance.ChangeState(GameState.explore);
                 m_instance.m_dialogue.Close();

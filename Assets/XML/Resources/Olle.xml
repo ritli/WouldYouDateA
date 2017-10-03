@@ -1,0 +1,185 @@
+<?xml version="1.0"?>
+
+<root>
+	<Dialogues>
+    <Dialogue level = '4' continue = '1' leave ='0' mood='0'>
+      <Event>OlleIntro</Event>
+    </Dialogue>
+
+
+    <Dialogue level = '0' continue = '1' leave ='0' mood='0'>
+      <Lines>Oh hi, I didn’t see you there. I’m just standing here admiring the view *Olle looks you up and down* Oh, but I’m getting ahead of myself. My name is Olle.</Lines>
+
+      <Choices>
+        <Choice>GOOD+H-Hi... *blush*</Choice>
+        <Choice>GOOD+Notice me Olle-senpai! </Choice>
+        <Choice>GOOD+Let ‘em rip!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Haha, are you not a lively one.</Response>
+        <Response>Haha, are you not a lively one.</Response>
+        <Response>Haha, are you not a lively one.</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '1' continue = '1' leave ='0' mood='0'>
+      <Lines>Don’t you just love spending your days solving other peoples’ problems? I know I sure do!</Lines>
+
+      <Choices>
+        <Choice>GOOD+I really love being a student, there are so many fun things to do!</Choice>
+        <Choice>GOOD+*Dab*</Choice>
+        <Choice>GOOD+AHHHHHHHHHHHHHHHH</Choice>
+
+      </Choices>
+
+      <Responses>
+        <Response>I’m so glad to hear that!</Response>
+        <Response>*Dabs back*</Response>
+        <Response>Did I hear Caps?</Response>
+
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '2' continue = '1' leave ='0' mood='0'>
+      <Lines>What is your favorite student activity?</Lines>
+
+      <Choices>
+        <Choice>GOOD+Singing about Necrophilia, puking on stage, possibly destroying several peoples’ childhoods and sitting on every possible fraternity board, possibly at the same time.</Choice>
+        <Choice>BAD+Drinking, vandalizing and fighting!</Choice>
+        <Choice>NEUTRAL+I usually sit at home and play games with my friends, I’m not so much into going to the pub</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Oh wow, just like me!</Response>
+        <Response>As Vice Chancellor I have to ask you to kindly fuck off.</Response>
+        <Response>While I like gaming too, there’s so much more to experience in the student life.</Response>
+      </Responses>
+    </Dialogue>
+  
+    <Dialogue level = '3' continue = '1' leave ='1' mood='0'>
+      <Lines>What a total coincidence!</Lines>
+
+      <Choices>
+        <Choice>BAD+So what do you say, want to go back to your place and take the P out of Spex? ;)</Choice>
+        <Choice>GOOD+Want to hang out and cry about the future?</Choice>
+        <Choice>NEUTRAL+What do you think of my spex-idea, we take a children’s song that is beloved by many and then rewrite it to be about incest and furries!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Uhhhh… I have work tomorrow, bye!</Response>
+        <Response>I would love that.</Response>
+        <Response>It love it! But I’ve already done that.</Response>
+      </Responses>
+    </Dialogue>
+  
+    <!--
+    Encounter 2
+    -->
+
+    <Dialogue level = '4' continue = '1' leave ='0' mood='0'>
+      <Event>EventOlleEncounter2</Event>
+    </Dialogue>
+      
+    <Dialogue level = '5' continue = '1' leave ='0' mood='0'>
+      <Lines>Oh, can I help you with something?</Lines>
+
+      <Choices>
+        <Choice>NEUTRAL+Do you know what really grinds my gears? Nazis.</Choice>
+        <Choice>NEUTRAL+Do you want to hang out and watch anime some day? </Choice>
+        <Choice>GOOD+I heard you dabble in the noble art of Beyblading?</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Me too, but let’s talk about something else</Response>
+        <Response>I only read manga, anime is too exciting for me</Response>
+        <Response>Ohhh, do I ever!</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '6' continue = '1' leave ='0' mood='0'>
+      <Lines>My blade is Master Draciel, a defence based blade because I like to stand in one place and not do anything.</Lines>
+
+      <Choices>
+        <Choice>GOOD+I also love playing cowardly and not interacting with my opponents!</Choice>
+        <Choice>NEUTRAL+I think you really are a BAEblade ;)</Choice>
+        <Choice>BAD+I prefer metal fusion blades, the metal clashes and high speeds really get my blood going!</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Maybe we should get together sometime and LET IT RIP!?</Response>
+        <Response>Hihi, flattering but do you really want to LET IT RIP!?</Response>
+        <Response>Oh no, I don’t want to get my beyblade damaged. Slow battles where nothing happens is way more fun.</Response>
+      </Responses>
+    </Dialogue>
+      
+    <Dialogue level = '7' continue = '1' leave ='1' mood='0'>
+      <Lines>I´m not gonna lie, my heart is spinning pretty fast right now!</Lines>
+
+      <Choices>
+        <Choice>GOOD+I’d let you rip my clothes off any day</Choice>
+        <Choice>BAD+Why don’t we go back to your place and you can let me rip you up tonight?</Choice>
+        <Choice>NEUTRAL+I just have to go to BR Toys and buy a beyblade first</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Well, today is any day ;)</Response>
+        <Response>LET IT RIP….!
+        Is what I would say, but I have a lot of paper work to do.</Response>
+        <Response>A true beyblader still has his Beyblades from his childhood.</Response>
+      </Responses>
+    </Dialogue>
+
+    <!--
+    Encounter 3
+    -->
+      
+    <Dialogue level = '8' continue = '1' leave ='0' mood='0'>
+      <Lines>Hey, do you want to sit and have a coffee?</Lines>
+
+      <Choices>
+        <Choice>NEUTRAL+CAKE ME UP INSIDE!</Choice>
+        <Choice>GOOD+I heard that you like drawing, can I leave a commision?</Choice>
+        <Choice>BAD+ebbaplzletmesexu</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>CAAAAAKE MEEEE!</Response>
+        <Response>Sure! What do you want painted?</Response>
+        <Response>Huh?</Response>
+      </Responses>
+    </Dialogue>
+  
+    <Dialogue level = '9' continue = '1' leave ='0' mood='0'>
+      <Lines>SEX NOW</Lines>
+
+      <Choices>
+        <Choice>GOOD+A large muscular loli that towers over a tied-up JoJo, wielding a whip and a chainsword and riding a undead unicorn.</Choice>
+        <Choice>NEUTRAL+Nozomi from Keijo!!!</Choice>
+        <Choice>BAD+A huge beast of a man, surrounded by a harem of stereotypically beautiful women who longingly claw at his chest.</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>What an exquisite blend!</Response>
+        <Response>Sorry, I only read trash-tier manga</Response>
+        <Response>Yeah...no, you should probably leave.</Response>
+      </Responses>
+    </Dialogue>
+
+    <Dialogue level = '10' continue = '0' leave ='1' mood='0'>
+      <Lines>Might as well make her a futa while I am at it.</Lines>
+
+      <Choices>
+        <Choice>GOOD+I can’t pay you, but how about a coffee?</Choice>
+        <Choice>NEUTRAL+I can pay you with… services.</Choice>
+        <Choice>BAD+My dad’s rich, wanna bone?</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>It’s a dejt!</Response>
+        <Response>SEX AND DEATH IS WHAT I LIVE FOR</Response>
+        <Response>I don’t meddle with the bourgeoisie.</Response>
+      </Responses>
+    </Dialogue>
+</Dialogues>
+</root>

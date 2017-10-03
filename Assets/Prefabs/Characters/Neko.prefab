@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114877417532243090}
   - component: {fileID: 61135718490161696}
   m_Layer: 5
-  m_Name: Olle
+  m_Name: Neko
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 0a578f9a77f19a54a99dd3471e4284e8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 708ff3d9675f50b4eb4868bfabf0ce2e, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -93,22 +93,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a574bab5523c982429bee24e5957fa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0, y: 0}
+  offset: {x: 0, y: -1}
   characterData:
-    m_type: 5
-    m_name: Hederboi
+    m_type: 3
+    m_name: Tiger
     m_intimacyLevel: 0
     m_charPrefab: {fileID: 0}
     m_vocals:
-    - {fileID: 8300000, guid: 5ab112c2fb163a047b1cce25a47eb0dc, type: 3}
-    - {fileID: 8300000, guid: 5d43a6a043f593a449364d1a9936dffd, type: 3}
-    - {fileID: 8300000, guid: 7d1945d1712de0848856ea8e1cc2c0a0, type: 3}
-    - {fileID: 8300000, guid: 2645623ec6224194f912bfc7d751e205, type: 3}
-    - {fileID: 8300000, guid: 90f5c7846e557a94eb6e249d6b7758ef, type: 3}
-    m_talkRate: 4
-  m_neutral: {fileID: 21300000, guid: 0a578f9a77f19a54a99dd3471e4284e8, type: 3}
-  m_love: {fileID: 21300000, guid: b47e92c505b6e9b4cb4d32a0128f28cf, type: 3}
-  m_angry: {fileID: 21300000, guid: fbffdf0f4e47ab64eab55f1679fc0e9a, type: 3}
+    - {fileID: 8300000, guid: 4e0c55b772257d741b1ac429b8dffa00, type: 3}
+    - {fileID: 8300000, guid: f56693904aef5fc47baf20dc24065f41, type: 3}
+    - {fileID: 8300000, guid: 588e4fca5c9728f4b998887693eba4f0, type: 3}
+    - {fileID: 8300000, guid: ea69fec70718f8f4b8fea933ccaa4bce, type: 3}
+    m_talkRate: 6
+  m_neutral: {fileID: 21300000, guid: 708ff3d9675f50b4eb4868bfabf0ce2e, type: 3}
+  m_love: {fileID: 21300000, guid: 0b646f83331267c4a8143b29486c0629, type: 3}
+  m_angry: {fileID: 21300000, guid: 0b646f83331267c4a8143b29486c0629, type: 3}
   m_daysToAppear: 0000000001000000020000000300000004000000
 --- !u!222 &222453671587210826
 CanvasRenderer:
