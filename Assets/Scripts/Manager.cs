@@ -215,6 +215,12 @@ public class Manager : MonoBehaviour {
             ChangeState(GameState.explore);
         }
 
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            SaveGame();
+        }
+
+
         switch (m_state)
         {
             case GameState.paused:
@@ -633,7 +639,8 @@ public class Manager : MonoBehaviour {
 
     static void SaveGame()
     {
-        
+        ProgressManager.current = m_instance.m_progress;
+        SaveLoad.Save();
     }
 
     static void LoadGame()

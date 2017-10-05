@@ -99,7 +99,11 @@ MonoBehaviour:
     m_name: Albin
     m_intimacyLevel: 0
     m_charPrefab: {fileID: 0}
-    m_vocals: []
+    m_vocals:
+    - {fileID: 8300000, guid: e178a236ef6a38a47a0197a96b1b2a97, type: 3}
+    - {fileID: 8300000, guid: 42dc636fc9723854f9b399d488ecd915, type: 3}
+    - {fileID: 8300000, guid: ec0c9d8916311fd409a40f194d012efd, type: 3}
+    - {fileID: 8300000, guid: 501de932921f5b5418b176f25aa28a1a, type: 3}
     m_talkRate: 4
   m_neutral: {fileID: 21300000, guid: 81fce53fce08b4949995ecb1541ff37a, type: 3}
   m_love: {fileID: 21300000, guid: 21ad02eaaff17654399811ad03adf23f, type: 3}

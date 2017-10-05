@@ -34,7 +34,7 @@ public class Character : MonoBehaviour, IPointerDownHandler {
     {
         GetComponent<Image>().color = new Color(1, 1, 1, 0);
 
-        if (Manager.GetCharacterAngry(characterData.Type))
+        if (!Manager.GetCharacterAngry(characterData.Type))
         {
             foreach (Day day in m_daysToAppear)
             {

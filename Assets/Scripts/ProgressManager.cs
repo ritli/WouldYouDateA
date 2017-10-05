@@ -7,6 +7,9 @@ public class ProgressManager {
 
     public static ProgressManager current;
 
+    public string date;
+    public int index = -1;
+
     List<int> characterProgress = new List<int>(System.Enum.GetNames(typeof(Characters)).Length);
     List<bool> characterLeft = new List<bool>(System.Enum.GetNames(typeof(Characters)).Length);
     List<bool> characterAngry = new List<bool>(System.Enum.GetNames(typeof(Characters)).Length);

@@ -18,4 +18,9 @@ public class MainMenuHandler : MonoBehaviour {
     {
         Manager.PlayFromMenu();
     }
+
+    public void OpenLoadMenu()
+    {
+
+    }
 }
