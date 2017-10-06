@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 89ba2e432509d0a4eb85d600e824fe74
+  - enabled: 1
     path: Assets/Scenes/VillaGrut.unity
     guid: 62ed0ef0f89be1643aa37f4ab246d667
   - enabled: 1
     path: Assets/Scenes/Town.unity
     guid: ffeef1533e0584148839f44519bba6c5
-  - enabled: 0
-    path: 
-    guid: c7da20360ccec974794f906578be27c4
   - enabled: 1
     path: Assets/Scenes/Home.unity
     guid: 3026063a519f6a04eb707673cc088efb
@@ -53,3 +53,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bedroom/BedroomDJ.unity
     guid: 21a0887ca224edf41957b145cd072288
+  - enabled: 1
+    path: Assets/Scenes/Bedroom/BedroomOlle.unity
+    guid: 49cca03a1c5540e4da257507784a2a40
+  - enabled: 1
+    path: Assets/Scenes/Bedroom/BedroomMaster.unity
+    guid: 7f51912fda5c1464486c7d54c3e1fc1b
+  - enabled: 1
+    path: Assets/Scenes/Bedroom/BedroomVegan.unity
+    guid: dbfe89c8e0b95e3469e6253eb23025e2

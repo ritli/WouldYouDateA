@@ -42,6 +42,8 @@ public class TimeHandler : MonoBehaviour {
             m_currentDay =  (Day)(((int)m_currentDay + 1) % 7);
             m_Hours -= 24;
 
+            ProgressManager.current.AddDay();
+
             Manager.ResetCharacterLeave();
         }
 

@@ -12,6 +12,7 @@ public struct MapData
     public GameObject[] customButtons;
     [Header("Order: Up, Down, Left, Right")]
     public string[] arrowLocations;
+    public bool blockTravel;
 }
 
 public class SceneHolder : MonoBehaviour {

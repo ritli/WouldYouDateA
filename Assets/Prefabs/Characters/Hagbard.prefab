@@ -53,7 +53,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1000, y: 1000}
   m_EdgeRadius: 0
 --- !u!114 &114417041600944464
 MonoBehaviour:
@@ -108,7 +108,7 @@ MonoBehaviour:
   m_neutral: {fileID: 0}
   m_love: {fileID: 0}
   m_angry: {fileID: 0}
-  m_daysToAppear: 00000000000000000000000000000000000000000000000000000000
+  m_daysToAppear: 00000000010000000200000003000000040000000500000006000000
 --- !u!222 &222453671587210826
 CanvasRenderer:
   m_ObjectHideFlags: 1

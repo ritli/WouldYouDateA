@@ -46,7 +46,10 @@ public class MapHandler : MonoBehaviour {
 
     public void Open()
     {
-        
+        foreach(DisplayTextOnHover d in GetComponentsInChildren<DisplayTextOnHover>())
+        {
+            d.HideText();
+        }
 
         m_audio.PlayOneShot(m_audioclips[0]);
 

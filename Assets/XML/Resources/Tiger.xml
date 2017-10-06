@@ -2,6 +2,7 @@
 
 <root>
 	<Dialogues>
+    
     <Dialogue continue = '1' leave ='0' mood='2'>
       <Lines>Insert Generic fucking anime faces here</Lines>
 

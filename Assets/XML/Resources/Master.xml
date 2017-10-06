@@ -2,6 +2,10 @@
 
 <root>
   <Dialogues>
+    <Dialogue continue = '1' leave = '0'>
+      <Event>MasterIntro</Event>
+    </Dialogue>
+
     <Dialogue level = '0' continue = '0' mood='0' leave ='1'>
       <Lines>Come join us there is always room for another, My name is Gustaf Adolf Junior af Basyear and I will teach you everything you need to know!</Lines>
 
@@ -50,7 +54,7 @@
       </Responses>
     </Dialogue>
   
-    <Dialogue level = '3' continue = '1' leave ='1' mood='0'>
+    <Dialogue level = '3' continue = '1' leave ='0' mood='0'>
       <Lines>So how about it? Are you ready to roll!?</Lines>
 
       <Choices>
@@ -67,7 +71,7 @@
     </Dialogue>
 
     <Dialogue level = '4' continue = '0' leave ='1' mood='0'>
-      <Lines>Come on! We cant miss this transition!</Lines>
+      <Lines>Come on!</Lines>
 
       <Choices>
         <Choice>NEUTRAL+Do you play guitar? Because if you do you can PICK me up.</Choice>
@@ -87,67 +91,107 @@
     -->
 
     <Dialogue level = '5' continue = '1' leave ='0' mood='0'>
-      <Lines>Is this not a fantastic day to drop a sick beat, hard like it’s concrete!?</Lines>
+      <Lines>Is this not the perfect day to let loose and drink your sorrows away! Come join me!</Lines>
 
       <Choices>
-        <Choice>GOOD+Swiggity swag put the money in the bag!</Choice>
-        <Choice>NEUTRAL+Whats popping homeboi!</Choice>
-        <Choice>NEUTRAL+Yo yo yo!</Choice>
+        <Choice>GOOD+Do you want to cook some food sometime?</Choice>
+        <Choice>BAD+Do you want to join me on a donken run sometime?</Choice>
+        <Choice>NEUTRAL+Do you want to go out and eat sometime?</Choice>
       </Choices>
 
       <Responses>
-        <Response>Swiggity swoo! Lets battle me and you!</Response>
-        <Response>You just killed my vibe!</Response>
-        <Response>Y... yo?</Response>
+        <Response>Oh I would love to make some spaghetti and meatballs!</Response>
+        <Response>Eat shit you become shit. Get out of my sight.</Response>
+        <Response>I’m poor, I only have money for alcohol.</Response>
       </Responses>
     </Dialogue>
 
-    <Dialogue level = '6' continue = '1' leave ='0' mood='0'>
-      <Lines>Brrrrrrap</Lines>
-
-      <Choices>
-        <Choice>GOOD+Swiggity swooty coming for that booty</Choice>
-        <Choice>NEUTRAL+Razzle dazzle I aint looking for no hassle!</Choice>
-        <Choice>BAD+Bippety bro I can be your ho.</Choice>
-      </Choices>
-
-      <Responses>
-        <Response>Swiggity swell, you know me well!</Response>
-        <Response>Too cheesy for me, it killed you killed my flow.</Response>
-        <Response>Hit me baby one more time!</Response>
-      </Responses>
-    </Dialogue>
-
-    <Dialogue level = '7' continue = '1' leave ='1' mood='0'>
+    <Dialogue level = '7' continue = '1' leave ='0' mood='0'>
       <Lines>Bippity beep hand over the meat!</Lines>
 
       <Choices>
-        <Choice>GOOD+Swiggity sweet wanna go and eat!</Choice>
-        <Choice>NEUTRAL+Bristle blister I want you as my mister!</Choice>
-        <Choice>BAD+Wippeti doo just me and you!</Choice>
+        <Choice>GOOD+Let’s make it together!</Choice>
+        <Choice>NEUTRAL+Can’t we cook something easy so we have time to do…. other things? ;)</Choice>
+        <Choice>BAD+Oh I can bring the ketchup.</Choice>
       </Choices>
 
       <Responses>
-        <Response>Swiggity great it’s time for a date!</Response>
-        <Response>Way off beat!</Response>
-        <Response>Might aswell play some Chainsmokers.</Response>
+        <Response>Sounds fantastic!</Response>
+        <Response>I don’t make things easy I make them tasty!</Response>
+        <Response>You're dead to me.</Response>
       </Responses>
     </Dialogue>
 
-    <Dialogue level = '8' continue = '0' leave ='1' mood='0'>
-      <Lines>TEXT</Lines>
+    <Dialogue level = '6' continue = '1' leave ='1' mood='0'>
+      <Lines>Let’s meet at my place this sunday!</Lines>
 
       <Choices>
-        <Choice>GOOD+CHOICE1</Choice>
-        <Choice>NEUTRAL+CHOICE2</Choice>
-        <Choice>BAD+CHOICE3</Choice>
+        <Choice>NEUTRAL+It’s a date!</Choice>
+        <Choice>GOOD+I’d like to meet your meat, if you know what I mean.</Choice>
+        <Choice>BAD+How about we leave right now? ;)</Choice>
       </Choices>
 
       <Responses>
-        <Response>RESPONSE1</Response>
-        <Response>RESPONSE2</Response>
-        <Response>RESPONSE3</Response>
+        <Response>So it is!</Response>
+        <Response>I understand, my meat is quite tasty.</Response>
+        <Response>Leaving caps? Are you mad!? Come back when your have better values.</Response>
       </Responses>
     </Dialogue>
-  </Dialogues>
+
+    <!--
+    ENCOUNTER 3 
+    -->
+
+    <Dialogue level = '8' continue = '1' leave ='0' mood='0'>
+      <Lines>Join me in the noble sport of caps, no one is a loser when they play this game!</Lines>
+
+      <Choices>
+        <Choice>NEUTRAL+Life is short, let’s do something crazy!</Choice>
+        <Choice>BAD+Dab with me!</Choice>
+        <Choice>GOOD+Do you want to go home and smash with me?</Choice>
+      </Choices>
+
+      <Responses>
+        <Response>Will do! (hits the king with his cap).</Response>
+        <Response>If you dab, I will stab.</Response>
+        <Response>Haha my Yoshi is the best!</Response>
+      </Responses>
+    </Dialogue>
+
+  <Dialogue level = '8' continue = '1' leave ='0' mood='0'>
+    <Lines>It will be years before you can beat me!</Lines>
+
+    <Choices>
+      <Choice>GOOD+Oh so you must be good with your tongue! ;)</Choice>
+      <Choice>BAD+What are you talking about?</Choice>
+      <Choice>NEUTRAL+I was thinking more like us in your bed.</Choice>
+    </Choices>
+
+    <Responses>
+      <Response>You bet! </Response>
+      <Response>Smash or pass and this my friend, is a pass.</Response>
+      <Response>You can’t play smash from my bed doe.</Response>
+    </Responses>
+  </Dialogue>
+
+  <Dialogue level = '8' continue = '0' leave ='1' mood='0'>
+    <Lines>My forward air spike is flawless.</Lines>
+
+    <Choices>
+      <Choice>NEUTRAL+Fight me on the streets boi.</Choice>
+      <Choice>GOOD+Oh I'm sure I can handle both Yoshis and your big head!</Choice>
+      <Choice>BAD+I must say that it’s a very cheap way to win</Choice>
+    </Choices>
+
+    <Responses>
+      <Response>Oh I intend to.</Response>
+      <Response>We will see if your worthy. ;)</Response>
+      <Response>Don’t question my methods! </Response>
+    </Responses>
+
+    <Event>EventMasterBed</Event>
+
+  </Dialogue>
+</Dialogues>
+
 </root>

@@ -17,6 +17,7 @@ public class Manager : MonoBehaviour {
     GameState m_pendingGameState;
     static Manager m_instance;
 
+    InGameMenuHandler m_ingameMenu;
     ChoiceHandler m_choiceHandler;
     MapHandler m_map;
     ManHandler m_characters;
@@ -25,6 +26,7 @@ public class Manager : MonoBehaviour {
     DialogueHandler m_dialogue;
     MainMenuHandler m_menuhandler;
     TimeHandler m_timeHandler;
+    SaveLoadHandler m_saveHandler;
     private MusicManager m_musicManager;
 
     GameObject m_mapButton;
@@ -57,8 +59,6 @@ public class Manager : MonoBehaviour {
 
             InitComponents();
             ChangeState(GameState.mainmenu);
-
-            
         }
     
     }
@@ -78,8 +78,8 @@ public class Manager : MonoBehaviour {
             transform.GetChild(i).gameObject.SetActive(true);
         }
 
-        m_progress = new ProgressManager();
-
+        m_ingameMenu = GetComponentInChildren<InGameMenuHandler>();
+        m_saveHandler = GetComponentInChildren<SaveLoadHandler>();
         m_choiceHandler = GetComponentInChildren<ChoiceHandler>();
         m_map = GetComponentInChildren<MapHandler>();
         m_background = GetComponentInChildren<BackgroundHandler>();
@@ -113,7 +113,8 @@ public class Manager : MonoBehaviour {
 
         foreach (GameObject g in mapdata.customButtons)
         {
-            Instantiate(g, buttonHolder.transform);
+            GameObject button = Instantiate(g, buttonHolder.transform);
+            button.GetComponent<Animator>().Play("Open");
         }
 
         foreach(GameObject g in mapdata.characters)
@@ -126,7 +127,16 @@ public class Manager : MonoBehaviour {
     {
         m_instance.m_sceneChangeState = true;
         m_instance.m_pendingGameState = GameState.explore;
-        ChangeScene("VillaGrutIntro");
+
+        m_instance.m_saveHandler.StartNewGame();
+    }
+
+    public static void PlayFromMenuLoad()
+    {
+        m_instance.m_sceneChangeState = true;
+        m_instance.m_pendingGameState = GameState.explore;
+
+        ChangeScene(ProgressManager.current.currentScene);
     }
 
     public static void SetGameState(GameState state)
@@ -160,10 +170,21 @@ public class Manager : MonoBehaviour {
         switch (state)
         {
             case GameState.paused:
+                inGame = false;
+
+                if (m_mapOpen)
+                {
+                    m_map.Close();
+                }
+                m_mapButton.GetComponentInChildren<Button>().interactable = false;
+                m_arrows.gameObject.SetActive(inGame);
+
+
                 break;
             case GameState.explore:
                 inGame = true;
 
+                m_ingameMenu.gameObject.SetActive(inGame);
                 m_choiceHandler.gameObject.SetActive(!inGame);
                 m_timeHandler.gameObject.SetActive(inGame);
                 m_map.gameObject.SetActive(inGame);
@@ -173,7 +194,9 @@ public class Manager : MonoBehaviour {
                 m_background.gameObject.SetActive(inGame);
                 m_mapButton.gameObject.SetActive(inGame);
                 m_arrows.gameObject.SetActive(inGame);
-                m_mapButton.GetComponentInChildren<Button>().interactable = true;
+                m_mapButton.GetComponentInChildren<Button>().interactable = true && !m_instance.m_currentMapData.blockTravel;
+
+                m_menuhandler.gameObject.SetActive(!inGame);
 
                 break;
             case GameState.map:
@@ -188,6 +211,7 @@ public class Manager : MonoBehaviour {
             case GameState.mainmenu:
                 inGame = false;
 
+                m_ingameMenu.gameObject.SetActive(inGame);
                 m_timeHandler.gameObject.SetActive(inGame);
                 m_map.gameObject.SetActive(inGame);
                 m_characters.gameObject.SetActive(inGame);
@@ -195,8 +219,11 @@ public class Manager : MonoBehaviour {
                 m_dialogue.gameObject.SetActive(inGame);
                 m_background.gameObject.SetActive(inGame);
                 m_mapButton.gameObject.SetActive(inGame);
+                m_arrows.gameObject.SetActive(inGame);
 
                 m_menuhandler.gameObject.SetActive(!inGame);
+                m_saveHandler.Init();
+                m_menuhandler.Init();
 
                 break;
             default:
@@ -215,15 +242,24 @@ public class Manager : MonoBehaviour {
             ChangeState(GameState.explore);
         }
 
-        if (Input.GetKeyDown(KeyCode.S))
-        {
-            SaveGame();
-        }
-
 
         switch (m_state)
         {
             case GameState.paused:
+
+                if (Input.GetKeyDown(KeyCode.Escape))
+                {
+                    if (GameState == GameState.paused)
+                    {
+                        ChangeState(GameState.explore);
+                    }
+                    else if (GameState == GameState.explore)
+                    {
+                        ChangeState(GameState.paused);
+                    }
+
+                    m_ingameMenu.ToggleMenu();
+                }
                 break;
             case GameState.explore:
                 InputUpdate();
@@ -258,7 +294,7 @@ public class Manager : MonoBehaviour {
 
         foreach(Dialogue d in container.m_dialogues)
         {
-            if (i == m_instance.m_progress.GetProgress((int)characterData.Type))
+            if (i == ProgressManager.current.GetProgress((int)characterData.Type))
             {
                 dialogue = d;
 
@@ -285,7 +321,7 @@ public class Manager : MonoBehaviour {
 
                 if (dialogue.ContinueDialogue)
                 {
-                    m_instance.m_progress.AddProgress((int)characterData.Type, 1);
+                    ProgressManager.current.AddProgress((int)characterData.Type, 1);
                 }
             }
         }
@@ -305,7 +341,7 @@ public class Manager : MonoBehaviour {
         }
         else if(dialogue.ContinueDialogue)
         {
-            m_instance.m_progress.AddProgress((int)character.Type, 1);
+            ProgressManager.current.AddProgress((int)character.Type, 1);
 
             if (dialogue.LeaveDialogue)
             {
@@ -313,7 +349,7 @@ public class Manager : MonoBehaviour {
                 m_instance.m_timeHandler.IncrementTime(6);
                 m_instance.ChangeState(GameState.explore);
                 m_instance.m_dialogue.Close();
-                m_instance.m_progress.SetCharacterLeft((int)character.Type);
+                ProgressManager.current.SetCharacterLeft((int)character.Type);
 
                 if (!dialogue.Event.Equals("NoEvent"))
                 {
@@ -368,7 +404,7 @@ public class Manager : MonoBehaviour {
             case ChoiceType.bad:
                 valueChange = -1;
                 m_instance.currentCharacter.SetMood(Mood.angry);
-                m_instance.m_progress.SetCharacterAngry((int)character.Type);
+                ProgressManager.current.SetCharacterAngry((int)character.Type);
                 badChoice = true;
 
                 break;
@@ -376,7 +412,7 @@ public class Manager : MonoBehaviour {
                 break;
         }
 
-        m_instance.m_progress.AddProgress((int)character.Type, valueChange);
+        ProgressManager.current.AddProgress((int)character.Type, valueChange);
 
         if (dialogue.response.Count > 0)
         {
@@ -398,7 +434,7 @@ public class Manager : MonoBehaviour {
             m_instance.StartFade(false, 1f, 1.1f);
             m_instance.m_timeHandler.IncrementTime(6);
             m_instance.currentCharacter.Leave();
-            m_instance.m_progress.SetCharacterLeft((int)character.Type);
+            ProgressManager.current.SetCharacterLeft((int)character.Type);
 
             return;
         }
@@ -417,7 +453,7 @@ public class Manager : MonoBehaviour {
             {
                 m_instance.m_timeHandler.IncrementTime(6);
                 m_instance.currentCharacter.Leave();
-                m_instance.m_progress.SetCharacterLeft((int)character.Type);
+                ProgressManager.current.SetCharacterLeft((int)character.Type);
 
                 print("Event : " + dialogue.Event);
 
@@ -451,6 +487,11 @@ public class Manager : MonoBehaviour {
                 if (nextEvent)
                 {
                     StartEvent(nextEvent, nextEvent.m_nextEvent);
+                }
+                else
+                {
+                    m_instance.m_dialogue.Close();
+                    m_instance.ChangeState(GameState.explore);
                 }
                 break;
             case GameEventType.StartDialogue:
@@ -492,6 +533,11 @@ public class Manager : MonoBehaviour {
         return m_instance.m_timeHandler.m_currentDay;
     }
 
+    public static string GetTime()
+    {
+        return m_instance.m_timeHandler.m_Hours.ToString("00") + ":00 ";
+    }
+
     public static void EndDay()
     {
         m_instance.m_timeHandler.m_Hours = 8;
@@ -503,26 +549,39 @@ public class Manager : MonoBehaviour {
 
     public static void ResetCharacterLeave()
     {
-        m_instance.m_progress.ResetLeave();
+        ProgressManager.current.ResetLeave();
     }
 
     public static bool GetCharacterLeft(Characters type)
     {
-        return m_instance.m_progress.GetCharacterLeft((int)type);
+        return ProgressManager.current.GetCharacterLeft((int)type);
     }
 
     public static bool GetCharacterAngry(Characters type)
     {
-        return m_instance.m_progress.GetCharacterAngry((int)type);
+        return ProgressManager.current.GetCharacterAngry((int)type);
     }
 
     void InputUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M) && !m_currentMapData.blockTravel)
         {
             OpenMap();
         }
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameState == GameState.paused)
+            {
+                ChangeState(GameState.explore);
+            }
+            else if (GameState == GameState.explore)
+            {
+                ChangeState(GameState.paused);
+            }
+
+            m_ingameMenu.ToggleMenu();
+        }
 
     }
 
@@ -608,6 +667,11 @@ public class Manager : MonoBehaviour {
 
         yield return new WaitForSeconds(0.05f);
 
+        if (name == "Menu")
+        {
+            ChangeState(GameState.mainmenu);
+        }
+
         if (m_instance.m_timeHandler)
         {
             m_instance.m_timeHandler.IncrementTime(1);
@@ -639,12 +703,17 @@ public class Manager : MonoBehaviour {
 
     static void SaveGame()
     {
-        ProgressManager.current = m_instance.m_progress;
+        ProgressManager.current = ProgressManager.current;
         SaveLoad.Save();
     }
 
     static void LoadGame()
     {
 
+    }
+
+    public static void Quit()
+    {
+        Application.Quit();
     }
 }

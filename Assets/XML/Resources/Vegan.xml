@@ -2,6 +2,10 @@
 
 <root>
 	<Dialogues>
+    <Dialogue continue = '1' leave = '0'>
+      <Event>VeganIntro</Event>
+    </Dialogue>
+
     <Dialogue level = '0' continue = '1' leave ='0' mood='0'>
       <Lines>I don’t think we have had the pleasure to meet, are you not the new asp? My name is Albin. </Lines>
 
@@ -181,22 +185,8 @@
         <Response>No, I'm boring.</Response>
         <Response>Pokemon is not vegan!</Response>
       </Responses>
-    </Dialogue>
 
-    <Dialogue level = '12' continue = '0' leave ='1' mood='0'>
-      <Lines>SEX NOW</Lines>
-
-      <Choices>
-        <Choice>GOOD+BENIS</Choice>
-        <Choice>NEUTRAL+BUSY</Choice>
-        <Choice>BAD+BANUS</Choice>
-      </Choices>
-
-      <Responses>
-        <Response>RESPONSE1</Response>
-        <Response>RESPONSE2</Response>
-        <Response>RESPONSE3</Response>
-      </Responses>
+      <Event>EventVeganBed</Event>
     </Dialogue>
 </Dialogues>
 </root>

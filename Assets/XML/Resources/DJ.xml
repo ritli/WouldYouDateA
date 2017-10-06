@@ -2,15 +2,19 @@
 
 <root>
 	<Dialogues>
-    <Dialogue level = '0' continue = '1' mood='2'>
+    <Dialogue continue = '1' leave = '0'>
+      <Event>DJIntro</Event>
+    </Dialogue>
+    
+    <Dialogue level = '0' continue = '1' mood='0'>
       <Lines>Oh you must be the new asp, My name is Agnar Thor Oskarsson. How are you?</Lines>
 
       <Choices>
         <Choice>
-          NEUTRAL+I…I… i’m good
+          GOOD+I…I… i’m good
         </Choice>
         <Choice>
-          NEUTRAL+Good Agnar-kun!
+          GOOD+Good Agnar-kun!
         </Choice>
         <Choice>
           GOOD+Yoidesu!
@@ -21,7 +25,7 @@
 
     <Dialogue level = '1' continue = '1' leave ='1' mood='1'>
 			<Lines>Good, if you ever want to play a tune or drop some sick beats come find me!</Lines>
-      <Event>EventDJBed</Event>
+
     </Dialogue>
 
 		<Dialogue level = '2' continue = '1'>
@@ -171,25 +175,11 @@
 
       <Responses>
         <Response>You can wub wub away from me.</Response>
-        <Response>That a interesting topic to debate!</Response>
+        <Response>Go die in a volcano disaster.</Response>
         <Response>I really think we will be the best of pals!</Response>
       </Responses>
-    </Dialogue>
 
-    <Dialogue level = '12' continue = '0' leave ='1' mood='0'>
-      <Lines>TEXT</Lines>
-
-      <Choices>
-        <Choice>GOOD+CHOICE1</Choice>
-        <Choice>NEUTRAL+CHOICE2</Choice>
-        <Choice>BAD+CHOICE3</Choice>
-      </Choices>
-
-      <Responses>
-        <Response>RESPONSE1</Response>
-        <Response>RESPONSE2</Response>
-        <Response>RESPONSE3</Response>
-      </Responses>
+      <Event>EventDJBed</Event>
     </Dialogue>
 </Dialogues>
 </root>

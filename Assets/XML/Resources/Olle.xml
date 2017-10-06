@@ -57,7 +57,7 @@
       </Responses>
     </Dialogue>
   
-    <Dialogue level = '3' continue = '1' leave ='1' mood='0'>
+    <Dialogue level = '3' continue = '0' leave ='1' mood='0'>
       <Lines>What a total coincidence!</Lines>
 
       <Choices>
@@ -113,7 +113,7 @@
       </Responses>
     </Dialogue>
       
-    <Dialogue level = '7' continue = '1' leave ='1' mood='0'>
+    <Dialogue level = '7' continue = '0' leave ='1' mood='0'>
       <Lines>I´m not gonna lie, my heart is spinning pretty fast right now!</Lines>
 
       <Choices>
@@ -180,6 +180,8 @@
         <Response>SEX AND DEATH IS WHAT I LIVE FOR</Response>
         <Response>I don’t meddle with the bourgeoisie.</Response>
       </Responses>
+
+      <Event>EventOlleBed</Event>
     </Dialogue>
 </Dialogues>
 </root>

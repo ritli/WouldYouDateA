@@ -12,6 +12,8 @@ public class DisplayTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
     public GameObject m_textObject;
     GameObject m_textInstance;
 
+    Vector3 position;
+
     Image m_textImage;
     TMPro.TextMeshProUGUI m_textText;
 
@@ -32,24 +34,37 @@ public class DisplayTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public void OnPointerExit(PointerEventData eventData)
     {
-
         m_mouseover = false;
+    }
+
+    public void DestroyTextInstance()
+    {
+        Destroy(m_textInstance);
     }
 
     void DisplayText(bool visible)
     {
         int mult = -1;
-  
-        if (!m_textInstance)
+
+        if (!m_textInstance && visible)
         {
             m_textInstance = Instantiate(m_textObject, transform);
 
+
             m_textInstance.transform.position += (Vector3)m_offset;
+
+            m_textInstance.transform.parent = transform;
+
+            position = m_textInstance.transform.position;
 
             m_textText = m_textInstance.GetComponentInChildren<TMPro.TextMeshProUGUI>();
             m_textImage = m_textInstance.GetComponent<Image>();
 
             m_textText.text = m_textToDisplay;
+        }
+        else if (alpha == 0 && !visible && m_textInstance)
+        {
+            Destroy(m_textInstance);
         }
 
         if (visible)
@@ -59,6 +74,8 @@ public class DisplayTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
 
         alpha += Time.deltaTime * mult * 3;
         alpha = Mathf.Clamp01(alpha);
+
+        m_textInstance.transform.position = position;
 
         Color c = m_textText.color;
         m_textText.color = new Color(c.r, c.g, c.b, alpha);
