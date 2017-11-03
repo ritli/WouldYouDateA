@@ -6,10 +6,10 @@
 			<Lines>You have finally found your way to me... chosen one.</Lines>
       <Choices>
         <Choice>
-          NEUTRAL+Uguu!?
+          GOOD+Uguu!?
         </Choice>
         <Choice>
-          BAD+Nani!?
+          GOOD+Nani!?
         </Choice>
         <Choice>
           GOOD+Whats poppin my nignog?
@@ -21,7 +21,16 @@
       <Lines>There is no time to spare! My name is Hagbard the incarnation of the love and hard work put into this organisation and we are in grave danger.
       Although our members still put their soul into our family, one thing has been forgotten over the ages, how to love!
       You the chosen one destined to once again reignite the spark and save us from certain doom!
-      Go forth and once again show this organisation the meaning of love and SAVE... US... ALL!</Lines>
+      </Lines>
+    </Dialogue>
+
+    <Dialogue level = '1' continue = '1' leave ='0'>
+      <Lines>
+        Throughout the world of Skovde you will find creatures known as... sexare.
+        You must talk to them, befriend them, and more. WINK WINK
+        But be careful what you say as they might get upset and leave if you say the wrong thing.
+        Go forth and once again show this organisation the meaning of love and SAVE... US... ALL!
+      </Lines>
     </Dialogue>
 
     <Dialogue>

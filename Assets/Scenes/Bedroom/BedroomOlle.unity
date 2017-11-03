@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapData:
-    soundtrack: {fileID: 8300000, guid: dc7b1ee9541def14fb6429202ef5cdf9, type: 3}
+    soundtrack: {fileID: 8300000, guid: 8471d88e46e282f4e84f9479384793d4, type: 3}
     characters:
     - {fileID: 1849167870110956, guid: a9d20ad9b4a70a54d96b6be862b0116f, type: 2}
     background: {fileID: 21300000, guid: 234b02d752092e64b819f6f6981c9e54, type: 3}

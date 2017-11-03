@@ -102,7 +102,7 @@ public class Manager : MonoBehaviour {
 
         m_instance.m_location.SetLocationText(mapdata.locationName);
         m_instance.m_background.SetBackground(mapdata.background);
-        m_instance.m_arrows.UpdateArrows(mapdata.arrowLocations);
+        m_instance.m_arrows.UpdateArrows(mapdata.arrowLocations, false);
 
         GameObject buttonHolder = m_instance.transform.Find("CustomButtons").gameObject;
 
@@ -179,21 +179,29 @@ public class Manager : MonoBehaviour {
                 m_mapButton.GetComponentInChildren<Button>().interactable = false;
                 m_arrows.gameObject.SetActive(inGame);
 
-
                 break;
             case GameState.explore:
                 inGame = true;
 
                 m_ingameMenu.gameObject.SetActive(inGame);
-                m_choiceHandler.gameObject.SetActive(!inGame);
+                m_choiceHandler.gameObject.SetActive(inGame);
                 m_timeHandler.gameObject.SetActive(inGame);
+
+                if (m_state.Equals(GameState.dialogue) || m_state.Equals(GameState.choice))
+                {
+                    m_arrows.SetActive(inGame, true);
+                }
+                else
+                {
+                    m_arrows.gameObject.SetActive(true);
+                }
+
                 m_map.gameObject.SetActive(inGame);
                 m_characters.gameObject.SetActive(inGame);
                 m_location.gameObject.SetActive(inGame);
                 m_dialogue.gameObject.SetActive(inGame);
                 m_background.gameObject.SetActive(inGame);
                 m_mapButton.gameObject.SetActive(inGame);
-                m_arrows.gameObject.SetActive(inGame);
                 m_mapButton.GetComponentInChildren<Button>().interactable = true && !m_instance.m_currentMapData.blockTravel;
 
                 m_menuhandler.gameObject.SetActive(!inGame);
@@ -231,7 +239,6 @@ public class Manager : MonoBehaviour {
         }
 
         m_state = state;
-
     }
 
     void Update()
@@ -430,11 +437,13 @@ public class Manager : MonoBehaviour {
         {
             m_instance.m_dialogue.Close();
             m_instance.ChangeState(GameState.explore);
-            m_instance.StartFade(true, 1f, 0f);
-            m_instance.StartFade(false, 1f, 1.1f);
+
             m_instance.m_timeHandler.IncrementTime(6);
             m_instance.currentCharacter.Leave();
             ProgressManager.current.SetCharacterLeft((int)character.Type);
+
+            m_instance.StartFade(true, 1f, 0f);
+            m_instance.StartFade(false, 1f, 1.1f);
 
             return;
         }

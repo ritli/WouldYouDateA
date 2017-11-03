@@ -8,12 +8,19 @@ public class DialogueHandler : MonoBehaviour {
     TMPro.TextMeshProUGUI m_text;
     Animator m_nameAnimator;
     TMPro.TextMeshProUGUI m_nameText;
+    DotDotDotAnimator m_dots;
+
 
     [Multiline]
     public string m_dialogueToPrint;
     string m_senderName;
 
-    public int m_maxTextCount;
+    public int m_maxLetterCount = 140;
+    int m_standardLetterCount;
+    int m_tigerLetterCount;
+
+    int m_standardFontSize;
+    int m_tigerFontSize;
 
     public AudioClip[] m_chatAudioClips;
     public AudioClip m_chatOpenClip;
@@ -25,9 +32,22 @@ public class DialogueHandler : MonoBehaviour {
 
     const float m_printInterval = 0.03f;
 
+    bool m_InDialogue = false; //Whether a dialogue is active
+    bool m_DialogueFinished = false; //
+    bool m_DialogueWaiting = false;
+    bool m_SkipDialogue = false; //When true, coroutine will skip to end of current dialogue on next letter
+
+    float m_timeInDialogue = 0;
+
     void Start()
     {
+        m_standardLetterCount = m_maxLetterCount;
+        m_tigerLetterCount = m_maxLetterCount / 2;
+
         m_text = GetComponentInChildren<TMPro.TextMeshProUGUI>();
+
+        m_standardFontSize = (int)m_text.fontSize;
+        m_tigerFontSize = m_standardFontSize - 15;
 
         GameObject namepanel = transform.parent.Find("NamePanel").gameObject;
 
@@ -35,6 +55,43 @@ public class DialogueHandler : MonoBehaviour {
         m_nameText = namepanel.GetComponentInChildren<TMPro.TextMeshProUGUI>();
         m_animator = GetComponent<Animator>();
         m_audio = GetComponent<AudioSource>();
+        m_dots = GetComponentInChildren<DotDotDotAnimator>();
+    }
+
+    private void Update()
+    {
+        if (m_InDialogue && !m_DialogueFinished && m_timeInDialogue > 0.3f)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                m_SkipDialogue = true;
+            }
+        }
+        else if (m_InDialogue && m_DialogueFinished)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                m_DialogueWaiting = true;
+            }
+        }
+
+        if (m_InDialogue)
+        {
+            m_timeInDialogue += Time.deltaTime;
+        }
+        else
+        {
+            m_timeInDialogue = 0;
+        }
+
+        if (m_DialogueFinished)
+        {
+            m_dots.Show();
+        }
+        else
+        {
+            m_dots.Hide();
+        }
     }
 
     private void OnEnable()
@@ -71,7 +128,8 @@ public class DialogueHandler : MonoBehaviour {
         m_talkRate = characterData.TalkRate;
         m_dialogueToPrint = dialogue.text.Trim();
         m_senderName = characterData.Name.ToString();
-        StartCoroutine(PrintLoop(dialogue, hasChoices, characterData));
+
+        StartCoroutine(PrintLoopStandard(dialogue, hasChoices, characterData));
     }
 
     public void PrintResponse(string text, CharacterData characterData, Dialogue dialogue, bool badChoice)
@@ -80,6 +138,7 @@ public class DialogueHandler : MonoBehaviour {
         m_talkRate = characterData.TalkRate;
         m_dialogueToPrint = text.Trim();
         m_senderName = characterData.Name.ToString();
+
         StartCoroutine(PrintLoopResponse(text, characterData, dialogue, badChoice));
     }
 
@@ -89,6 +148,7 @@ public class DialogueHandler : MonoBehaviour {
         m_talkRate = 6;
         m_dialogueToPrint = text.Trim();
         m_senderName = name;
+
         StartCoroutine(PrintLoopEvent(text, nextEvent));
     }
 
@@ -97,65 +157,20 @@ public class DialogueHandler : MonoBehaviour {
         return m_senderName;
     }
 
+    bool Test()
+    {
+        return true;
+    }
+
     IEnumerator PrintLoopEvent(string text, GameEvent nextEvent)
     {
-        m_nameText.text = GetName();
-        m_text.text = "";
+        m_maxLetterCount = m_standardLetterCount;
+        m_text.fontSize = m_standardFontSize;
+        m_text.font = Resources.Load<TMPro.TMP_FontAsset>("DialogueFont");
 
-        if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("IdleUp"))
-        {
-            PlayOpenAnim();
-            PlayOpenSound();
-        }
+        StartCoroutine(Print(text));
 
-        yield return new WaitForSeconds(0.5f);
-
-        int wordCount = 0;
-
-        m_dialogueToPrint = m_dialogueToPrint.Trim();
-
-        string[] words = m_dialogueToPrint.Split(' ');
-
-        for (int i = 0; i < words.Length; i++)
-        {
-            if (i != 0)
-            {
-                m_text.text += " ";
-                yield return new WaitForSeconds(m_printInterval);
-            }
-
-            if (wordCount + words[i].Length > m_maxTextCount)
-            {
-                while (!Input.GetButton("Fire1"))
-                {
-                    yield return new WaitForEndOfFrame();
-                }
-
-                wordCount = 0;
-
-                m_text.text = "";
-            }
-
-            for (int c = 0; c < words[i].Length; c++)
-            {
-                m_text.text += words[i][c];
-                yield return new WaitForSeconds(m_printInterval);
-
-                if (wordCount % m_talkRate == 0)
-                {
-                    PlayRandomAudio();
-                }
-
-                if (m_dialogueToPrint[i] == '\n')
-                {
-                    yield return new WaitForSeconds(m_printInterval * 10);
-                }
-
-                wordCount++;
-            }
-        }
-
-        while (!Input.GetButton("Fire1"))
+        while (m_InDialogue)
         {
             yield return new WaitForEndOfFrame();
         }
@@ -165,138 +180,174 @@ public class DialogueHandler : MonoBehaviour {
 
     IEnumerator PrintLoopResponse(string text, CharacterData characterData, Dialogue dialogue, bool badChoice)
     {
-        //m_nameText.transform.parent.gameObject.SetActive(true);
-        m_nameText.text = GetName();
-        m_text.text = "";
-
-        if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("IdleUp"))
+        if (characterData.Type == Characters.Tiger)
         {
-            PlayOpenAnim();
-            PlayOpenSound();
+            m_text.fontSize = m_tigerFontSize;
+            m_maxLetterCount = m_tigerLetterCount;
+            m_text.font = Resources.Load<TMPro.TMP_FontAsset>("TigerFont");
+        }
+        else
+        {
+            m_maxLetterCount = m_standardLetterCount;
+            m_text.fontSize = m_standardFontSize;
+            m_text.font = Resources.Load<TMPro.TMP_FontAsset>("DialogueFont");
         }
 
-        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(Print(text));
 
-        int wordCount = 0;
-
-        m_dialogueToPrint = m_dialogueToPrint.Trim();
-
-        string[] words = m_dialogueToPrint.Split(' ');
-
-        for (int i = 0; i < words.Length; i++)
-        {
-            if (i != 0)
-            {
-                m_text.text += " ";
-                yield return new WaitForSeconds(m_printInterval);
-            }
-
-            if (wordCount + words[i].Length > m_maxTextCount)
-            {
-                while (!Input.GetButton("Fire1"))
-                {
-                    yield return new WaitForEndOfFrame();
-                }
-
-                wordCount = 0;
-
-                m_text.text = "";
-            }
-
-            for (int c = 0; c < words[i].Length; c++)
-            {
-                m_text.text += words[i][c];
-                yield return new WaitForSeconds(m_printInterval);
-
-                if (wordCount % m_talkRate == 0)
-                {
-                    PlayRandomAudio();
-                }
-
-                if (m_dialogueToPrint[i] == '\n')
-                {
-                    yield return new WaitForSeconds(m_printInterval * 10);
-                }
-
-                wordCount++;
-            }
-        }
-
-        while (!Input.GetButton("Fire1"))
+        while (m_InDialogue)
         {
             yield return new WaitForEndOfFrame();
         }
 
+
         Manager.EndResponse(dialogue, characterData, badChoice);
     }
 
-    IEnumerator PrintLoop(Dialogue dialogue, bool hasChoices, CharacterData characterData)
+    IEnumerator PrintLoopStandard(Dialogue dialogue, bool hasChoices, CharacterData characterData)
     {
-        //m_nameText.transform.parent.gameObject.SetActive(true);
-        m_nameText.text = GetName();
-        m_text.text = "";
-
-        if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("IdleUp"))
+        if (characterData.Type == Characters.Tiger)
         {
-            PlayOpenAnim();
-            PlayOpenSound();
+            m_text.fontSize = m_tigerFontSize;
+            m_maxLetterCount = m_tigerLetterCount;
+            m_text.font = Resources.Load<TMPro.TMP_FontAsset>("TigerFont");
         }
-            
-        yield return new WaitForSeconds(0.5f);
-
-        int wordCount = 0;
-
-        m_dialogueToPrint = m_dialogueToPrint.Trim();
-
-        string[] words = m_dialogueToPrint.Split(' ');
-
-        for (int i = 0; i < words.Length; i++)
+        else
         {
-            if (i != 0)
-            {
-                m_text.text += " ";
-                yield return new WaitForSeconds(m_printInterval);
-            }
-
-            if (wordCount + words[i].Length > m_maxTextCount)
-            {
-                while (!Input.GetButton("Fire1"))
-                {
-                    yield return new WaitForEndOfFrame();
-                }
-
-                wordCount = 0;
-
-                m_text.text = "";
-            }
-
-            for (int c = 0; c < words[i].Length; c++)
-            {
-                m_text.text += words[i][c];
-                yield return new WaitForSeconds(m_printInterval);
-
-                if (wordCount % m_talkRate == 0)
-                {
-                    PlayRandomAudio();
-                }
-
-                if (m_dialogueToPrint[i] == '\n')
-                {
-                    yield return new WaitForSeconds(m_printInterval * 10);
-                }
-
-                wordCount++;
-            }
+            m_maxLetterCount = m_standardLetterCount;
+            m_text.fontSize = m_standardFontSize;
+            m_text.font = Resources.Load<TMPro.TMP_FontAsset>("DialogueFont");
         }
 
-        while (!Input.GetButton("Fire1"))
+        StartCoroutine(Print(dialogue.text));
+
+        while (m_InDialogue)
         {
             yield return new WaitForEndOfFrame();
         }
 
         Manager.EndDialogue(dialogue, hasChoices, characterData);
+    }
 
-       // m_nameText.transform.parent.gameObject.SetActive(false);
+    IEnumerator Print(string text)
+    {
+        m_SkipDialogue = false;
+        m_InDialogue = true;
+
+        m_nameText.text = GetName();
+        m_text.text = "";
+
+        if (!m_animator.GetCurrentAnimatorStateInfo(0).IsName("IdleUp"))
+        {
+            PlayOpenAnim();
+            PlayOpenSound();
+        }
+
+        yield return new WaitForSeconds(0.5f);
+
+        int letterCount = 0;
+
+        m_dialogueToPrint = m_dialogueToPrint.Trim();
+
+        string[] words = m_dialogueToPrint.Split(' ');
+
+        for (int i = 0; i < words.Length; i++)
+        {
+            if (i != 0)
+            {
+                m_text.text += " ";
+                yield return new WaitForSeconds(m_printInterval);
+            }
+
+            if (letterCount + words[i].Length > m_maxLetterCount)
+            {
+                m_DialogueFinished = true;
+                m_DialogueWaiting = false;
+
+                while (!m_DialogueWaiting)
+                {
+                    yield return new WaitForEndOfFrame();
+                }
+
+                m_SkipDialogue = false;
+                m_DialogueFinished = false;
+
+                letterCount = 0;
+
+                m_text.text = "";
+            }
+
+            for (int c = 0; c < words[i].Length; c++)
+            {
+                m_text.text += words[i][c];
+                yield return new WaitForSeconds(m_printInterval);
+
+                if (letterCount % m_talkRate == 0)
+                {
+                    PlayRandomAudio();
+                }
+
+                if (m_dialogueToPrint[i] == '\n')
+                {
+                    yield return new WaitForSeconds(m_printInterval * 10);
+                }
+
+                letterCount++;
+
+                if (m_SkipDialogue)
+                {
+                    int lastIndex = c + 1;
+                    int continueIndex = 0;
+
+                    while (letterCount + words[i].Length < m_maxLetterCount)
+                    {
+                        for (int d = lastIndex; d < words[i].Length; d++)
+                        {
+                            m_text.text += words[i][d];
+                            letterCount++;
+                            continueIndex = d;
+                        }
+
+                        m_text.text += " ";
+
+                        if (i == words.Length - 1)
+                        {
+                            break;
+                        }
+                        i++;
+
+                        lastIndex = 0;
+                    }
+
+                    c = 1000;
+
+                    m_DialogueFinished = true;
+                    m_DialogueWaiting = true;
+
+                    while (!m_DialogueWaiting)
+                    {
+                        yield return new WaitForEndOfFrame();
+                    }
+
+                    m_DialogueWaiting = true;
+                    m_DialogueFinished = false;
+                    m_SkipDialogue = false;
+                }
+            }
+        }
+
+        m_DialogueFinished = true;
+        m_DialogueWaiting = false;
+
+        while (!m_DialogueWaiting)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+
+        m_SkipDialogue = false;
+        m_DialogueFinished = false;
+        m_InDialogue = false;
+
     }
 
     public void Close()

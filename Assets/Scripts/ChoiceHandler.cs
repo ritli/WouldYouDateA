@@ -24,6 +24,11 @@ public class ChoiceHandler : MonoBehaviour {
         currentDialogue = dialogue;
         Buttons = new List<GameObject>(dialogue.choices.Count);
 
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+
         for (int i = 0; i < dialogue.choices.Count; i++)
         {
             GameObject button = Instantiate(m_buttonTemplate, transform);
@@ -49,6 +54,15 @@ public class ChoiceHandler : MonoBehaviour {
                     break;
             }
             button.GetComponentInChildren<TMPro.TextMeshProUGUI>().text = s[1].TrimEnd();
+
+            if (characterData.Type == Characters.Tiger)
+            {
+                button.GetComponentInChildren<TMPro.TextMeshProUGUI>().font = Resources.Load<TMPro.TMP_FontAsset>("TigerFont");
+            }
+            else
+            {
+                button.GetComponentInChildren<TMPro.TextMeshProUGUI>().font = Resources.Load<TMPro.TMP_FontAsset>("NormalFont");
+            }
         }
     }
 
@@ -99,9 +113,10 @@ public class ChoiceHandler : MonoBehaviour {
 
         yield return new WaitForSeconds(0.2f);
 
-        foreach (GameObject g in Buttons)
+        for (int i = 0; i < transform.childCount; i++)
         {
-            Destroy(g);
+            Destroy(transform.GetChild(i).gameObject);
         }
+
     }
 }

@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<root>
+	<Dialogues>
+    <Dialogue continue = '1' leave ='0'>
+      <Event>FitkinIntro</Event>
+    </Dialogue>
+
+    <Dialogue continue = '1' leave ='0'>
+      <Lines>
+      Ouuuummmmmhh!
+      </Lines>
+    </Dialogue>
+
+    <Dialogue level = '0' continue = '1' leave ='0'>
+			<Lines>Mhuumoohoo! Mmmph! Oomuhph! Mhhhmmhp! Mmmph! Oomuhph! Mhhhmmhp! Mmmph! Oomuhph! Mhhhmmhp!</Lines>
+      <Choices>
+        <Choice>
+          GOOD+Uguu!?
+        </Choice>
+        <Choice>
+          GOOD+Nani!?
+        </Choice>
+        <Choice>
+          GOOD+Whats poppin my nignog?
+        </Choice>
+      </Choices>
+     </Dialogue>
+
+
+
+    <Dialogue level = '1' continue = '1' leave ='0'>
+      <Lines>
+        Throughout the world of Skovde you will find creatures known as... sexare.
+        You must talk to them, befriend them, and more. WINK WINK
+        But be careful what you say as they might get upset and leave if you say the wrong thing.
+        Go forth and once again show this organisation the meaning of love and SAVE... US... ALL!
+      </Lines>
+    </Dialogue>
+
+    <Dialogue>
+      <Event>EventThroneroomLeave</Event>
+    </Dialogue>
+</Dialogues>
+</root>

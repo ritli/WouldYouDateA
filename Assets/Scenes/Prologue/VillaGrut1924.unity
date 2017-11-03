@@ -137,9 +137,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_name: Asp
-  m_text: 'Woah! Looks like Ive been blasted to the past!
-
-    I guess I should look around and try to make sense of all this!'
+  m_text: Woah!
 --- !u!114 &559903899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,7 +152,7 @@ MonoBehaviour:
   m_displayOnce: 0
   m_type: 0
   m_triggerType: 0
-  m_nextEvent: {fileID: 0}
+  m_nextEvent: {fileID: 2103654160}
 --- !u!224 &559903900
 RectTransform:
   m_ObjectHideFlags: 0
@@ -559,3 +557,68 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 304dc2b1a66b41443bdd487a051c30f2, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &2103654158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2103654161}
+  - component: {fileID: 2103654160}
+  - component: {fileID: 2103654159}
+  m_Layer: 5
+  m_Name: Event (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2103654159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2103654158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e736de44822c2c3499ac64045f3f5fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_name: Asp
+  m_text: 'Looks like Ive been blasted to the past!
+
+    I guess I should look around and try to make sense of all this!'
+--- !u!114 &2103654160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2103654158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70bf8f8a22e00e04eba2f3b7064d2fe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_displayOnce: 0
+  m_type: 0
+  m_triggerType: 2
+  m_nextEvent: {fileID: 0}
+--- !u!224 &2103654161
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2103654158}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 90}
+  m_LocalScale: {x: 0.00926, y: 0.00926, z: 0.00926}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.0074072946, y: 0.13138892}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}

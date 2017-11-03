@@ -13,6 +13,8 @@ public class ArrowHandler : MonoBehaviour {
 
     GameObject[] arrows;
 
+    string[] currentLocations = new string[4];
+
     public GameObject upArrow;
     public GameObject downArrow;
     public GameObject leftArrow;
@@ -33,10 +35,19 @@ public class ArrowHandler : MonoBehaviour {
         }
     }
 
-    public void UpdateArrows(string[] locations)
+    public void SetActive(bool value, bool showEffects)
+    {
+        gameObject.SetActive(value);
+
+        UpdateArrows(currentLocations, showEffects);
+    }
+
+    public void UpdateArrows(string[] locations, bool showEffects)
     {
         for (int i = 0; i < 4; i++)
         {
+            currentLocations[i] = locations[i];
+
             if( locations[i] == "")
             {
                 arrows[i].SetActive(false);
@@ -45,10 +56,12 @@ public class ArrowHandler : MonoBehaviour {
             {
                 arrows[i].SetActive(true);
                 arrows[i].GetComponent<TransitionTrigger>().SetText(locations[i]);
+
+                if (showEffects)
+                {
+                    arrows[i].GetComponentInChildren<ParticleSystem>().Play();
+                }
             }
-
         }
-
     }
-
 }
