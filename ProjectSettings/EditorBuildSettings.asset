@@ -30,6 +30,9 @@ EditorBuildSettings:
     path: Assets/Scenes/KB/Kylen.unity
     guid: 00a9f50350f63bc4ea65fb9e1f147e58
   - enabled: 1
+    path: Assets/Scenes/KB/Lake.unity
+    guid: 7aeb7f83acf899741b98063fc741f1eb
+  - enabled: 1
     path: Assets/Scenes/Campus/Campus.unity
     guid: 3178a185357e60e45a7c1ceed8cffbee
   - enabled: 1
