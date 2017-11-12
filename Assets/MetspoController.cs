@@ -5,32 +5,48 @@ using UnityEngine.UI;
 
 public class MetspoController : MonoBehaviour {
 
-     AudioClip m_normalTheme;
+    AudioClip m_normalTheme;
+
+    [Header("Audio")]
     public AudioClip m_battleTheme;
+    public AudioClip m_throwingsound;
+    public AudioClip m_winningsound;
+
+    [SerializeField]
+    public FishItem[,] m_fishItems = new FishItem[10,10]; 
+
+    AudioSource m_audio;
 
     Slider m_throwslider;
+
+    [Header("References")]
+
     public TMPro.TextMeshProUGUI m_GetFishText;
     public GameObject m_clickImage;
     public Image m_overlay;
     public bool m_receiveInput;
     bool m_Throwing;
     bool m_Fishing;
-    float m_maxRot;
+    float m_maxRot = 60;
+    float m_currentRot = 0;
 
     public int m_reqClickCount = 20;
 
     int sliderMult = 1;
     int clickCount = 0;
 
-    // Use this for initialization
     void Start () {
-        m_normalTheme = Camera.main.GetComponent<AudioSource>().clip;
+        m_audio = GetComponent<AudioSource>();
+
+        m_normalTheme = m_audio.clip;
 
         m_throwslider = transform.parent.GetComponentInChildren<Slider>();
 
         m_clickImage.SetActive(false);
         m_GetFishText.gameObject.SetActive(false);
 
+        StartCoroutine(DisplayText("PRESS A OR D TO MOVE THE METSPO", 1f));
+        StartCoroutine(DisplayText("PRESS THE LEFT MOUSE BUTTON TO FISH", 4f));
     }
 
     // Update is called once per frame
@@ -59,9 +75,18 @@ public class MetspoController : MonoBehaviour {
             }
             else
             {
-                float dir = -Input.GetAxis("Horizontal");
+                float dir = -Input.GetAxis("Horizontal") * 20 * Time.deltaTime;
 
-                transform.Rotate(Vector3.forward, dir * 10 * Time.deltaTime);
+                m_currentRot += dir;
+
+                if (!(m_currentRot <= m_maxRot && m_currentRot >= -m_maxRot))
+                {
+                    dir = 0;
+
+                    m_currentRot = Mathf.Clamp(m_currentRot, -m_maxRot, m_maxRot);
+                }
+                
+                transform.Rotate(Vector3.forward, dir);
 
                 if (Input.GetButtonDown("Fire1"))
                 {
@@ -77,14 +102,16 @@ public class MetspoController : MonoBehaviour {
                 clickCount++;
             }
         }
-
-
     }
 
     IEnumerator Fish()
     {
-        Camera.main.GetComponent<AudioSource>().clip = m_battleTheme;
-        Camera.main.GetComponent<AudioSource>().Play();
+        m_audio.PlayOneShot(m_throwingsound);
+
+        yield return new WaitForSeconds(2.5f);
+
+        m_audio.clip = m_battleTheme;
+        m_audio.Play();
 
         float time = 0;
 
@@ -95,7 +122,6 @@ public class MetspoController : MonoBehaviour {
             yield return new WaitForEndOfFrame();
             time += Time.deltaTime;
         }
-
 
         clickCount = 0;
 
@@ -110,20 +136,20 @@ public class MetspoController : MonoBehaviour {
         }
 
         m_clickImage.SetActive(false);
-        m_GetFishText.gameObject.SetActive(true);
 
 
         m_overlay.color = new Color(m_overlay.color.r, m_overlay.color.g, m_overlay.color.b, 0);
 
-        m_GetFishText.GetComponent<Animator>().Play("GetFish");
-        m_GetFishText.text = "YOU CAUGHT A dead asp!";
+        m_audio.Stop();
 
-        Camera.main.GetComponent<AudioSource>().clip = m_normalTheme;
-        Camera.main.GetComponent<AudioSource>().Play();
+        StartCoroutine(DisplayText("YOU CAUGHT A FISH"));
+
+        yield return new WaitForSeconds(1);
+
+        m_audio.clip = m_normalTheme;
+        m_audio.Play();
 
         yield return new WaitForSeconds(2f);
-
-        m_GetFishText.gameObject.SetActive(false);
 
         m_Throwing = false;
 
@@ -131,5 +157,26 @@ public class MetspoController : MonoBehaviour {
         m_throwslider.value = 0;
 
         m_Fishing = false;
+    }
+
+    IEnumerator DisplayText(string text)
+    {
+        m_GetFishText.gameObject.SetActive(true);
+
+        m_GetFishText.GetComponent<Animator>().Play("GetFish");
+        m_GetFishText.text = text;
+        m_audio.PlayOneShot(m_winningsound);
+
+        yield return new WaitForSeconds(2.4f);
+
+        m_GetFishText.gameObject.SetActive(false);
+
+    }
+
+    IEnumerator DisplayText(string text, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        StartCoroutine(DisplayText(text));
     }
 }
