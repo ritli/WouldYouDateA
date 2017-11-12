@@ -4,13 +4,7 @@ using UnityEngine;
 
 public class FishItem : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public string m_name;
+    public Sprite m_sprite;
+
 }

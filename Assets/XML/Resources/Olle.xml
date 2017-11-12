@@ -166,7 +166,7 @@
       </Responses>
     </Dialogue>
 
-    <Dialogue level = '10' continue = '0' leave ='1' mood='0'>
+    <Dialogue level = '10' continue = '1' leave ='0' mood='0'>
       <Lines>Might as well make her a futa while I am at it.</Lines>
 
       <Choices>
@@ -183,5 +183,9 @@
 
       <Event>EventOlleBed</Event>
     </Dialogue>
-</Dialogues>
+
+    <Dialogue continue = '0' leave ='1' mood='0'>
+      <Event>EventOlleBed</Event>
+    </Dialogue>
+    </Dialogues>
 </root>

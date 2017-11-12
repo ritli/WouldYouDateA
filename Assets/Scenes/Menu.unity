@@ -531,6 +531,80 @@ Prefab:
       value: 
       objectReference: {fileID: 24300002, guid: b5e6fe26af72ba642b488a7cc1b45136,
         type: 2}
+    - target: {fileID: 224072560654206116, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 224569589807900568, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 224135771188060066, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 4383162986234016, guid: f7bc33a0f100c9844b442b6fcf7800d0, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 224803195779080450, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 224913728418908380, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224866411107913794, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 224442222113178466, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224640086278223216, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224770031305729788, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 224920885394242830, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 224378487037212528, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 224871590899173114, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 224438764233707846, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 224248749654596266, guid: f7bc33a0f100c9844b442b6fcf7800d0,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f7bc33a0f100c9844b442b6fcf7800d0, type: 2}
   m_IsPrefabParent: 0
@@ -838,7 +912,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0

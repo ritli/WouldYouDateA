@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public enum GameState
 {
-    paused, explore, map, dialogue, choice, mainmenu
+    paused, explore, map, dialogue, choice, mainmenu, fish
 }
 
 public class Manager : MonoBehaviour {
@@ -15,7 +15,7 @@ public class Manager : MonoBehaviour {
 
     public GameState m_state;
     GameState m_pendingGameState;
-    static Manager m_instance;
+    public static Manager m_instance;
 
     InGameMenuHandler m_ingameMenu;
     ChoiceHandler m_choiceHandler;
@@ -161,6 +161,15 @@ public class Manager : MonoBehaviour {
             case GameState.mainmenu:
                 m_menuhandler.gameObject.SetActive(false);
                 break;
+            case GameState.fish:
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    transform.GetChild(i).gameObject.SetActive(true);
+                }
+                //transform.GetChild(0).gameObject.SetActive(true);
+
+                break;
+
             default:
                 break;
         }
@@ -219,6 +228,8 @@ public class Manager : MonoBehaviour {
             case GameState.mainmenu:
                 inGame = false;
 
+                transform.GetChild(0).gameObject.SetActive(false);
+
                 m_ingameMenu.gameObject.SetActive(inGame);
                 m_timeHandler.gameObject.SetActive(inGame);
                 m_map.gameObject.SetActive(inGame);
@@ -232,6 +243,18 @@ public class Manager : MonoBehaviour {
                 m_menuhandler.gameObject.SetActive(!inGame);
                 m_saveHandler.Init();
                 m_menuhandler.Init();
+
+                break;
+
+            case GameState.fish:
+                inGame = false;
+
+                for (int i = 0; i < transform.childCount; i++)
+                {
+                    transform.GetChild(i).gameObject.SetActive(false);
+                }
+
+                //transform.GetChild(0).gameObject.SetActive(true);
 
                 break;
             default:
@@ -248,7 +271,6 @@ public class Manager : MonoBehaviour {
             ChangeScene("VillaGrut");
             ChangeState(GameState.explore);
         }
-
 
         switch (m_state)
         {
@@ -409,7 +431,7 @@ public class Manager : MonoBehaviour {
 
                 break;
             case ChoiceType.bad:
-                valueChange = -1;
+                valueChange = 0;
                 m_instance.currentCharacter.SetMood(Mood.angry);
                 ProgressManager.current.SetCharacterAngry((int)character.Type);
                 badChoice = true;
@@ -673,6 +695,11 @@ public class Manager : MonoBehaviour {
         m_mapOpen = false;
 
         SceneManager.LoadScene(name);
+
+        if (name == "Fish")
+        {
+            transform.GetChild(0).gameObject.SetActive(false);
+        }
 
         yield return new WaitForSeconds(0.05f);
 

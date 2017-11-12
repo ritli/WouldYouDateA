@@ -5,14 +5,9 @@ using UnityEngine;
 public class FishReward : MonoBehaviour {
 
     public GameObject[] item;
+    public int size = 1;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+
 }

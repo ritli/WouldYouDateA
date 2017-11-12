@@ -50,7 +50,6 @@ public class DisplayTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
         {
             m_textInstance = Instantiate(m_textObject, transform);
 
-
             m_textInstance.transform.position += (Vector3)m_offset;
 
             m_textInstance.transform.parent = transform;
@@ -75,12 +74,17 @@ public class DisplayTextOnHover : MonoBehaviour, IPointerEnterHandler, IPointerE
         alpha += Time.deltaTime * mult * 3;
         alpha = Mathf.Clamp01(alpha);
 
-        m_textInstance.transform.position = position;
+        if (m_textInstance)
+        {
+            m_textInstance.transform.position = position;
 
         Color c = m_textText.color;
         m_textText.color = new Color(c.r, c.g, c.b, alpha);
         c = m_textImage.color;
         m_textImage.color = new Color(c.r, c.g, c.b, alpha);
+
+        }
+
     }
 
     public void HideText()

@@ -8,43 +8,45 @@ using UnityEditor;
 public class FishRewardEditor : Editor {
 
     SerializedProperty item;
+    SerializedProperty size;
 
-    int currentPos = 1;
+    int currentPos;
 
     void OnEnable()
     {
         item = serializedObject.FindProperty("item");
+        size = serializedObject.FindProperty("size");
     }
 
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
 
-        GUILayoutOption[] options = {  GUILayout.Height(25), GUILayout.MinWidth(25), GUILayout.MaxWidth(45) };
+        currentPos = size.intValue;
+
+        GUILayoutOption[] options = {  GUILayout.MinHeight(25), GUILayout.MinHeight(35), GUILayout.MinWidth(25), GUILayout.MaxWidth(150)};  
 
         currentPos = EditorGUILayout.IntSlider(currentPos, 0, 10);
-
-        item.arraySize = currentPos * currentPos;
+        
+        if (item.arraySize != currentPos * currentPos)
+        {
+            item.arraySize = currentPos * currentPos;
+        }
 
         for (int y = 1; y < currentPos + 1; y++)
         {
-
-
-
-            //
             EditorGUILayout.BeginHorizontal();
 
             for (int i = 0; i < currentPos; i++)
             {
-                EditorGUILayout.ObjectField(item.GetArrayElementAtIndex(i * y), GUIContent.none, options);
+                item.GetArrayElementAtIndex(i * y).objectReferenceValue = EditorGUILayout.ObjectField(item.GetArrayElementAtIndex(i * y).objectReferenceValue, typeof(GameObject), true, options);
             }
 
             EditorGUILayout.EndHorizontal();
         }
 
-
+        size.intValue = currentPos;
 
         serializedObject.ApplyModifiedProperties();
-
     }
 }
