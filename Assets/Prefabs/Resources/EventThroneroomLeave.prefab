@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5423f871048ebde43966a623248dddcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_sceneName: VillaGrut
+  m_sceneName: VillaGrutIntroExit
 --- !u!114 &114812614715335292
 MonoBehaviour:
   m_ObjectHideFlags: 1

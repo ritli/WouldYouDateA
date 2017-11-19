@@ -40,7 +40,7 @@ public class SaveLoadHandler : MonoBehaviour {
         foreach(ProgressManager p in SaveLoad.savedGames)
         {
             if (transform.GetChild(p.index) && p.index < 3){
-                transform.GetChild(p.index).GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Day " + p.daysPassed + " at " + p.currentScene;
+                transform.GetChild(p.index).GetComponentInChildren<TMPro.TextMeshProUGUI>().text = "Day " + p.daysPassed + " at " + p.currentSceneName;
             }
         }
     }

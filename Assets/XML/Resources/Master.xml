@@ -23,7 +23,7 @@
     </Dialogue>
 
     <Dialogue level = '1' continue = '1'>
-      <Lines>1... 2... 3... CLAIM!</Lines>
+      <Lines>3... 2... 1... CLAIM!</Lines>
 
       <Choices>
         <Choice>NEUTRAL+I'm feeling a bit sad can we talk emotions?</Choice>
@@ -58,9 +58,9 @@
       <Lines>So how about it? Are you ready to roll!?</Lines>
 
       <Choices>
-        <Choice>NEUTRAL+Okay I'll join, but only if we do something more after the session.</Choice>
+        <Choice>NEUTRAL+Okay Ill join, but only if we do something more after the session.</Choice>
         <Choice>GOOD+I'll join but I need a place to sleep if it gets too late!</Choice>
-        <Choice>BAD+You don’t get what I'm saying, do you?</Choice>
+        <Choice>BAD+You dont get what I'm saying, do you?</Choice>
       </Choices>
 
       <Responses>
@@ -117,17 +117,17 @@
 
       <Responses>
         <Response>Sounds fantastic!</Response>
-        <Response>I don’t make things easy I make them tasty!</Response>
+        <Response>I dont make things easy I make them tasty!</Response>
         <Response>You're dead to me.</Response>
       </Responses>
     </Dialogue>
 
     <Dialogue level = '6' continue = '1' leave ='1' mood='0'>
-      <Lines>Let’s meet at my place this sunday!</Lines>
+      <Lines>Lets meet at my place this sunday!</Lines>
 
       <Choices>
-        <Choice>NEUTRAL+It’s a date!</Choice>
-        <Choice>GOOD+I’d like to meet your meat, if you know what I mean.</Choice>
+        <Choice>NEUTRAL+Its a date!</Choice>
+        <Choice>GOOD+Id like to meet your meat, if you know what I mean.</Choice>
         <Choice>BAD+How about we leave right now? ;)</Choice>
       </Choices>
 
@@ -146,7 +146,7 @@
       <Lines>Join me in the noble sport of caps, no one is a loser when they play this game!</Lines>
 
       <Choices>
-        <Choice>NEUTRAL+Life is short, let’s do something crazy!</Choice>
+        <Choice>NEUTRAL+Life is short, lets do something crazy!</Choice>
         <Choice>BAD+Dab with me!</Choice>
         <Choice>GOOD+Do you want to go home and smash with me?</Choice>
       </Choices>
@@ -170,7 +170,7 @@
     <Responses>
       <Response>You bet! </Response>
       <Response>Smash or pass and this my friend, is a pass.</Response>
-      <Response>You can’t play smash from my bed doe.</Response>
+      <Response>You cant play smash from my bed doe.</Response>
     </Responses>
   </Dialogue>
 
@@ -180,13 +180,13 @@
     <Choices>
       <Choice>NEUTRAL+Fight me on the streets boi.</Choice>
       <Choice>GOOD+Oh I'm sure I can handle both Yoshis and your big head!</Choice>
-      <Choice>BAD+I must say that it’s a very cheap way to win</Choice>
+      <Choice>BAD+I must say that its a very cheap way to win</Choice>
     </Choices>
 
     <Responses>
       <Response>Oh I intend to.</Response>
       <Response>We will see if your worthy. ;)</Response>
-      <Response>Don’t question my methods! </Response>
+      <Response>Dont question my methods! </Response>
     </Responses>
 
     <Event>EventMasterBed</Event>

@@ -7,7 +7,7 @@
     </Dialogue>
 
     <Dialogue level = '0' continue = '1' leave ='0' mood='0'>
-      <Lines>I don’t think we have had the pleasure to meet, are you not the new asp? My name is Albin. </Lines>
+      <Lines>I dont think we have had the pleasure to meet, are you not the new asp? My name is Albin. </Lines>
 
       <Choices>
         <Choice>GOOD+Uguu!</Choice>
@@ -23,11 +23,11 @@
     </Dialogue>
 
     <Dialogue level = '1' continue = '1' leave ='0' mood='0'>
-      <Lines>You don’t need to be nervous I know that it’s a lot to take in as a new student and sexmasterist but you will get into it in no time. I can feel it!</Lines>
+      <Lines>You dont need to be nervous I know that its a lot to take in as a new student and sexmasterist but you will get into it in no time. I can feel it!</Lines>
 
       <Choices>
         <Choice>GOOD+Thanks!</Choice>
-        <Choice>GOOD+I don’t know… but I will do my best! </Choice>
+        <Choice>GOOD+I dont know… but I will do my best! </Choice>
         <Choice>GOOD+Arigato Albin-senpai!</Choice>
       </Choices>
 
@@ -54,7 +54,7 @@
 
       <Responses>
         <Response>What!? Me too! Oh can you just feel how the nature loves it when we don't kill animals!?</Response>
-        <Response>What, no! I don’t do illegal things. Shame on you for thinking that!</Response>
+        <Response>What, no! I dont do illegal things. Shame on you for thinking that!</Response>
         <Response>Haha… funny but I'm vegan.</Response>
       </Responses>
     </Dialogue>
@@ -64,14 +64,14 @@
 
       <Choices>
         <Choice>BAD+So I can use them to get milk and eggs!</Choice>
-        <Choice>NEUTRAL+I’m scared of blood…</Choice>
+        <Choice>NEUTRAL+Im scared of blood…</Choice>
         <Choice>GOOD+All animals suffering needs to end!</Choice>
       </Choices>
 
       <Responses>
         <Response>You're just awful.</Response>
         <Response>Yes, but the colour red is still one that stands for a beautiful vision!</Response>
-        <Response>Could not agree more, it’s just an awful situation.</Response>
+        <Response>Could not agree more, its just an awful situation.</Response>
       </Responses>
     </Dialogue>
 
@@ -92,7 +92,7 @@
     </Dialogue>
 
     <Dialogue level = '6' continue = '1' leave ='0' mood='0'>
-      <Lines>Ah it’s so nice being here around the grass but it makes me a little hungry. What can I do for you?</Lines>
+      <Lines>Ah its so nice being here around the grass but it makes me a little hungry. What can I do for you?</Lines>
 
       <Choices>
         <Choice>GOOD+I know that you're vegan but I hope you like cheesy pick up lines! </Choice>
@@ -102,7 +102,7 @@
 
       <Responses>
         <Response>Haha sure I actually like them!</Response>
-        <Response>I think it’s time for you to leave.</Response>
+        <Response>I think its time for you to leave.</Response>
         <Response>Nanii?</Response>
       </Responses>
     </Dialogue>
@@ -117,9 +117,9 @@
       </Choices>
 
       <Responses>
-        <Response>If I'm a cutecumber then you’re a fineapple!</Response>
+        <Response>If I'm a cutecumber then youre a fineapple!</Response>
         <Response>Milking a cow is rape but it was a fun joke.</Response>
-        <Response>I think it’s time for you to leave now.</Response>
+        <Response>I think its time for you to leave now.</Response>
       </Responses>
     </Dialogue>
 
@@ -134,7 +134,7 @@
 
       <Responses>
         <Response>Everytime we meet I like you a little bit more!</Response>
-        <Response>Please don’t talk to me again or I’m calling the cops. </Response>
+        <Response>Please dont talk to me again or Im calling the cops. </Response>
         <Response>...Haha...</Response>
       </Responses>
     </Dialogue>
@@ -149,9 +149,9 @@
       </Choices>
 
       <Responses>
-        <Response>It’s not like I-l...love anime… b… baka!</Response>
+        <Response>Its not like I-l...love anime… b… baka!</Response>
         <Response>Not really my thing.</Response>
-        <Response>That’s it, I’m calling the cops.</Response>
+        <Response>Thats it, Im calling the cops.</Response>
       </Responses>
     </Dialogue>
 
@@ -160,7 +160,7 @@
 
       <Choices>
         <Choice>NEUTRAL+Do you like moose beer?</Choice>
-        <Choice>GOOD+Don’t you just love the animes when the main character always wins and the story will never have anything unexpected in them?</Choice>
+        <Choice>GOOD+Dont you just love the animes when the main character always wins and the story will never have anything unexpected in them?</Choice>
         <Choice>BAD+D… do you want to drink Blackcurrant Schnapps and watch anime someday?</Choice>
       </Choices>
 
@@ -181,7 +181,7 @@
       </Choices>
 
       <Responses>
-        <Response>It’s a date!</Response>
+        <Response>Its a date!</Response>
         <Response>No, I'm boring.</Response>
         <Response>Pokemon is not vegan!</Response>
       </Responses>

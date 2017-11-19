@@ -40,6 +40,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: DJ-Fish
   m_sprite: {fileID: 21300000, guid: 2272cbb410b4b9549884e963f3507326, type: 3}
+  m_reqClickCount: 20
 --- !u!224 &224964095089915988
 RectTransform:
   m_ObjectHideFlags: 1

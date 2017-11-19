@@ -166,26 +166,26 @@ public class MetspoController : MonoBehaviour {
 
         m_clickImage.SetActive(true);
 
+        FishItem item = GetFishReward(fishtarget);
+        m_reqClickCount = item.m_reqClickCount;
+
         while (clickCount < m_reqClickCount)
         {
             m_overlay.color = new Color(m_overlay.color.r, m_overlay.color.g, m_overlay.color.b, (clickCount + 0.01f) / m_reqClickCount);
 
             yield return new WaitForEndOfFrame();
-
         }
 
         m_clickImage.SetActive(false);
 
-        m_overlay.color = new Color(m_overlay.color.r, m_overlay.color.g, m_overlay.color.b, 0);
-
         m_audio.Stop();
 
-        FishItem item = GetFishReward(fishtarget);
+        m_overlay.color = new Color(m_overlay.color.r, m_overlay.color.g, m_overlay.color.b, 0);
 
         StartCoroutine(DisplayText("YOU CAUGHT A " + item.m_name));
         m_GetFishText.transform.Find("Sprite").GetComponentInChildren<Image>().sprite = item.m_sprite;
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2.4f);
 
         m_audio.clip = m_normalTheme;
         m_audio.Play();

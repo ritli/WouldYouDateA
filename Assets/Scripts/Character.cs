@@ -13,13 +13,16 @@ public enum Mood
 }
 
 
-public class Character : MonoBehaviour, IPointerDownHandler {
+public class Character : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
+{
 
     [SerializeField]
     Vector2 offset = Vector2.zero;
     public CharacterData characterData;
 
     bool m_hasLeft = true;
+    bool m_InDialogue = false;
+
 
     [Header("Mood Sprites")]
     public Sprite m_neutral;
@@ -32,7 +35,7 @@ public class Character : MonoBehaviour, IPointerDownHandler {
 
 	void Start () 
     {
-        GetComponent<Image>().color = new Color(1, 1, 1, 0);
+        GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, 0);
 
         if (!Manager.GetCharacterAngry(characterData.Type))
         {
@@ -65,6 +68,8 @@ public class Character : MonoBehaviour, IPointerDownHandler {
     {
         if (Manager.GameState == GameState.explore && !m_hasLeft)
         {
+            GetComponent<Image>().color = new Color(1, 1, 1, GetComponent<Image>().color.a);
+            m_InDialogue = true;
             Manager.StartDialogue(characterData, this);
         }
     }
@@ -90,7 +95,7 @@ public class Character : MonoBehaviour, IPointerDownHandler {
         float timeElapsed = 0;
         Image image = GetComponent<Image>();
 
-        while(timeElapsed < time)
+        while(timeElapsed < time && image.sprite != null)
         {
             Color c = image.color;
 
@@ -152,5 +157,19 @@ public class Character : MonoBehaviour, IPointerDownHandler {
         }
 
         currentMood = mood;
+    }
+
+    public void OnPointerEnter(UnityEngine.EventSystems.PointerEventData eventData)
+    {
+        if (!m_InDialogue)
+         GetComponent<Image>().color = new Color(1, 1, 1, GetComponent<Image>().color.a);
+
+    }
+
+    public void OnPointerExit(UnityEngine.EventSystems.PointerEventData eventData)
+    {
+        if (!m_InDialogue)
+            GetComponent<Image>().color = new Color(0.8f, 0.8f, 0.8f, GetComponent<Image>().color.a);
+        
     }
 }

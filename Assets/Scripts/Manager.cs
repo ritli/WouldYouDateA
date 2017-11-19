@@ -114,13 +114,19 @@ public class Manager : MonoBehaviour {
         foreach (GameObject g in mapdata.customButtons)
         {
             GameObject button = Instantiate(g, buttonHolder.transform);
-            button.GetComponent<Animator>().Play("Open");
+
+            if (button.GetComponent<Animator>())
+            {
+                button.GetComponent<Animator>().Play("Open");
+            }
         }
 
         foreach(GameObject g in mapdata.characters)
         {
             m_instance.m_characters.AddCharacter(g);
         }
+
+        ProgressManager.current.SetCurrentSceneName(mapdata.locationName);
     }
 
     public static void PlayFromMenu()
@@ -162,10 +168,10 @@ public class Manager : MonoBehaviour {
                 m_menuhandler.gameObject.SetActive(false);
                 break;
             case GameState.fish:
-                for (int i = 0; i < transform.childCount; i++)
-                {
-                    transform.GetChild(i).gameObject.SetActive(true);
-                }
+//                 for (int i = 0; i < transform.childCount; i++)
+//                 {
+//                     transform.GetChild(i).gameObject.SetActive(true);
+//                 }
                 //transform.GetChild(0).gameObject.SetActive(true);
 
                 break;
@@ -196,15 +202,6 @@ public class Manager : MonoBehaviour {
                 m_choiceHandler.gameObject.SetActive(inGame);
                 m_timeHandler.gameObject.SetActive(inGame);
 
-                if (m_state.Equals(GameState.dialogue) || m_state.Equals(GameState.choice))
-                {
-                    m_arrows.SetActive(inGame, true);
-                }
-                else
-                {
-                    m_arrows.gameObject.SetActive(true);
-                }
-
                 m_map.gameObject.SetActive(inGame);
                 m_characters.gameObject.SetActive(inGame);
                 m_location.gameObject.SetActive(inGame);
@@ -214,6 +211,15 @@ public class Manager : MonoBehaviour {
                 m_mapButton.GetComponentInChildren<Button>().interactable = true && !m_instance.m_currentMapData.blockTravel;
 
                 m_menuhandler.gameObject.SetActive(!inGame);
+
+                if (m_state.Equals(GameState.dialogue) || m_state.Equals(GameState.choice))
+                {
+                    m_arrows.SetActive(inGame, true);
+                }
+                else
+                {
+                    m_arrows.gameObject.SetActive(true);
+                }
 
                 break;
             case GameState.map:
@@ -249,10 +255,25 @@ public class Manager : MonoBehaviour {
             case GameState.fish:
                 inGame = false;
 
-                for (int i = 0; i < transform.childCount; i++)
-                {
-                    transform.GetChild(i).gameObject.SetActive(false);
-                }
+                m_musicManager.SetAudioClip(null);
+
+                transform.GetChild(0).gameObject.SetActive(false);
+
+                m_ingameMenu.gameObject.SetActive(inGame);
+                m_timeHandler.gameObject.SetActive(inGame);
+                m_map.gameObject.SetActive(inGame);
+                m_characters.gameObject.SetActive(inGame);
+                m_location.gameObject.SetActive(inGame);
+                m_dialogue.gameObject.SetActive(inGame);
+                m_background.gameObject.SetActive(inGame);
+                m_mapButton.gameObject.SetActive(inGame);
+                m_arrows.gameObject.SetActive(inGame);
+                
+
+//                 for (int i = 0; i < transform.childCount; i++)
+//                 {
+//                     transform.GetChild(i).gameObject.SetActive(false);
+//                 }
 
                 //transform.GetChild(0).gameObject.SetActive(true);
 
@@ -698,7 +719,7 @@ public class Manager : MonoBehaviour {
 
         if (name == "Fish")
         {
-            transform.GetChild(0).gameObject.SetActive(false);
+            //transform.GetChild(0).gameObject.SetActive(false);
         }
 
         yield return new WaitForSeconds(0.05f);
@@ -713,7 +734,16 @@ public class Manager : MonoBehaviour {
             m_instance.m_timeHandler.IncrementTime(1);
         }
 
-        bool changeMusic = !m_currentMapData.soundtrack.name.Equals(m_musicManager.m_audioClip.name);
+        bool changeMusic = false;
+
+        if (m_musicManager.m_audioClip == null)
+        {
+            changeMusic = true;
+        }
+        else if (!m_currentMapData.soundtrack.name.Equals(m_musicManager.m_audioClip.name))
+        {
+            changeMusic = true;
+        }
 
         if (changeMusic)
         {

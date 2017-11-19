@@ -9,6 +9,7 @@ public class ProgressManager {
 
     public string date;
     public string currentScene;
+    public string currentSceneName;
     public int index = -1;
     public int daysPassed = 0;
 
@@ -28,6 +29,11 @@ public class ProgressManager {
             characterLeft.Add(false);
             characterAngry.Add(false);
         }
+    }
+
+    public void SetCurrentSceneName(string name)
+    {
+        currentSceneName = name;
     }
 
     public void AddDay()

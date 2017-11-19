@@ -1,7 +1,11 @@
-﻿using System.Collections;
+﻿
+#if UNITY_EDITOR
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+
+
 
 [CustomEditor(typeof(FishReward))]
 [CanEditMultipleObjects]
@@ -50,3 +54,4 @@ public class FishRewardEditor : Editor {
         serializedObject.ApplyModifiedProperties();
     }
 }
+#endif

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class InGameMenuHandler : MonoBehaviour {
 
     bool m_open = false;
+    public Animator m_savedgameAnim;
 
 	void Start () {
         for (int i = 0; i < transform.childCount; i++)
@@ -28,8 +29,12 @@ public class InGameMenuHandler : MonoBehaviour {
 
         SaveLoad.Load();
         SaveLoad.Save();
+
+        m_savedgameAnim.Play("Save");
     }
 	
+   
+
     public void ToggleMenu()
     {
         string StateName = "Open";

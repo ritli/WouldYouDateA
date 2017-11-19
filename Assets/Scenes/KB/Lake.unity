@@ -307,7 +307,7 @@ Prefab:
     - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
         type: 2}
       propertyPath: mapData.arrowLocations.Array.data[1]
-      value: KB
+      value: VillaGrut
       objectReference: {fileID: 0}
     - target: {fileID: 114502178463161422, guid: 304dc2b1a66b41443bdd487a051c30f2,
         type: 2}

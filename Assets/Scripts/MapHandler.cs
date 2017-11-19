@@ -32,6 +32,8 @@ public class MapHandler : MonoBehaviour {
         {
             b.interactable = active;
 
+            b.GetComponent<Image>().raycastTarget = active;
+
             if (b.GetComponent<DisplayTextOnHover>())
             {
                 b.GetComponent<DisplayTextOnHover>().enabled = active;

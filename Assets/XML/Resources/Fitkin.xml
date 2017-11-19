@@ -13,33 +13,159 @@
     </Dialogue>
 
     <Dialogue level = '0' continue = '1' leave ='0'>
-			<Lines>Mhuumoohoo! Mmmph! Oomuhph! Mhhhmmhp! Mmmph! Oomuhph! Mhhhmmhp! Mmmph! Oomuhph! Mhhhmmhp!</Lines>
+			<Lines>Mhuumoohoo! Mmmph! Oomuhph! Mhhhmmhp! Mmmph! Oomuhph! Mhhhmmhp!</Lines>
       <Choices>
         <Choice>
-          GOOD+Uguu!?
+          GOOD+Lick him
         </Choice>
         <Choice>
-          GOOD+Nani!?
+          GOOD+Kiss him on the nipple
         </Choice>
         <Choice>
-          GOOD+Whats poppin my nignog?
+          GOOD+Dab on his puny ass
         </Choice>
       </Choices>
      </Dialogue>
 
+    <Dialogue level = '0' continue = '1' leave ='0'>
+      <Lines>Mhuumoohoo! Uuhhhoooommmm! Mmmph!</Lines>
+      <Choices>
+        <Choice>
+          GOOD+Smell his hair
+        </Choice>
+        <Choice>
+          GOOD+Tickle his armpit 
+        </Choice>
+        <Choice>
+          GOOD+Rub your genitals on his abs
+        </Choice>
+      </Choices>
+    </Dialogue>
+
+    <Dialogue level = '0' continue = '1' leave ='0'>
+      <Lines> Mmmph! Oomuhph! Mhhhmmhp!</Lines>
+      <Choices>
+        <Choice>
+          GOOD+Kick his balls
+        </Choice>
+        <Choice>
+          GOOD+Squeeze his nuts
+        </Choice>
+        <Choice>
+          GOOD+Bite his left earlobe
+        </Choice>
+      </Choices>
+    </Dialogue>
+
+    <Dialogue continue = '1' leave ='0'>
+      <Event>FitkinLeave</Event>
+    </Dialogue>
+
+    <Dialogue continue = '1' leave ='1'>
+      <Lines>Mysterious ooopmh!</Lines>
+    </Dialogue>
+
+    <Dialogue level = '0' continue = '1' leave ='0'>
+      <Lines>Mhuumoohoo! Mmmph!</Lines>
+      <Choices>
+        <Choice>
+          GOOD+Explain to him why pure rng is bullshit
+        </Choice>
+        <Choice>
+          GOOD+Pull down his loincloth
+        </Choice>
+        <Choice>
+          GOOD+Scream Dad come back to me!
+        </Choice>
+      </Choices>
+    </Dialogue>
 
 
-    <Dialogue level = '1' continue = '1' leave ='0'>
-      <Lines>
-        Throughout the world of Skovde you will find creatures known as... sexare.
-        You must talk to them, befriend them, and more. WINK WINK
-        But be careful what you say as they might get upset and leave if you say the wrong thing.
-        Go forth and once again show this organisation the meaning of love and SAVE... US... ALL!
-      </Lines>
+    <Dialogue level = '0' continue = '1' leave ='0'>
+      <Lines>Happy Moan</Lines>
+      <Choices>
+        <Choice>
+          GOOD+Paint his nails
+        </Choice>
+        <Choice>
+          GOOD+Cut his hair
+        </Choice>
+        <Choice>
+          GOOD+Make him your bitch
+        </Choice>
+      </Choices>
+    </Dialogue>
+    
+    <Dialogue level = '0' continue = '1' leave ='0'>
+      <Lines>Mouuuuhoooooo!!</Lines>
+      <Choices>
+        <Choice>
+          GOOD+Spoon him
+        </Choice>
+        <Choice>
+          GOOD+Gently stroke his inner thigh as you whisper Dad is here now into his ear
+        </Choice>
+        <Choice>
+          GOOD+Twist his nipples
+        </Choice>
+      </Choices>
+    </Dialogue>
+
+    <Dialogue continue = '1' leave ='0'>
+      <Event>FitkinLeave</Event>
+    </Dialogue>
+
+    <Dialogue continue = '1' leave ='1'>
+      <Lines>Very mysterious moan!</Lines>
+    </Dialogue>
+
+    <Dialogue level = '0' continue = '1' leave ='0'>
+      <Lines>Mhuumoohoo! Mmmph!</Lines>
+      <Choices>
+        <Choice>
+          GOOD+Massage the inside of his ear with your tongue
+        </Choice>
+        <Choice>
+          GOOD+Count his toes
+        </Choice>
+        <Choice>
+          GOOD+Play family with him and get sad when he wont let you date the cute emo kid from klass 9a. Then run away and live a day or two with your friend Tristen where you find a mutual interest for each other and start a lifelong relation with your new love.
+        </Choice>
+      </Choices>
+    </Dialogue>
+    
+    <Dialogue level = '0' continue = '1' leave ='0'>
+      <Lines>Mhuumoohoo! Mmmph! Oomuhph! Mhhhmmhp! Mmmph!</Lines>
+      <Choices>
+        <Choice>
+          GOOD+Spank his disobedient avocado ass
+        </Choice>
+        <Choice>
+          GOOD+Give him a wet willy
+        </Choice>
+        <Choice>
+          GOOD+Lick his body clean like a kitty cat high on cocaine
+        </Choice>
+      </Choices>
+    </Dialogue>
+
+    <Dialogue level = '0' continue = '1' leave ='0'>
+      <Lines>Insert Delighted moan here</Lines>
+      <Choices>
+        <Choice>
+          GOOD+Steal his keys and have a pang phest at his house
+        </Choice>
+        <Choice>
+          GOOD+Gently ask him if he would like to be your girlfriend
+        </Choice>
+        <Choice>
+          GOOD+Give him a creepy stare for 30 minutes but then realise that he is blindfolded and cant see you
+        </Choice>
+      </Choices>
     </Dialogue>
 
     <Dialogue>
-      <Event>EventThroneroomLeave</Event>
+      <Event>FitkinBedroom</Event>
     </Dialogue>
 </Dialogues>
 </root>

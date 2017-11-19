@@ -6,5 +6,5 @@ public class FishItem : MonoBehaviour {
 
     public string m_name;
     public Sprite m_sprite;
-
+    public int m_reqClickCount = 20;
 }

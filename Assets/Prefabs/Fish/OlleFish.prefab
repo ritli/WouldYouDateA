@@ -40,6 +40,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: Ollboot
   m_sprite: {fileID: 21300000, guid: 409f2f4600942b241a1e143d131c5387, type: 3}
+  m_reqClickCount: 35
 --- !u!224 &224563772212554064
 RectTransform:
   m_ObjectHideFlags: 1

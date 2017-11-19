@@ -38,8 +38,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fb16cb52dc10c84ab0046ee26a09b18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_name: Jr. Fish
+  m_name: Junior Salmon
   m_sprite: {fileID: 21300000, guid: d4d3cd4de9e18a449babd35b9e58a226, type: 3}
+  m_reqClickCount: 40
 --- !u!224 &224530099767658310
 RectTransform:
   m_ObjectHideFlags: 1
