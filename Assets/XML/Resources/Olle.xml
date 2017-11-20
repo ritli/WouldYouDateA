@@ -5,9 +5,18 @@
     <Dialogue level = '4' continue = '1' leave ='0' mood='0'>
       <Event>OlleIntro</Event>
     </Dialogue>
+    <Dialogue level = '0' continue = '0' leave ='1' mood='0'>
+      <Lines>
+      Oh hi, I didnt see you there. Im just standing here admiring the view...
+      </Lines>
+    </Dialogue>
 
     <Dialogue level = '0' continue = '0' leave ='1' mood='0'>
-      <Lines>Oh hi, I didnt see you there. Im just standing here admiring the view *Olle looks you up and down* Oh, but Im getting ahead of myself. My name is Olle.</Lines>
+      <Event>OlleLook</Event>
+    </Dialogue>
+
+    <Dialogue level = '0' continue = '0' leave ='1' mood='0'>
+      <Lines>Oh, but Im getting ahead of myself. My name is Olle.</Lines>
 
       <Choices>
         <Choice>GOOD+H-Hi... *blush*</Choice>
@@ -16,12 +25,13 @@
       </Choices>
 
       <Responses>
-        <Response>Haha, are you not a lively one.</Response>
-        <Response>Haha, are you not a lively one.</Response>
-        <Response>Haha, are you not a lively one.</Response>
+        <Response>Haha, are you not a fiesty one.</Response>
+        <Response>Haha, are you not a fiesty one.</Response>
+        <Response>Haha, are you not a fiesty one.</Response>
       </Responses>
     </Dialogue>
 
+    
     <Dialogue level = '1' continue = '1' leave ='0' mood='0'>
       <Lines>Dont you just love spending your days solving other peoples problems? I know I sure do!</Lines>
 
@@ -34,7 +44,7 @@
       <Responses>
         <Response>Im so glad to hear that!</Response>
         <Response>*Dabs back*</Response>
-        <Response>Did I hear Caps?</Response>
+        <Response>Did I hear the sound of Caps?</Response>
       </Responses>
     </Dialogue>
 
@@ -148,7 +158,7 @@
     </Dialogue>
   
     <Dialogue level = '9' continue = '1' leave ='0' mood='0'>
-      <Lines>SEX NOW</Lines>
+      <Lines>Oh boy this coffee sure does taste good</Lines>
 
       <Choices>
         <Choice>GOOD+A large muscular loli that towers over a tied-up JoJo, wielding a whip and a chainsword and riding a undead unicorn.</Choice>
@@ -178,7 +188,6 @@
         <Response>I dont meddle with the bourgeoisie.</Response>
       </Responses>
 
-      <Event>EventOlleBed</Event>
     </Dialogue>
 
     <Dialogue continue = '0' leave ='1' mood='0'>

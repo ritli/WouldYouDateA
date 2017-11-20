@@ -16,9 +16,9 @@
       </Choices>
 
       <Responses>
-        <Response>Okay, now that´s the king, and here´s your glass...</Response>
-        <Response>Okay, now that´s the king, and here´s your glass...</Response>
-        <Response>Okay, now that´s the king, and here´s your glass...</Response>
+        <Response>Okay, now thats the king, and heres your glass...</Response>
+        <Response>Okay, now thats the king, and heres your glass...</Response>
+        <Response>Okay, now thats the king, and heres your glass...</Response>
       </Responses>
     </Dialogue>
 
@@ -26,14 +26,14 @@
       <Lines>3... 2... 1... CLAIM!</Lines>
 
       <Choices>
-        <Choice>NEUTRAL+I'm feeling a bit sad can we talk emotions?</Choice>
+        <Choice>NEUTRAL+Im feeling a bit sad can we talk emotions?</Choice>
         <Choice>GOOD+Do you want to do some roleplay tonight?</Choice>
         <Choice>NEUTRAL+Do you want to grab some fast food.</Choice>
       </Choices>
 
       <Responses>
         <Response>I… Ive got to go!</Response>
-        <Response>Oh, that's perfect we are playing Dungeons and Dragons this evening!</Response>
+        <Response>Oh, thats perfect we are playing Dungeons and Dragons this evening!</Response>
         <Response>I only cook advanced dishes.</Response>
       </Responses>
     </Dialogue>
@@ -59,12 +59,12 @@
 
       <Choices>
         <Choice>NEUTRAL+Okay Ill join, but only if we do something more after the session.</Choice>
-        <Choice>GOOD+I'll join but I need a place to sleep if it gets too late!</Choice>
+        <Choice>GOOD+Ill join but I need a place to sleep if it gets too late!</Choice>
         <Choice>BAD+You dont get what I'm saying, do you?</Choice>
       </Choices>
 
       <Responses>
-        <Response>You should ask someone else, I'm working early.</Response>
+        <Response>You should ask someone else, Im working early.</Response>
         <Response>There is always a place to sleep at my home, I look forward to getting to know you better!</Response>
         <Response>#offended, you can leave now.</Response>
       </Responses>
@@ -118,7 +118,7 @@
       <Responses>
         <Response>Sounds fantastic!</Response>
         <Response>I dont make things easy I make them tasty!</Response>
-        <Response>You're dead to me.</Response>
+        <Response>Youre dead to me.</Response>
       </Responses>
     </Dialogue>
 
@@ -179,7 +179,7 @@
 
     <Choices>
       <Choice>NEUTRAL+Fight me on the streets boi.</Choice>
-      <Choice>GOOD+Oh I'm sure I can handle both Yoshis and your big head!</Choice>
+      <Choice>GOOD+Oh Im sure I can handle both Yoshis and your big head!</Choice>
       <Choice>BAD+I must say that its a very cheap way to win</Choice>
     </Choices>
 

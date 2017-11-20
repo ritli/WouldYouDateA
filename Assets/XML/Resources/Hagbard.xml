@@ -18,19 +18,35 @@
      </Dialogue>
 
     <Dialogue level = '1' continue = '1' leave ='0'>
-      <Lines>There is no time to spare! My name is Hagbard the incarnation of the love and hard work put into this organisation and we are in grave danger.
-      Although our members still put their soul into our family, one thing has been forgotten over the ages, how to love!
-      You the chosen one destined to once again reignite the spark and save us from certain doom!
-      </Lines>
+      <Lines>There is no time to spare! My name is Hagbard the incarnation of the love and hard work put into this organisation and we are in grave danger.</Lines>
     </Dialogue>
 
     <Dialogue level = '1' continue = '1' leave ='0'>
-      <Lines>
-        Throughout the world of Skovde you will find creatures known as... sexare.
-        You must talk to them, befriend them, and more. WINK WINK
-        But be careful what you say as they might get upset and leave if you say the wrong thing.
-        Go forth and once again show this organisation the meaning of love and SAVE... US... ALL!
-      </Lines>
+      <Lines>Although our members still put their soul into our family, one thing has been forgotten over the ages, how to love!</Lines>
+    </Dialogue>
+
+    <Dialogue level = '1' continue = '1' leave ='0'>
+      <Lines>You the chosen one destined to once again reignite the spark and save us from certain doom!</Lines>
+    </Dialogue>
+
+    <Dialogue level = '1' continue = '1' leave ='0'>
+      <Lines>Throughout the world of Skovde you will find creatures known as... sexare.</Lines>
+    </Dialogue>
+
+    <Dialogue level = '1' continue = '1' leave ='0'>
+      <Lines>But be careful what you say as they might get upset and leave if you say do not watch your tongue.</Lines>
+    </Dialogue>
+
+    <Dialogue level = '1' continue = '1' leave ='0'>
+      <Lines>You must talk to them, befriend them, and more.</Lines>
+    </Dialogue>
+
+    <Dialogue continue = '1' leave ='0'>
+      <Event>EventHagbardWink</Event>
+    </Dialogue>
+
+    <Dialogue level = '1' continue = '1' leave ='0'>
+      <Lines>Go forth and once again show this organisation the meaning of love and SAVE... US... ALL!</Lines>
     </Dialogue>
 
     <Dialogue>

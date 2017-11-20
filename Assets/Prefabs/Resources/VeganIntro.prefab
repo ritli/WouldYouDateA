@@ -28,6 +28,23 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1041879509851812
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4752033235437294}
+  - component: {fileID: 114872228510330196}
+  - component: {fileID: 114705762316536238}
+  m_Layer: 0
+  m_Name: GameObject (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1705969394090974
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +62,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1942362527708148
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4098182989455140}
+  - component: {fileID: 114375826633746606}
+  - component: {fileID: 114977629765811906}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4098182989455140
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1942362527708148}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4259821620120920}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4259821620120920
 Transform:
   m_ObjectHideFlags: 1
@@ -56,6 +103,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4555682550859738}
+  - {fileID: 4098182989455140}
+  - {fileID: 4752033235437294}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -71,6 +120,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4259821620120920}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4752033235437294
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041879509851812}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4259821620120920}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114136123330996314
 MonoBehaviour:
@@ -112,9 +174,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: 
   m_text: "As I enter the green fields of the school's campus I feel a friendly and
-    inviting gaze on my back. \nAs I turn around I see him. \nHis piercing blue eyes,
-    his blond hair drifting in the warm summer breeze and his red, warm inviting lips.
-    \ "
+    inviting gaze on my back. \n"
+--- !u!114 &114375826633746606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1942362527708148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70bf8f8a22e00e04eba2f3b7064d2fe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_displayOnce: 0
+  m_type: 0
+  m_triggerType: 2
+  m_nextEvent: {fileID: 114872228510330196}
+--- !u!114 &114705762316536238
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041879509851812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e736de44822c2c3499ac64045f3f5fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_name: 
+  m_text: 'His piercing blue eyes, his blond hair drifting in the warm summer breeze
+    and his red, warm inviting lips. '
 --- !u!114 &114812614715335292
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -129,4 +218,32 @@ MonoBehaviour:
   m_displayOnce: 0
   m_type: 0
   m_triggerType: 2
+  m_nextEvent: {fileID: 114375826633746606}
+--- !u!114 &114872228510330196
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041879509851812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70bf8f8a22e00e04eba2f3b7064d2fe0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_displayOnce: 0
+  m_type: 0
+  m_triggerType: 2
   m_nextEvent: {fileID: 114136123330996314}
+--- !u!114 &114977629765811906
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1942362527708148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e736de44822c2c3499ac64045f3f5fbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_name: 
+  m_text: 'As I turn around I see him.  '

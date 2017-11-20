@@ -251,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_name: 
   m_text: "As I enter the basement I hear a muffled sound from the shadows in the
-    back of the cold concrete rome. \n"
+    back of the cold concrete room. \n"
 --- !u!114 &114257438724257470
 MonoBehaviour:
   m_ObjectHideFlags: 1

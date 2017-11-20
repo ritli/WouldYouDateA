@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114812614715335292}
   - component: {fileID: 114164736494764530}
   m_Layer: 0
-  m_Name: OlleIntro
+  m_Name: EventHagbardWink
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 600682896adee8b4e9159bf89b524778, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_character: 5
+  m_character: 4
 --- !u!114 &114164736494764530
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -111,12 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_name: 
-  m_text: "As I gently open the door to the office, Im welcomed by a warm and hearty
-    smile.\nIn a corner of the room he sits, surrounded by a collection of various
-    papers, gadgets and trinkets. \nHis mighty, tall stature and fuzzy face reminding
-    of both a cuddly teddy bear and a weathered, experienced sailor. \nAs he approaches
-    me Im washed over by the comfort and power of his presence and it is as if all
-    my problems had disappeared."
+  m_text: WINK WINK
 --- !u!114 &114812614715335292
 MonoBehaviour:
   m_ObjectHideFlags: 1

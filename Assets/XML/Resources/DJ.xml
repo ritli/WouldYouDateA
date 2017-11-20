@@ -144,13 +144,13 @@
 
       <Responses>
         <Response>Oh I see that you are a fellow musician as well! A fine art!</Response>
-        <Response>Please don´t damage student council property.</Response>
+        <Response>Please dont damage student council property.</Response>
         <Response>Underwater squad?</Response>
       </Responses>
     </Dialogue>
 
     <Dialogue level = '9' continue = '1' leave ='0' mood='0'>
-      <Lines>What´s you favourite music genre?</Lines>
+      <Lines>Whats you favourite music genre?</Lines>
 
       <Choices>
         <Choice>GOOD+Future house! </Choice>
@@ -162,15 +162,15 @@
 
       <Responses>
         <Response>Ah your ears are on the beat! Great taste in music.</Response>
-        <Response>It´s okay If you live in a club...</Response>
+        <Response>Its okay If you live in a club...</Response>
         <Response>Well musician was maybe not the right choice of word...</Response>
         <Response>But where are the synths?</Response>
-        <Response>That´s not a music genre you pleb.</Response>
+        <Response>Thats not a music genre you pleb.</Response>
       </Responses>
     </Dialogue>
 
     <Dialogue level = '10' continue = '0' leave ='1' mood='0'>
-      <Lines>Don´t you just love how TCHAMI revolutionized the house genre.</Lines>
+      <Lines>Dont you just love how TCHAMI revolutionized the house genre.</Lines>
 
       <Choices>
         <Choice>BAD+Oh yeah! I love how Skrillex was quick to have his say as well!</Choice>

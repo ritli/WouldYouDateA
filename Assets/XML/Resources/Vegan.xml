@@ -53,9 +53,9 @@
       </Choices>
 
       <Responses>
-        <Response>What!? Me too! Oh can you just feel how the nature loves it when we don't kill animals!?</Response>
+        <Response>What!? Me too! Oh can you just feel how the nature loves it when we dont kill animals!?</Response>
         <Response>What, no! I dont do illegal things. Shame on you for thinking that!</Response>
-        <Response>Haha… funny but I'm vegan.</Response>
+        <Response>Haha… funny but Im vegan.</Response>
       </Responses>
     </Dialogue>
 
@@ -69,7 +69,7 @@
       </Choices>
 
       <Responses>
-        <Response>You're just awful.</Response>
+        <Response>Youre just awful.</Response>
         <Response>Yes, but the colour red is still one that stands for a beautiful vision!</Response>
         <Response>Could not agree more, its just an awful situation.</Response>
       </Responses>
@@ -95,8 +95,8 @@
       <Lines>Ah its so nice being here around the grass but it makes me a little hungry. What can I do for you?</Lines>
 
       <Choices>
-        <Choice>GOOD+I know that you're vegan but I hope you like cheesy pick up lines! </Choice>
-        <Choice>BAD+Is your body a big Mac cause I'm loving it?</Choice>
+        <Choice>GOOD+I know that youre vegan but I hope you like cheesy pick up lines! </Choice>
+        <Choice>BAD+Is your body a big Mac cause Im loving it?</Choice>
         <Choice>NEUTRAL+Niku umai?</Choice>
       </Choices>
 
@@ -127,8 +127,8 @@
       <Lines>TODO:Insert generic pun here.</Lines>
 
       <Choices>
-        <Choice>GOOD+I guess I'm a carrot because whatever you do I'm still ROOTIng for you.</Choice>
-        <Choice>NEUTRAL+I think I'm a turkey because I want you to stuff me tonight! </Choice>
+        <Choice>GOOD+I guess Im a carrot because whatever you do Im still ROOTIng for you.</Choice>
+        <Choice>NEUTRAL+I think Im a turkey because I want you to stuff me tonight! </Choice>
         <Choice>BAD+I want to be your bitch cause you really are a hot dog!</Choice>
       </Choices>
 
@@ -182,7 +182,7 @@
 
       <Responses>
         <Response>Its a date!</Response>
-        <Response>No, I'm boring.</Response>
+        <Response>No, Im boring.</Response>
         <Response>Pokemon is not vegan!</Response>
       </Responses>
 
