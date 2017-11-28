@@ -396,13 +396,14 @@ public class Manager : MonoBehaviour {
             if (dialogue.LeaveDialogue)
             {
                 m_instance.currentCharacter.Leave();
-                m_instance.m_timeHandler.IncrementTime(6);
+
                 m_instance.ChangeState(GameState.explore);
                 m_instance.m_dialogue.Close();
                 ProgressManager.current.SetCharacterLeft((int)character.Type);
 
                 if (!dialogue.Event.Equals("NoEvent"))
                 {
+                    m_instance.m_timeHandler.IncrementTime(6);
                     GameObject g = Resources.Load<GameObject>(dialogue.Event);
 
                     print("PostDialogue event started");
@@ -411,8 +412,9 @@ public class Manager : MonoBehaviour {
                 }
                 else
                 {
-                    m_instance.StartFade(true, 1f, 0f);
-                    m_instance.StartFade(false, 1f, 1.1f);
+                    m_instance.DelayedPassTime(2f, 6);
+                    m_instance.StartFade(true, 1f, 1f);
+                    m_instance.StartFade(false, 1f, 4f);
                 }
             }
             else
@@ -481,12 +483,12 @@ public class Manager : MonoBehaviour {
             m_instance.m_dialogue.Close();
             m_instance.ChangeState(GameState.explore);
 
-            m_instance.m_timeHandler.IncrementTime(6);
+            m_instance.DelayedPassTime(2f, 6);
             m_instance.currentCharacter.Leave();
             ProgressManager.current.SetCharacterLeft((int)character.Type);
 
-            m_instance.StartFade(true, 1f, 0f);
-            m_instance.StartFade(false, 1f, 1.1f);
+            m_instance.StartFade(true, 1f, 1f);
+            m_instance.StartFade(false, 1f, 4f);
 
             return;
         }
@@ -503,7 +505,7 @@ public class Manager : MonoBehaviour {
 
             if (dialogue.LeaveDialogue)
             {
-                m_instance.m_timeHandler.IncrementTime(6);
+                m_instance.DelayedPassTime(2f, 6);
                 m_instance.currentCharacter.Leave();
                 ProgressManager.current.SetCharacterLeft((int)character.Type);
 
@@ -517,8 +519,8 @@ public class Manager : MonoBehaviour {
                     return;
                 }
 
-                m_instance.StartFade(true, 1f, 0f);
-                m_instance.StartFade(false, 1f, 1.1f);
+                m_instance.StartFade(true, 1f, 1f);
+                m_instance.StartFade(false, 1f, 4f);
             }
         }
     }
@@ -664,6 +666,18 @@ public class Manager : MonoBehaviour {
     void StartFade(bool fadeOut, float time, float delay)
     {
         StartCoroutine(Fade(fadeOut, time, delay));
+    }
+
+    void DelayedPassTime(float delay, int amount)
+    {
+        StartCoroutine(PassTimeRoutine(delay, amount));
+    }
+
+    IEnumerator PassTimeRoutine(float delay, int amount)
+    {
+        yield return new WaitForSeconds(delay);
+
+        m_instance.m_timeHandler.IncrementTime(amount);
     }
 
     IEnumerator Fade(bool fadeOut, float time, float delay)

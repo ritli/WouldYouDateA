@@ -27,6 +27,7 @@
       </Choices>
      </Dialogue>
 
+
     <Dialogue level = '0' continue = '1' leave ='0'>
       <Lines>Mhuumoohoo! Uuhhhoooommmm! Mmmph!</Lines>
       <Choices>
@@ -57,13 +58,14 @@
       </Choices>
     </Dialogue>
 
-    <Dialogue continue = '1' leave ='0'>
+    <Dialogue level = '0' continue = '1' leave ='0' mood='0'>
       <Event>FitkinLeave</Event>
     </Dialogue>
 
-    <Dialogue continue = '1' leave ='1'>
+    <Dialogue level = '0' continue = '1' leave ='1' mood='0'>
       <Lines>Mysterious ooopmh!</Lines>
     </Dialogue>
+
 
     <Dialogue level = '0' continue = '1' leave ='0'>
       <Lines>Mhuumoohoo! Mmmph!</Lines>
@@ -112,11 +114,11 @@
     </Dialogue>
 
     <Dialogue continue = '1' leave ='0'>
-      <Event>FitkinLeave</Event>
+      <Lines>Very mysterious moan!</Lines>
     </Dialogue>
 
     <Dialogue continue = '1' leave ='1'>
-      <Lines>Very mysterious moan!</Lines>
+      <Event>FitkinLeave</Event>
     </Dialogue>
 
     <Dialogue level = '0' continue = '1' leave ='0'>

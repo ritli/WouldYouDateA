@@ -5,17 +5,17 @@
     <Dialogue level = '4' continue = '1' leave ='0' mood='0'>
       <Event>OlleIntro</Event>
     </Dialogue>
-    <Dialogue level = '0' continue = '0' leave ='1' mood='0'>
+    <Dialogue level = '0' continue = '1' leave ='0' mood='0'>
       <Lines>
       Oh hi, I didnt see you there. Im just standing here admiring the view...
       </Lines>
     </Dialogue>
 
-    <Dialogue level = '0' continue = '0' leave ='1' mood='0'>
-      <Event>OlleLook</Event>
+    <Dialogue level = '0' continue = '1' leave ='0' mood='0'>
+      <Event>EventOlleLook</Event>
     </Dialogue>
 
-    <Dialogue level = '0' continue = '0' leave ='1' mood='0'>
+    <Dialogue level = '0' continue = '1' leave ='1' mood='0'>
       <Lines>Oh, but Im getting ahead of myself. My name is Olle.</Lines>
 
       <Choices>

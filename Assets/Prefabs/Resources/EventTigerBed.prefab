@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 114812614715335292}
   - component: {fileID: 114670606137605402}
   m_Layer: 0
-  m_Name: EventDJBed 1
+  m_Name: EventTigerBed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,5 +66,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_displayOnce: 0
   m_type: 1
-  m_triggerType: 0
+  m_triggerType: 2
   m_nextEvent: {fileID: 0}
